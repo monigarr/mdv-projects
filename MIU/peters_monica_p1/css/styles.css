@@ -1,0 +1,167 @@
+/*
+    Full Sail University
+    Visual Frameworks
+    Monica Peters
+    Web App Part 4
+    Week 4 Project 4
+    Due Thursday Feb. 23rd 2012
+    styles.css
+*/
+
+
+/* add multiple browser support */
+article, aside, figure, footer, header, hgroup, nav, section {
+	display:block;
+}
+
+body { 
+	font-family: Verdana, Arial, Helvetica, san-serif;
+	width: 400px;
+	margin: auto;
+	padding: 10px;
+	overflow: scroll;
+} 
+
+
+/*LAYOUT*/
+
+section { 
+	display: block;
+} 
+
+header { 
+	display: block;
+} 
+
+nav { 
+	display: block;
+} 
+
+footer { 
+	display: block;
+} 
+
+article { 
+	display: inline;
+} 
+
+div#items {
+	font-family: san-serif;
+	display: block;
+	width: auto;
+	height: auto;
+	margin: auto;
+	padding: 5px;
+	outline: dashed;
+	color: navy;
+	font-weight: normal;
+	line-height: 1.2em;
+	text-transform: lowercase;
+	background-color: #ffd8d3;
+}
+
+
+/*LINKS*/
+
+a { 
+	outline: none;
+	text-decoration: none;
+	color: navy;
+} 
+
+/*pseudoclass*/
+a:hover {
+	outline: 1px dotted blue;
+	text-decoration: underline;
+}
+
+
+/*TYPOGRAPHY*/
+
+h1 { 
+	/* Parisienne imported from google fonts http://www.google.com/webfonts */
+	font-family: Parisienne;
+	font-size: 42px;
+	margin: 0px;
+	padding: 5px;
+	border: 1px navy;
+	background: grey;
+	outline: solid;
+	width: 95%;
+	display: ;
+	overflow: ;
+	visibility: ;
+	word-wrap: ;
+	text-align: center;
+	text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+} 
+
+p { 
+	color: #000000;
+	/*font-style: italic;
+	/*font-family: Verdana, Arial, Helvetica;
+	/*font-weight: normal;
+	/*line-height: 1.2em;
+	/*style, variant, weight, size/line-height, font-family*/
+	font: italic small-caps normal 12px/1.2em Verdana;
+	letter-spacing: .02em;
+	text-align: center;
+	/* negative to left. positive to right*/
+	/*text-indent: -600px;*/
+	text-transform: lowercase;
+} 
+
+
+/*FORMS*/
+
+legend { 
+	text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+} 
+
+/* rounded box */
+fieldset { 
+	display: block;
+	text-decoration: none;
+	border: 5px double;
+	color: #000000;
+	background-color: rgba(0,0,0,0.3);
+	text-align: left;
+	font-size: 14px;
+	margin: 5px 5px 9px 5px;
+	padding: 15px 0;
+	position: relative;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 100px;
+	-webkit-box-shadow: 2px 2px 0 0 rgba(72,72,72,1);
+	-moz-box-shadow: 2px 2px 0 0 rgba(72,72,72,1);
+	box-shadow: 2px 2px 0 0 rgba(72,72,72,1);
+} 
+
+label { 
+	display: inline;
+	/*border: 1px solid blue;*/
+} 
+
+input[type=submit] { 
+	color: #ffffff;
+	background-color: orange;
+	-moz-border-radius: 35%;
+	border-radius: 35%;
+} 
+
+/*LISTS*/
+
+#errors { 
+	color: #000000;
+	background-color: orange;
+	text-decoration: none;
+	display: block;
+} 
+
+li { 
+	display: block;
+} 
