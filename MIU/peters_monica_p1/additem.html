@@ -1,16 +1,18 @@
 <!DOCTYPE html>
     <!--
     Full Sail University
-    Visual Frameworks
+    Mobile Interfaces and Usability
     Monica Peters
-    Web App Part 4
-    Week 4 Project 4
-    Due Thursday Feb. 23rd 2012
+    Week 1 Project 1
+    Due Thursday March 1st 2012
     additem.html
+    Goal: Apply the elements of a given design pattern to an interface.
+    Goal: Justify the choices made in implementing a design pattern, 
+          including giving options not pursued.
     -->
 <html lang="en">
 	<head>
-		<title>Media Library v3.0</title>
+		<title>Foliology v1.0</title>
 		<meta type="charset" content = "utf-8" />
 		<meta type="robots" content="index,follow" />
 		<meta type="viewport" content="user-scalable=no, width=device-width" />
@@ -24,38 +26,38 @@
 	</head>
 	<body>
 		<header>
-			<h1><a href="index.html">Media Library</a></h2>
-			<small>v3.0</small>
+			<h1><a href="index.html">Foliology</a></h2>
+			<small>v1.0</small>
 		</header>
-		<article><p>Manage your personal media library.</p></article>	
+		<article><p>Show off your Projects.</p></article>	
 		<article>
 			<section>
 				<nav>
 					<ul id="numlist">
-						<li><a href="additem.html" id="addNew" style="display:none;">Add New Media</a></li>
-						<li><a href="#" id="displayLink">Show All Media</a></li> 
-						<li><a href="#" id="clear"> Clear Stored Media</a></li>
+						<li><a href="additem.html" id="addNew" style="display:none;">Add New Project</a></li>
+						<li><a href="#" id="displayLink">Show All Projects</a></li> 
+						<li><a href="#" id="clear">Clear Stored Projects</a></li>
 					</ul>
 				</nav>
 			</section>
 			<section id="errors"></section>
-				<form action="#" method="post" id="mediaForm">
+				<form action="#" method="post" id="projectForm">
 					<fieldset id="mediaFieldSet">
-						<legend>MEDIA INFO</legend>
+						<legend>Project Details</legend>
 						<span>* fields are required.</span>
 							<ul id="media">
-								<li id="select"><label for="mtype">* Media Type:</label><br /></li>
-								<li id="medianame"><label for="mname">* Media Name: </label> <input type="text" id="mname" /></li>
-								<li id="mediadate"><label for="mdate">* Media Date: </label> <input type="date" id="mdate" placeholder="day/month/year" /></li>
-								<li id="mediarating"><label for="mrating">Media Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating"><output onclick="value=mrating.value">0</output></li>
-								<li id="mediatopics"><label for="mtopic">Media Topic:</label>  
+								<li id="select"><label for="mtype">* Project Type:</label><br /></li>
+								<li id="medianame"><label for="mname">* Project Name: </label> <input type="text" id="mname" /></li>
+								<li id="mediadate"><label for="mdate">* Project Date: </label> <input type="date" id="mdate" placeholder="day/month/year" /></li>
+								<li id="mediarating"><label for="mrating">Project Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating"><output onclick="value=mrating.value">0</output></li>
+								<li id="mediatopics"><label for="mtopic">Project Incentive:</label>  
 									<input type="radio" value="personal" id="personal" name="mtopics" /><label for="personal">Personal</label>
 									<input type="radio" value="school" id="school" name="mtopics" /><label for="school">School</label>
 									<input type="radio" value="work" id="work" name="mtopics" /><label for="work">Work</label>
 								</li>
-								<li id="mediatags"><label for="mtags">Media Tags:</label> <input type="text" id="mtags" /></li>
-								<li id="mediacomments"><label for="mcomments">Media Comments:</label> <textarea id="mcomments" /></textarea></li>
-								<input type="submit" value="Save Media" id="submit" /> <br />
+								<li id="mediatags"><label for="mtags">Project Tags:</label> <input type="text" id="mtags" /></li>
+								<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label> <textarea id="mcomments" /></textarea></li>
+								<input type="submit" value="Save Project" id="submit" /> <br />
 							</ul>
 					</fieldset>
 				</form>

@@ -60,13 +60,13 @@ window.addEventListener("DOMContentLoaded", function()
 		switch(n)
 		{
 			case "on":
-				$("mediaForm").style.display = "none";
+				$("projectForm").style.display = "none";
 				$("clear").style.display = "inline";
 				$("displayLink").style.display = "none";
 				$("addNew").style.display = "inline";
 				break;
 			case "off":
-				$("mediaForm").style.display = "block";
+				$("projectForm").style.display = "block";
 				$("clear").style.display = "inline";
 				$("displayLink").style.display = "inline";
 				$("addNew").style.display = "none";
@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", function()
 			//alert(localStorage.key(0));
 			var id = Math.floor(Math.random()*10000001);
 		}
-		//Remove Weird Data
+		//Remove Weird Data that creates keys for file directories
 		else if(key === "A-Z" || "a-z")
 		{
 			//delete weird data and move on
@@ -108,18 +108,18 @@ window.addEventListener("DOMContentLoaded", function()
 			//Gather up all our form field values and store in object.
 			//Object properties contain array with form label and input value
 			var item 			= {};
-				item.mtype 		= ["Media Type:",$("mtype").value];
-				item.mname 		= ["Media Name:",$("mname").value];
-				item.mdate  	= ["Date:",$("mdate").value];
-				item.mrating 	= ["Rating:",$("mrating").value];
+				item.mtype 		= ["Project Type:",$("mtype").value];
+				item.mname 		= ["Project Name:",$("mname").value];
+				item.mdate  	= ["Project Date:",$("mdate").value];
+				item.mrating 	= ["Project Rating:",$("mrating").value];
 				//radio button
-				item.mtopics 	= ["Topics:",mtopicsValue];
-				item.mtags		= ["Tags:",$("mtags").value];
-				item.mcomments	= ["Comments:",$("mcomments").value];
+				item.mtopics 	= ["Project Incentive:",mtopicsValue];
+				item.mtags		= ["Project Tags:",$("mtags").value];
+				item.mcomments	= ["Project Notes:",$("mcomments").value];
 			//Save Data to Local Storage: Use Stringify to convert our object to a string
 			//json.org
 			localStorage.setItem(id, JSON.stringify(item));
-			alert("Media Saved");
+			alert("Project Saved");
 	}
 	//Auto Populate local storage
 	function autoFillData()
@@ -141,7 +141,7 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		if(localStorage.length === 0)
 		{
-			alert("No Data in local Storage. Test Data was Added.");
+			alert("No Projects in local Storage. Test Data was Added.");
 			//populate with test data
 			autoFillData();
 		}
@@ -167,7 +167,7 @@ window.addEventListener("DOMContentLoaded", function()
 			var makeSubListSeparator = document.createElement("hr");
 			makeli.appendChild(makeSubList);
 			makeli.appendChild(makeSubListSeparator);
-			//Add Image for each Media Type
+			//Add Image for each Project Type
 			getImage(obj.mtype[1], makeSubList);
 			
 			for(var n in obj)
@@ -185,7 +185,7 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	}
 	
-	//Get image for the relevant media type displayed
+	//Get image for the relevant project type displayed
 	function getImage(mediaType, makeSubList)
 	{
 		var imageLi = document.createElement("li");
@@ -203,7 +203,7 @@ window.addEventListener("DOMContentLoaded", function()
 		var editLink = document.createElement("a");
 		editLink.href = "#";
 		editLink.key = key;
-		var editText = "Edit Media";
+		var editText = "Edit Project";
 		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
@@ -216,7 +216,7 @@ window.addEventListener("DOMContentLoaded", function()
 		var deleteLink = document.createElement("a");
 		deleteLink.href = "#";
 		deleteLink.key = key;
-		var deleteText = "Delete Media";
+		var deleteText = "Delete Project";
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
@@ -263,10 +263,10 @@ window.addEventListener("DOMContentLoaded", function()
 		$("mtags").value = item.mtags[1];
 		$("mcomments").value = item.mcomments[1];
 		
-		// Remove the initial listener from the input 'save media' button
+		// Remove the initial listener from the input 'save project' button
 		save.removeEventListener("click", saveMedia);
 		// Change Submit button value to day Edit Button
-		$("submit").value = "Edit Media";
+		$("submit").value = "Edit Project";
 		var editSubmit = $("submit");
 		// Save the key value established in this Function as a property of the editSubmit event
 		// so we can use the value when we save the data we edited.
@@ -276,16 +276,16 @@ window.addEventListener("DOMContentLoaded", function()
 	
 	function deleteItem()
 	{
-		var ask = confirm("Are you sure you want to delete this media?");
+		var ask = confirm("Are you sure you want to delete this project?");
 		if(ask)
 		{
 			localStorage.removeItem(this.key);
-			alert("Media was Deleted");
+			alert("Project was Deleted");
 			window.location.reload();
 		}
 		else
 		{
-			alert("Media was Not Deleted");
+			alert("Project was Not Deleted");
 		}
 	}
 	
@@ -293,16 +293,16 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		if(localStorage.length === 0)
 		{
-			alert("No Data to Clear");
+			alert("No Projects to Delete.");
 		}
 		else
 		{
 			localStorage.clear();
-			alert("All Media Deleted and Test Data added to Local Storage.");
-			//window.location.reload();
-			//return false;
+			alert("All Projects Deleted.");
+			window.location.reload();
+			return false;
 			//populate with test data
-			autoFillData();
+			//autoFillData();
 		}
 	}
 	
@@ -323,23 +323,23 @@ window.addEventListener("DOMContentLoaded", function()
 		var messageAry = [];
 		//Check Type Validation
 		
-		if(getMtype.value === "-- Choose Media Type--")
+		if(getMtype.value === "-- Choose Project Type--")
 		{
-			alert("Choose Media Type");
+			alert("Choose Project Type");
 			window.location.reload();
 		}
 		
-		// Media Name Validation
+		// Project Name Validation
 		if(getMname.value === "")
 		{
-			alert("Please enter a Name for your Media");
+			alert("Enter Project Name");
 			window.location.reload();
 		}
 		
-		// Media Date Validation
+		// Project Date Validation
 		if(getMdate.value === "")
 		{
-			var mdateError = "Please enter a Media Date";
+			var mdateError = "Enter Project Date";
 			getMdate.style.border = "1px solid red";
 			messageAry.push(mdateError);
 		}
@@ -368,7 +368,7 @@ window.addEventListener("DOMContentLoaded", function()
 	
 	// Variable defaults
 	// store values of dropdown in array
-	var mediaGroups = ["-- Choose Media Type--", "book", "document", "music", "movie", "pdf", "doc", "audio", "video"],
+	var mediaGroups = ["-- Choose Project Type--", "website", "android", "iphone"],
 		mtopicValue,
 		errMsg = $("errors");
 		
