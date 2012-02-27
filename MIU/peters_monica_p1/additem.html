@@ -25,46 +25,57 @@
 		<![endif]-->
 	</head>
 	<body>
-		<header>
-			<nav id="topNav"><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35"></a><a href="android" id="android"><img src="images/android.jpg" border="0" width="35" height="35"></a><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35"></a></nav>
+		<header id="search">
+			<nav id="searchProjects">SEARCH<input type="text" id="searchProjects" /></nav>
 			<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-			<small id="header">v1.0</small>
+			<small id="header">Show off your projects.</small>
 		</header>
-		<article id="showOff"><p>Show off your Projects.</p></article>	
-		<article>
-			<section>
-				<nav>
+		
+			
+			<section id="browse">
+				<h3>BROWSE</h3>
+				<ul>
+				<li><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35"></a></li>
+				<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35"></a></li>
+				<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35"></a></li>
+			</section>
+			
+		<section id="topNav">
+				<nav id="topNav">
 					<ul id="numlist">
 						<li><a href="additem.html" id="addNew" style="display:none;">Add New Project</a></li>
 						<li><a href="#" id="displayLink">Show All Projects</a></li> 
 						<li><a href="#" id="clear">Clear Stored Projects</a></li>
 					</ul>
 				</nav>
-			</section>
-			<section id="errors"></section>
-				<form action="#" method="post" id="projectForm">
-					<fieldset id="mediaFieldSet">
-						<legend>Project Details</legend>
-						<span>* fields are required.</span>
-							<ul id="media">
-								<li id="select"><label for="mtype">* Project Type:</label><br /></li>
-								<li id="medianame"><label for="mname">* Project Name: </label> <input type="text" id="mname" /></li>
-								<li id="mediadate"><label for="mdate">* Project Date: </label> <input type="date" id="mdate" placeholder="day/month/year" /></li>
-								<li id="mediarating"><label for="mrating">Project Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating"><output onclick="value=mrating.value">0</output></li>
-								<li id="mediatopics"><label for="mtopic">Project Incentive:</label>  
-									<input type="radio" value="personal" id="inspiration" name="mtopics" /><label for="personal">Inspiration</label>
-									<input type="radio" value="school" id="school" name="mtopics" /><label for="school">School</label>
-									<input type="radio" value="work" id="work" name="mtopics" /><label for="work">Work</label>
-								</li>
-								<li id="mediatags"><label for="mtags">Project Tags:</label> <input type="text" id="mtags" /></li>
-								<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url:</label><input type="text" id="mgraphic" /></li>
-								<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label> <textarea id="mcomments" /></textarea></li>
-								<input type="submit" value="Save Project" id="submit" /> <br />
-							</ul>
-					</fieldset>
-				</form>
-		</article>
+		</section>
+		<section id="errors"></section>
+		<section id="feature">
+			<form action="#" method="post" id="projectForm">
+				<fieldset id="mediaFieldSet">
+					<legend>Project Details</legend>
+					<span>* fields are required.</span>
+						<ul id="media">
+							<li id="select"><label for="mtype">* Project Type:</label><br /></li>
+							<li id="medianame"><label for="mname">* Project Name: </label> <input type="text" id="mname" /></li>
+							<li id="mediadate"><label for="mdate">* Project Date: </label> <input type="date" id="mdate" placeholder="day/month/year" /></li>
+							<li id="mediarating"><label for="mrating">Project Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating"><output onclick="value=mrating.value">0</output></li>
+							<li id="mediatopics"><label for="mtopic">Project Incentive:</label>  
+								<input type="radio" value="personal" id="inspiration" name="mtopics" /><label for="personal">Inspiration</label>
+								<input type="radio" value="school" id="school" name="mtopics" /><label for="school">School</label>
+								<input type="radio" value="work" id="work" name="mtopics" /><label for="work">Work</label>
+							</li>
+							<li id="mediatags"><label for="mtags">Project Tags:</label> <input type="text" id="mtags" /></li>
+							<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url:</label><input type="text" id="mgraphic" /></li>
+							<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label> <textarea id="mcomments" /></textarea></li>
+							<input type="submit" value="Save Project" id="submit" /> <br />
+						</ul>
+				</fieldset>
+			</form>
+		</section>
+		
 		<footer></footer>
+		
 		<script type="text/javascript" src="js/json.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
