@@ -11,6 +11,12 @@
 /*
 	project type icons are 35 x 35
 	project screenshots are 75 x 75
+	I used position:absolute and z-index for the top logo, header, and top nav 
+	  so they will always stay at top right or left even when window
+	  is various sizes.
+	Browse: at top right of page with project type icons.
+	Search: at top right under
+	Feature: center stage links to most recent project.
 */
 
 
@@ -69,13 +75,6 @@ div#items {
 }
 
 
-nav#topNav {
-	position: absolute;
-	top: 3px;
-	right: 7px;
-	z-index: 1;
-}
-
 small#header {
 	position: relative;
 	top: 30px;
@@ -83,11 +82,42 @@ small#header {
 	z-index: 3;
 }
 
-article#showOff {
-	position: relative;
-	top: 20px;
-	left: 60px;
+/* Feature at Center Stage */
+article#feature {
+	position:relative;
+	top: 70px;
+	left: 140px;
+	z-index:9;
+	display: block;
+	text-decoration: none;
+	border: 5px double;
+	color: #ffffff;
+	background-color: #cccccc;
+	text-align: center;
+	font-size: 28px;
+	margin: 5px 5px 9px 5px;
+	padding: 15px 0;
+	postion: relative;
+}
+
+/* Search at Top Left */
+nav#searchProjects {
+	position: absolute;
+	top: 3px;
+	right: 7px;
+	z-index: 1;
+}
+
+/* Browse at Top Right */
+section#browse {
+	position: absolute;
+	top: 90px;
+	left: 7px;
 	z-index: 4;
+}
+
+article#feature {
+
 }
 
 
