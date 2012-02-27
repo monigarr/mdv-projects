@@ -248,7 +248,7 @@ window.addEventListener("DOMContentLoaded", function()
 			}else if(radios(i).value === "work" && item.mtopics(1) === "work")
 			{
 				radios(i).setAttribute("checked", "checked");
-			}else if(radios(i).value === "personal" && item.mtopics(1) === "personal")
+			}else if(radios(i).value === "inspiration" && item.mtopics(1) === "inspiration")
 			{
 				radios(i).setAttribute("checked", "checked");
 			}
@@ -368,7 +368,7 @@ window.addEventListener("DOMContentLoaded", function()
 	
 	// Variable defaults
 	// store values of dropdown in array
-	var mediaGroups = ["-- Choose Project Type--", "website", "android", "iphone"],
+	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5"],
 		mtopicValue,
 		errMsg = $("errors");
 		
