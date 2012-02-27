@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <!--
+    Full Sail University
+    Visual Frameworks
+    Monica Peters
+    Web App Part 4
+    Week 4 Project 4
+    Due Thursday Feb. 23rd 2012
+    additem.html
+    -->
+<html lang="en">
+	<head>
+		<title>Media Library v3.0</title>
+		<meta type="charset" content = "utf-8" />
+		<meta type="robots" content="index,follow" />
+		<meta type="viewport" content="user-scalable=no, width=device-width" />
+		<meta type="description" content="Manage your personal media library" />
+		<meta type="keywords" content = "media library, add media, monica peters, vfw" />
+		<link rel="stylesheet" href="css/styles.css" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header>
+			<h1><a href="index.html">Media Library</a></h2>
+			<small>v3.0</small>
+		</header>
+		<article><p>Manage your personal media library.</p></article>	
+		<article>
+			<section>
+				<nav>
+					<ul id="numlist">
+						<li><a href="additem.html" id="addNew" style="display:none;">Add New Media</a></li>
+						<li><a href="#" id="displayLink">Show All Media</a></li> 
+						<li><a href="#" id="clear"> Clear Stored Media</a></li>
+					</ul>
+				</nav>
+			</section>
+			<section id="errors"></section>
+				<form action="#" method="post" id="mediaForm">
+					<fieldset id="mediaFieldSet">
+						<legend>MEDIA INFO</legend>
+						<span>* fields are required.</span>
+							<ul id="media">
+								<li id="select"><label for="mtype">* Media Type:</label><br /></li>
+								<li id="medianame"><label for="mname">* Media Name: </label> <input type="text" id="mname" /></li>
+								<li id="mediadate"><label for="mdate">* Media Date: </label> <input type="date" id="mdate" placeholder="day/month/year" /></li>
+								<li id="mediarating"><label for="mrating">Media Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating"><output onclick="value=mrating.value">0</output></li>
+								<li id="mediatopics"><label for="mtopic">Media Topic:</label>  
+									<input type="radio" value="personal" id="personal" name="mtopics" /><label for="personal">Personal</label>
+									<input type="radio" value="school" id="school" name="mtopics" /><label for="school">School</label>
+									<input type="radio" value="work" id="work" name="mtopics" /><label for="work">Work</label>
+								</li>
+								<li id="mediatags"><label for="mtags">Media Tags:</label> <input type="text" id="mtags" /></li>
+								<li id="mediacomments"><label for="mcomments">Media Comments:</label> <textarea id="mcomments" /></textarea></li>
+								<input type="submit" value="Save Media" id="submit" /> <br />
+							</ul>
+					</fieldset>
+				</form>
+		</article>
+		<footer></footer>
+		<script type="text/javascript" src="js/json.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
