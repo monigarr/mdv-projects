@@ -109,6 +109,7 @@ window.addEventListener("DOMContentLoaded", function()
 			//Object properties contain array with form label and input value
 			var item 			= {};
 				item.mtype 		= ["Project Type:",$("mtype").value];
+				item.mgraphic   = ["Project Screenshot:",$("mgraphic").value];
 				item.mname 		= ["Project Name:",$("mname").value];
 				item.mdate  	= ["Project Date:",$("mdate").value];
 				item.mrating 	= ["Project Rating:",$("mrating").value];
@@ -167,8 +168,10 @@ window.addEventListener("DOMContentLoaded", function()
 			var makeSubListSeparator = document.createElement("hr");
 			makeli.appendChild(makeSubList);
 			makeli.appendChild(makeSubListSeparator);
-			//Add Image for each Project Type
+			//Add Icon for each Project Type
 			getImage(obj.mtype[1], makeSubList);
+			//Add Graphic for each Project Name
+			getProjectGraphic(obj.mgraphic[1], makeSubList);
 			
 			for(var n in obj)
 			{
@@ -185,31 +188,51 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	}
 	
-	//Get image for the relevant project type displayed
+	//Get icon for the relevant project type displayed
 	function getImage(mediaType, makeSubList)
 	{
 		var imageLi = document.createElement("li");
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", "images/" + mediaType + ".jpg");
+		var alignImg = newImg.setAttribute("class", "projectIconAlign");
 		imageLi.appendChild(newImg);
 	}
+	
+	//Get graphic url for project.
+	function getProjectGraphic(projectName, makeSubList)
+	{
+		var projectGraphicLi = document.createElement("li");
+		makeSubList.appendChild(projectGraphicLi);
+		var newImg = document.createElement("img");
+		var setSrc = newImg.setAttribute("src", projectName);
+		var alignImg = newImg.setAttribute("class", "projectScreenshotAlign");
+		var setWidth = newImg.setAttribute("width", "75px");
+		var setHeight = newImg.setAttribute("height", "75px");
+		projectGraphicLi.appendChild(newImg);
+	}
+	
+	//Get youtube video review url for project.
 	
 	//Make Item Links
 	//Create Edit and Delete links for each stored item when displayed
 	function makeItemLinks(key, linksLi)
 	{
+		//create line break to create space 
+		//around elements
+		var breakTag = document.createElement("br");
+		
 		//add edit single item link
 		var editLink = document.createElement("a");
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Project";
 		editLink.addEventListener("click", editItem);
-		editLink.innerHTML = editText;
+		editLink.innerHTML = editText;	
 		linksLi.appendChild(editLink);
 		
-		//add line break between edit / link text links
-		var breakTag = document.createElement("br");
+		//add line break after edit project link
+		//before delete project link
 		linksLi.appendChild(breakTag);
 		
 		//add delete single item link
@@ -235,6 +258,7 @@ window.addEventListener("DOMContentLoaded", function()
 		//populate form fields with current local storage values
 		//1 is value, 0 is label
 		$("mtype").value = item.mtype[1];
+		$("mgraphic").value = item.mgraphic[1];
 		$("mname").value = item.mname[1];
 		$("mdate").value = item.mdate[1];
 		$("mrating").value = item.mrating[1];
@@ -276,7 +300,7 @@ window.addEventListener("DOMContentLoaded", function()
 	
 	function deleteItem()
 	{
-		var ask = confirm("Are you sure you want to delete this project?");
+		var ask = confirm("You really want to Delete this Project?");
 		if(ask)
 		{
 			localStorage.removeItem(this.key);
@@ -293,12 +317,12 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		if(localStorage.length === 0)
 		{
-			alert("No Projects to Delete.");
+			alert("No Projects in local storage to Delete.");
 		}
 		else
 		{
 			localStorage.clear();
-			alert("All Projects Deleted.");
+			alert("All Projects Deleted from local storage.");
 			window.location.reload();
 			return false;
 			//populate with test data

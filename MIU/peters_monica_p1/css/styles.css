@@ -8,6 +8,11 @@
     styles.css
 */
 
+/*
+	project type icons are 35 x 35
+	project screenshots are 75 x 75
+*/
+
 
 /* add multiple browser support */
 article, aside, figure, footer, header, hgroup, nav, section {
@@ -16,8 +21,10 @@ article, aside, figure, footer, header, hgroup, nav, section {
 
 body { 
 	font-family: Verdana, Arial, Helvetica, san-serif;
-	width: 400px;
-	margin: auto;
+	font-size: 12px;
+	width: 95%;
+	height: 95%;
+	margin: 0 0 15px 15px 0;
 	padding: 10px;
 	overflow: scroll;
 } 
@@ -155,6 +162,21 @@ input[type=submit] {
 
 /*LISTS*/
 
+.projectIconAlign {
+	float:right;
+	width: 35px;
+	height: 35px;
+	margin: 0 0 15px 15px;
+}
+
+.projectScreenshotAlign {
+	float:left;
+	width: 75px;
+	height: 75px;
+	margin: 7px 7px 7px 7px;
+}
+
+
 #errors { 
 	color: #000000;
 	background-color: orange;
@@ -163,5 +185,6 @@ input[type=submit] {
 } 
 
 li { 
+	
 	display: block;
 } 
