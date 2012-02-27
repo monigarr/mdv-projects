@@ -37,7 +37,8 @@ section {
 } 
 
 header { 
-	display: block;
+	display: inline;
+	width: 400px;
 } 
 
 nav { 
@@ -68,6 +69,28 @@ div#items {
 }
 
 
+nav#topNav {
+	position: absolute;
+	top: 3px;
+	right: 7px;
+	z-index: 1;
+}
+
+small#header {
+	position: relative;
+	top: 30px;
+	left: 30px;
+	z-index: 3;
+}
+
+article#showOff {
+	position: relative;
+	top: 20px;
+	left: 60px;
+	z-index: 4;
+}
+
+
 /*LINKS*/
 
 a { 
@@ -88,19 +111,17 @@ a:hover {
 h1 { 
 	/* Parisienne imported from google fonts http://www.google.com/webfonts */
 	font-family: Parisienne;
-	font-size: 42px;
-	margin: 0px;
+	font-size: 37px;
+	margin: 3px;
 	padding: 5px;
 	border: 1px navy;
-	background: grey;
-	outline: solid;
-	width: 95%;
-	display: ;
-	overflow: ;
-	visibility: ;
-	word-wrap: ;
-	text-align: center;
+	width: 55%;
+	text-align: left;
 	text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 0;
 } 
 
 p { 
