@@ -179,7 +179,7 @@ var json =
 			"mrating": ["Rating:", "8"],
 			"mtopics": ["Incentive:", "work"],
 			"mtags": ["Tags:", "purple"],
-			"mgraphic": ["ScreenShot:", ""],
+			"mgraphic": ["ScreenShot:", "http://www.androidapp101.com/appimg/2798/priceline-hotel-negotiator.jpeg"],
 			"mcomments": ["Comments:","Case study details about how and why I created this android app."]
 		},
 	"android15": 
