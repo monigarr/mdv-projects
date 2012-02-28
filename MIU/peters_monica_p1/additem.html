@@ -25,15 +25,13 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		
 		<!-- JQUERY MOBILE -->
-		<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
-		<!--[if lt IE 9]>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
 		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+		
 	</head>
 	</head>
 	<body>
@@ -61,8 +59,10 @@
 		<section id="feature">
 			<form action="#" method="post" id="projectForm">
 				<fieldset id="mediaFieldSet">
-					<legend>Project Details</legend>
-					<span>* fields are required.</span>
+					<center>
+						<h3>Add New Project</h3>
+						<span><small>* fields required.</small><br /></span>
+					</center>
 						<ul id="media">
 							<li id="select"><label for="mtype">* Project Type:</label></li>
 							<li id="mediadate"><label for="mdate">* Project Date: </label><input type="date" id="mdate" placeholder="day/month/year" /></li>
@@ -74,7 +74,7 @@
 								<input type="radio" value="work" id="work" name="mtopics" /><label for="work">Work</label><br /><br />
 							</li>
 							<li id="mediatags"><label for="mtags">Project Tags:</label><input type="text" id="mtags" /></li>
-							<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url:</label><input type="text" id="mgraphic" /></li>
+							<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url: 75x75</label><input type="text" id="mgraphic" /></li>
 							<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label><textarea id="mcomments" /></textarea></li>
 							<input type="submit" data-theme="e" value="Save Project" id="submit" />
 						</ul>

@@ -170,7 +170,12 @@ window.addEventListener("DOMContentLoaded", function()
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
 		makeList.setAttribute("data-inset", "true");
+<<<<<<< HEAD
 		makeList.setAttribute("data-split-theme", "e");
+=======
+		makeList.setAttribute("data-theme", "d");
+		makeList.setAttribute("data-split-theme", "d");
+>>>>>>> master
 		makeList.setAttribute("data-divider-theme", "e");
 		makeList.setAttribute("data-icon","html5.jpg");
 		
