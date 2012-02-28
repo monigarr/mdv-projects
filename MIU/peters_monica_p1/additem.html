@@ -1,15 +1,27 @@
 <!DOCTYPE html>
+    
     <!--
     Full Sail University
     Mobile Interfaces and Usability
     Monica Peters
     Week 1 Project 1
     Due Thursday March 1st 2012
+    
     additem.html
+    
     Goal: Apply the elements of a given design pattern to an interface.
     Goal: Justify the choices made in implementing a design pattern, 
           including giving options not pursued.
+    
+    Use:  Portfolio Manager for Web Developers that want
+          to show off their work from their mobile devices during 
+          job interviews, client consultations, and similar meetings.
+          
+	Benefit:	localStorage so internet connection is not required.
+				client locations with crappy or zero internet service
+				can still view portfolio and inspiration.
     -->
+    
 <html lang="en">
 	<head>
 		<title>ShowOff! v1.0</title>
@@ -25,15 +37,13 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		
 		<!-- JQUERY MOBILE -->
-		<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
-		<!--[if lt IE 9]>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
 		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+		
 	</head>
 	</head>
 	<body>
@@ -59,7 +69,7 @@
 		</section>
 		<section id="errors"></section>
 		<section id="feature">
-			<form action="#" method="post" id="projectForm">
+			<form action="#feature" method="post" id="projectForm">
 				<fieldset id="mediaFieldSet">
 					<center>
 						<h3>Add New Project</h3>
@@ -86,15 +96,19 @@
 		
 			<section>
 				<h3>browse projects</h3>
-				<ul data-role="listview" data-inset="true" data-filter-"true">
-				<li><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects"></a></li>
-				<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects"></a></li>
-				<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects"></a></li>			
+					<ul data-role="listview" data-inset="true" data-filter="true">
+						<li><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects"></a></li>
+						<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects"></a></li>
+						<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects"></a></li>			
+					</ul>
 			</section>
 		
 		<footer></footer>
 		
-		<script type="text/javascript" src="js/json.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+	</div><!--/page-->
+	
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+		
 	</body>
 </html>
