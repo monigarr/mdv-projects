@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", function()
 {
 
 	// getElementById Function
-	function $(x)
+	function momo(x)
 	{
 		var theElement = document.getElementById(x);
 		return theElement;
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		//formTag is an array of all form tags
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = $("select"),
+			selectLi = momo("select"),
 			makeSelect = document.createElement("select");
 			makeSelect.setAttribute("id", "mtype");
 		//populate with options
@@ -60,17 +60,17 @@ window.addEventListener("DOMContentLoaded", function()
 		switch(n)
 		{
 			case "on":
-				$("projectForm").style.display = "none";
-				$("clear").style.display = "inline";
-				$("displayLink").style.display = "none";
-				$("addNew").style.display = "inline";
+				momo("projectForm").style.display = "none";
+				momo("clear").style.display = "inline";
+				momo("displayLink").style.display = "none";
+				momo("addNew").style.display = "inline";
 				break;
 			case "off":
-				$("projectForm").style.display = "block";
-				$("clear").style.display = "inline";
-				$("displayLink").style.display = "inline";
-				$("addNew").style.display = "none";
-				$("items").style.display = "none";
+				momo("projectForm").style.display = "block";
+				momo("clear").style.display = "inline";
+				momo("displayLink").style.display = "inline";
+				momo("addNew").style.display = "none";
+				momo("items").style.display = "none";
 				break;
 			default:
 				return false;
@@ -108,20 +108,21 @@ window.addEventListener("DOMContentLoaded", function()
 			//Gather up all our form field values and store in object.
 			//Object properties contain array with form label and input value
 			var item 			= {};
-				item.mtype 		= ["Project Type:",$("mtype").value];
-				item.mgraphic   = ["Project Screenshot:",$("mgraphic").value];
-				item.mname 		= ["Project Name:",$("mname").value];
-				item.mdate  	= ["Project Date:",$("mdate").value];
-				item.mrating 	= ["Project Rating:",$("mrating").value];
+				item.mtype 		= ["Project Type:",momo("mtype").value];
+				item.mgraphic   = ["Project Screenshot:",momo("mgraphic").value];
+				item.mname 		= ["Project Name:",momo("mname").value];
+				item.mdate  	= ["Project Date:",momo("mdate").value];
+				item.mrating 	= ["Project Rating:",momo("mrating").value];
 				//radio button
 				item.mtopics 	= ["Project Incentive:",mtopicsValue];
-				item.mtags		= ["Project Tags:",$("mtags").value];
-				item.mcomments	= ["Project Notes:",$("mcomments").value];
+				item.mtags		= ["Project Tags:",momo("mtags").value];
+				item.mcomments	= ["Project Notes:",momo("mcomments").value];
 			//Save Data to Local Storage: Use Stringify to convert our object to a string
 			//json.org
 			localStorage.setItem(id, JSON.stringify(item));
 			alert("Project Saved");
 	}
+	
 	//Auto Populate local storage
 	function autoFillData()
 	{
@@ -155,7 +156,7 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$("items").style.display = "black";
+		momo("items").style.display = "black";
 		
 		for(var i=0, len=localStorage.length; i<len; i++)
 		{
@@ -259,11 +260,11 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//populate form fields with current local storage values
 		//1 is value, 0 is label
-		$("mtype").value = item.mtype[1];
-		$("mgraphic").value = item.mgraphic[1];
-		$("mname").value = item.mname[1];
-		$("mdate").value = item.mdate[1];
-		$("mrating").value = item.mrating[1];
+		momo("mtype").value = item.mtype[1];
+		momo("mgraphic").value = item.mgraphic[1];
+		momo("mname").value = item.mname[1];
+		momo("mdate").value = item.mdate[1];
+		momo("mrating").value = item.mrating[1];
 		// handle radio buttons
 		var radios = document.forms[0].mtopics;
 		for(var i=0; i<radios.length; i++)
@@ -283,17 +284,17 @@ window.addEventListener("DOMContentLoaded", function()
 		// handle yes / no check box
 		if(obj.favorite(1) == "Yes")
 		{
-			$("fav").setAttributes("checked", "checked");
+			momo("fav").setAttributes("checked", "checked");
 		}
 		*/
-		$("mtags").value = item.mtags[1];
-		$("mcomments").value = item.mcomments[1];
+		momo("mtags").value = item.mtags[1];
+		momo("mcomments").value = item.mcomments[1];
 		
 		// Remove the initial listener from the input 'save project' button
 		save.removeEventListener("click", saveMedia);
 		// Change Submit button value to day Edit Button
-		$("submit").value = "Edit Project";
-		var editSubmit = $("submit");
+		momo("submit").value = "Edit Project";
+		var editSubmit = momo("submit");
 		// Save the key value established in this Function as a property of the editSubmit event
 		// so we can use the value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
@@ -335,9 +336,9 @@ window.addEventListener("DOMContentLoaded", function()
 	function validate(e)
 	{
 		//Define elements we want to check
-		var getMtype = $("mtype");
-		var getMname = $("mname");
-		var getMdate = $("mdate");
+		var getMtype = momo("mtype");
+		var getMname = momo("mname");
+		var getMdate = momo("mdate");
 		
 		//Reset error messages
 		errMsg.innerHTML = "";
@@ -391,21 +392,20 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	}
 	
-	
 	// Variable defaults
 	// store values of dropdown in array
 	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5"],
 		mtopicValue,
-		errMsg = $("errors");
+		errMsg = momo("errors");
 		
 	makeMediaTypes();
 	
 	// Set Link & Submit Click Events
-	var displayLink = $("displayLink");
+	var displayLink = momo("displayLink");
 	displayLink.addEventListener("click", getData);
-	var clearLink = $("clear");
+	var clearLink = momo("clear");
 	clearLink.addEventListener("click", clearLocal);
-	var save = $("submit");
+	var save = momo("submit");
 	//save.addEventListener("click", saveMedia);
 	save.addEventListener("click", validate);
 });
