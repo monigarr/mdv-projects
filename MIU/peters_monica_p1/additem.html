@@ -46,11 +46,13 @@
 			<nav id="searchProjects"><input type="text" id="searchProjects" placeholder="Search Projects" /></nav>
 		</header>
 			
-		<section id="topNav">
-				<nav id="topNav">
+		<section>
+				<nav>
+						<br /><br />
 						<a href="additem.html" id="addNew" rel="exernal" data-ajax="false" style="display:none;">Add New Project</a>
 						<a href="#items" id="displayLink" rel="external" data-ajax="false">Show All Projects</a>
 						<a href="#" id="clear" data-ajax="false">Clear Stored Projects</a>
+						<br /><br />
 				</nav>
 		</section>
 		<section id="errors"></section>
@@ -60,19 +62,19 @@
 					<legend>Project Details</legend>
 					<span>* fields are required.</span>
 						<ul id="media">
-							<li id="select"><label for="mtype">* Project Type:</label><br /></li>
-							<li id="mediadate"><label for="mdate">* Project Date: </label><br/><input type="date" id="mdate" placeholder="day/month/year" size="30px" /><br/></li>
-							<li id="medianame"><label for="mname">* Project Name: </label><br/><input type="text" id="mname" size="30px" /><br /><br /></li>
-							<li id="mediarating"><label for="mrating">Project Rating: </label><br/><input type="range" min="1" max="10" name="rating" value="5" id="mrating"><output onclick="value=mrating.value">0</output><br /><br /></li>
-							<li id="mediatopics"><label for="mtopic">Project Incentive:</label><br/>  
-								<input type="radio" value="personal" id="inspiration" name="mtopics" /><label for="personal">Inspiration</label>
+							<li id="select"><label for="mtype">* Project Type:</label></li>
+							<li id="mediadate"><label for="mdate">* Project Date: </label><input type="date" id="mdate" placeholder="day/month/year" /></li>
+							<li id="medianame"><label for="mname">* Project Name: </label><input type="text" id="mname" /></li>
+							<li id="mediarating"><label for="mrating">Project Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating"></li>
+							<li id="mediatopics"><label for="mtopic">Project Incentive:</label> 
+								<input type="radio" value="personal" id="inspiration" name="mtopics" /><label for="inspiration">Inspiration</label>
 								<input type="radio" value="school" id="school" name="mtopics" /><label for="school">School</label>
 								<input type="radio" value="work" id="work" name="mtopics" /><label for="work">Work</label><br /><br />
 							</li>
-							<li id="mediatags"><label for="mtags">Project Tags:</label><br/><input type="text" id="mtags" size="30px" /></li>
-							<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url:</label><br/><input type="text" id="mgraphic" size="30px" /><br /><br /></li>
-							<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label><br/><textarea id="mcomments" /></textarea></li>
-							<input type="submit" value="Save Project" id="submit" /> <br />
+							<li id="mediatags"><label for="mtags">Project Tags:</label><input type="text" id="mtags" /></li>
+							<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url:</label><input type="text" id="mgraphic" /></li>
+							<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label><textarea id="mcomments" /></textarea></li>
+							<input type="submit" value="Save Project" id="submit" />
 						</ul>
 				</fieldset>
 			</form>
