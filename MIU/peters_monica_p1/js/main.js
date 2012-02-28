@@ -148,11 +148,31 @@ window.addEventListener("DOMContentLoaded", function()
 			autoFillData();
 		}
 		
+		//TODO
+		//add escape hatch / Back Button at top of list
+		//because jqmobile puts list on its own page
+		/*
+		var makePageTop = document.createElement("a");
+		makePageTop.setAttribute("href","additem.html");
+		makePageTop.setAttribute("data-direction","reverse");
+		makePageTop.setAttribute("data-role","button");
+		makePagetop.setAttribute("data-theme","e");
+		*/
+		
 		//Write Data from Local Storage to the Browswer.
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
 		
+		//make this work with jqmobile
+		makeDiv.setAttribute("data-role", "page");
+		//jqmobile list view
+		//http://jquerymobile.com/demos/1.0.1/docs/lists/lists-themes.html
 		var makeList = document.createElement("ul");
+		makeList.setAttribute("data-role", "listview");
+		makeList.setAttribute("data-inset", "true");
+		makeList.setAttribute("data-split-theme", "e");
+		makeList.setAttribute("data-divider-theme", "e");
+		makeList.setAttribute("data-icon","html5.jpg");
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
@@ -168,6 +188,10 @@ window.addEventListener("DOMContentLoaded", function()
 			//convert string back to object so it won't be one long string
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
+			makeSubList.setAttribute("data-role", "listview");
+			makeSubList.setAttribute("data-inset", "true");
+			makeSubList.setAttribute("data-split-theme", "d");
+			makeSubList.setAttribute("data-divider-theme", "d");
 			var makeSubListSeparator = document.createElement("hr");
 			makeli.appendChild(makeSubList);
 			makeli.appendChild(makeSubListSeparator);

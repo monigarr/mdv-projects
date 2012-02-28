@@ -18,25 +18,25 @@ var json =
 		{
 			//object properties and value
 			"mtype": ["Type:", "html5"],
-			"mname": ["Name:", "Black and Yellow html5 01"],
-			"mdate": ["Date:", "2012-02-16"],
+			"mname": ["Name:", "Aamb.ca (01)"],
+			"mdate": ["Date:", "2010-32-01"],
 			"mrating": ["Rating:", "8"],
 			"mtopics": ["Incentive:", "work"],
-			"mtags": ["Tags:", "black yellow"],
-			"mgraphic": ["ScreenShot:", "http://farm2.staticflickr.com/1321/5122136543_ec43cecbe7_s.jpg"],
-			"mcomments": ["Comments:","Black and yellow, black and yellow html5 app because black and yellow, black and yellow is just such a catchy phrase."]
+			"mtags": ["Tags:", "aamb akwesasne mohawk management board wordpress"],
+			"mgraphic": ["ScreenShot:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
+			"mcomments": ["Comments:","I setup, customized, host, and maintain wordpress for this client. I setup dns, email, and registered domain name.  I also provide technical training to help the client learn how to manage their own wordpress site."]
 		},
 	"android2": 
 		{
 			//object properties and value
 			"mtype": ["Type:", "android"],
-			"mname": ["Name:", "Test Android App 02"],
-			"mdate": ["Date:", "2009-05-20"],
-			"mrating": ["Rating:", "3"],
-			"mtopics": ["Incentive:", "personaltag"],
-			"mtags": ["Tags:", "gardening"],
-			"mgraphic": ["ScreenShot:", "http://cdn2.reelstatic.com/wp-content/uploads/2010/09/justin-iphone-75x75.jpg"],
-			"mcomments": ["Comments:","Everyone should have a concert ticket buying app on their android device."]
+			"mname": ["Name:", "MarlanaThompson.com (02)"],
+			"mdate": ["Date:", "2009-03-01"],
+			"mrating": ["Rating:", "8"],
+			"mtopics": ["Incentive:", "work"],
+			"mtags": ["Tags:", "okwaho marlana thompson akwesasne wordpress"],
+			"mgraphic": ["ScreenShot:", "http://www.marlanathompson.com/wp-content/uploads/2010/01/OC-Logo-Wolf.jpg"],
+			"mcomments": ["Comments:","I setup, customized, host, and maintain webhost, domain, email, mysql, and wordpress for this client. Customized and troubleshooted buggy plugins for ecommerce shop."]
 		},
 	"ios3": 
 		{

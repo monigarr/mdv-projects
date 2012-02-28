@@ -43,8 +43,7 @@ section {
 } 
 
 header { 
-	display: inline;
-	width: 400px;
+	text-align: center;
 } 
 
 nav { 
