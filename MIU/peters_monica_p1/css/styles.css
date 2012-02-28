@@ -82,7 +82,7 @@ small#header {
 	z-index: 3;
 }
 
-/* Feature at Center Stage */
+/* Feature at Center Stage with CTA */
 article#feature {
 	position:relative;
 	width: 170px;
@@ -150,7 +150,6 @@ h1 {
 	border: 1px navy;
 	width: 55%;
 	text-align: left;
-	text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
 	position: absolute;
 	top: 3px;
 	left: 3px;
@@ -159,11 +158,6 @@ h1 {
 
 p { 
 	color: #000000;
-	/*font-style: italic;
-	/*font-family: Verdana, Arial, Helvetica;
-	/*font-weight: normal;
-	/*line-height: 1.2em;
-	/*style, variant, weight, size/line-height, font-family*/
 	font: italic small-caps normal 12px/1.2em Verdana;
 	letter-spacing: .02em;
 	text-align: center;
@@ -203,7 +197,7 @@ label {
 
 input[type=submit] { 
 	color: #ffffff;
-	background-color: orange;
+	background-color: navy;
 	-moz-border-radius: 35%;
 	border-radius: 35%;
 } 
