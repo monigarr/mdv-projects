@@ -25,35 +25,37 @@
 		<![endif]-->
 	</head>
 	<body>
-		<header id="search">
-			<nav id="searchProjects"><input type="text" id="searchProjects" placeholder="Search Projects" /></nav>
+		<section id="logo">
+			<article>
+			<p>
 			<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
 			<small id="header">Show off your projects.</small>
-		</header>
-		
-			
-			<section id="browse">
-				<h3>BROWSE</h3>
-				<ul>
-				<li><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects"></a></li>
-				<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects"></a></li>
-				<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects"></a></li>
-			</section>
-			
-		<section id="topNav">
-				<nav id="topNav">
-					<ul id="numlist">
-						<li><a href="additem.html" id="addNew" style="display:none;">Add New Project</a></li>
-						<li><a href="#" id="displayLink">Show All Projects</a></li> 
-						<li><a href="#" id="clear">Clear Stored Projects</a></li>
-					</ul>
-				</nav>
+			<br /><br />
+			</p>
+			</article>
 		</section>
-		<section id="errors"></section>
-		<section id="feature">
+			
+		<section id="searchProjects">
+			<article>
+			<header id="search">
+				<nav id="searchProjects"><input type="text" id="searchProjects" placeholder="Search Projects" /></nav>
+				<br /><br />
+			</header>
+			</article>
+		</section>
+
+		<section id="feature">		
+			<section id="topNav">
+					<nav id="topNav">
+						<a href="additem.html" id="addNew" style="display:none;">Add New Project</a>
+						<a href="#" id="displayLink">Show All Projects</a>
+						<a href="#" id="clear">Clear Stored Projects</a>
+					</nav>
+			</section>
+			<section id="errors"></section>
 			<form action="#" method="post" id="projectForm">
 				<fieldset id="mediaFieldSet">
-					<legend>Project Details</legend>
+					<legend>ADD NEW PROJECT</legend>
 					<span>* fields are required.</span>
 						<ul id="media">
 							<li id="select"><label for="mtype">* Project Type:</label><br /></li>
@@ -72,7 +74,7 @@
 						</ul>
 				</fieldset>
 			</form>
-		</section>
+			</section>
 		
 		<footer></footer>
 		
