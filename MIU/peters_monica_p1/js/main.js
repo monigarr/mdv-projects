@@ -150,7 +150,9 @@ window.addEventListener("DOMContentLoaded", function()
 		//Write Data from Local Storage to the Browswer.
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
+		
 		var makeList = document.createElement("ul");
+		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		$("items").style.display = "black";

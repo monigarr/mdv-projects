@@ -185,7 +185,7 @@ fieldset {
 	text-decoration: none;
 	border: 5px double;
 	color: #000000;
-	background-color: rgba(0,0,0,0.3);
+	background-color: #cccccc;
 	text-align: left;
 	font-size: 14px;
 	margin: 5px 5px 5px 5px;
@@ -194,8 +194,6 @@ fieldset {
 	top: 75px;
 	left: 140px;
 	width: 270px;
-	margin: 5px 5px 9px 5px;
-	padding: 15px 15px;
 } 
 
 label { 
@@ -212,18 +210,34 @@ input[type=submit] {
 
 /*LISTS*/
 
+div#items {
+	display: block;
+	color: #000000;
+	background-color: #ffffff;
+	font-size: 12px;
+	position: absolute;
+	top: 100px;
+	left: 140px;
+	width: 300px;
+	margin: 3px 3px 3px 1px;
+	padding: 3px 3px 3px 1px;
+	z-index: 0;
+	text-align:left;
+}
+
 .projectIconAlign {
+	display:inline;
 	float:right;
 	width: 35px;
 	height: 35px;
-	margin: 0 0 15px 15px;
+	margin: 3px 3px 3px 3px;
 }
 
 .projectScreenshotAlign {
 	float:left;
 	width: 75px;
 	height: 75px;
-	margin: 7px 7px 7px 7px;
+	margin: 3px 3px 3px 3px;
 }
 
 
