@@ -1,15 +1,27 @@
 <!DOCTYPE html>
+    
     <!--
     Full Sail University
     Mobile Interfaces and Usability
     Monica Peters
     Week 1 Project 1
     Due Thursday March 1st 2012
+    
     additem.html
+    
     Goal: Apply the elements of a given design pattern to an interface.
     Goal: Justify the choices made in implementing a design pattern, 
           including giving options not pursued.
+    
+    Use:  Portfolio Manager for Web Developers that want
+          to show off their work from their mobile devices during 
+          job interviews, client consultations, and similar meetings.
+          
+	Benefit:	localStorage so internet connection is not required.
+				client locations with crappy or zero internet service
+				can still view portfolio and inspiration.
     -->
+    
 <html lang="en">
 	<head>
 		<title>ShowOff! v1.0</title>
@@ -37,30 +49,28 @@
 	<body>
 	<div data-role="page" data-theme="d" data-content-theme="e">
 		<header>
-			<div data-role="header">
+			<div data-role="header" data-theme="a">
 				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-						<small><center>Show off your projects.</center></small>
+				<small><center>Show off your projects.</center></small>
 			</div>
-			<nav id="searchProjects"><input type="text" id="searchProjects" placeholder="Search Projects" /></nav>
+			<br /> 
+			<nav id="searchProjects"><input type="search" id="searc-basic" value="Search Projects" data-mini="true" data-theme="d" data-shadow="true" /></nav>
+			<br />
 		</header>
-			
+		
 		<section>
-				<nav>
-					<center>
-						<br /><br />
-						<a href="additem.html" id="addNew" rel="exernal" data-ajax="false" style="display:none;">Add New Project</a>
-						<a href="#items" id="displayLink" rel="external" data-ajax="false">Show All Projects</a>
-						<a href="#" id="clear" data-ajax="false">Clear Stored Projects</a>
-						<br /><br />
-					</center>
-				</nav>
+		<center><h2>Add New Project</h2></center>
+		</section>
+		<section>
+			<a href="additem.html" id="addNew" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="plus" data-inline="true" data-theme="e" style="display:none;">Add New Project</a>
+			<a href="#items" id="displayLink" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="grid" data-inline="true" data-theme="e">Show All Projects</a>
+			<a href="#clear" id="clear" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="delete" data-inline="true" data-theme="e">Delete All Projects</a>
 		</section>
 		<section id="errors"></section>
 		<section id="feature">
-			<form action="#" method="post" id="projectForm">
+			<form action="#feature" method="post" id="projectForm">
 				<fieldset id="mediaFieldSet">
 					<center>
-						<h3>Add New Project</h3>
 						<span><small>* fields required.</small><br /></span>
 					</center>
 						<ul id="media">
@@ -84,15 +94,19 @@
 		
 			<section>
 				<h3>browse projects</h3>
-				<ul data-role="listview" data-inset="true" data-filter-"true">
-				<li><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects"></a></li>
-				<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects"></a></li>
-				<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects"></a></li>			
+					<ul data-role="listview" data-inset="true" data-filter="false">
+						<li><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects"></a></li>
+						<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects"></a></li>
+						<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects"></a></li>			
+					</ul>
 			</section>
 		
-		<footer></footer>
+		<footer data-role="footer" data-theme="a"><center><small>Project 1 by Monica Peters. <br />Full Sail University, Mobile Interfaces & Usability.</small></center></footer>
 		
-		<script type="text/javascript" src="js/json.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+	</div><!--/page-->
+	
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+		
 	</body>
 </html>
