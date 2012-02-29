@@ -181,6 +181,8 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		for(var i=0, len=localStorage.length; i<len; i++)
 		{
+			//CHANGE TO JQUERYMOBILE GRID VIEW
+			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
 			var makeli = document.createElement("li");
 			var linksLi = document.createElement("li");
 			makeList.appendChild(makeli);
