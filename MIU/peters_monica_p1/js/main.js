@@ -174,6 +174,8 @@ window.addEventListener("DOMContentLoaded", function()
 		makeList.setAttribute("data-split-theme", "d");
 		makeList.setAttribute("data-divider-theme", "e");
 		makeList.setAttribute("data-icon","html5.jpg");
+		//makeList.setAttribute("data-filtertext", "ios");
+		makeList.setAttribute("class","ui-li-icon");
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
@@ -421,7 +423,7 @@ window.addEventListener("DOMContentLoaded", function()
 	
 	// Variable defaults
 	// store values of dropdown in array
-	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5"],
+	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],
 		mtopicValue,
 		errMsg = momo("errors");
 		
