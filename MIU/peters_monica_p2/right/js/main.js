@@ -162,20 +162,14 @@ window.addEventListener("DOMContentLoaded", function()
 		//Write Data from Local Storage to the Browswer.
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
-		
-		//make this work with jqmobile
 		makeDiv.setAttribute("data-role", "page");
+		
 		//jqmobile list view
 		//http://jquerymobile.com/demos/1.0.1/docs/lists/lists-themes.html
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
 		makeList.setAttribute("data-inset", "true");
 		makeList.setAttribute("data-theme", "d");
-		makeList.setAttribute("data-split-theme", "d");
-		makeList.setAttribute("data-divider-theme", "e");
-		makeList.setAttribute("data-icon","html5.jpg");
-		//makeList.setAttribute("data-filtertext", "ios");
-		makeList.setAttribute("class","ui-li-icon");
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
@@ -187,32 +181,29 @@ window.addEventListener("DOMContentLoaded", function()
 			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
 			var makeli = document.createElement("li");
 			var linksLi = document.createElement("li");
+						
 			makeList.appendChild(makeli);
+			
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//convert string back to object so it won't be one long string
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement("ul");
-			makeSubList.setAttribute("data-role", "listview");
-			makeSubList.setAttribute("data-inset", "true");
-			makeSubList.setAttribute("data-split-theme", "d");
-			makeSubList.setAttribute("data-divider-theme", "d");
-			var makeSubListSeparator = document.createElement("hr");
-			makeli.appendChild(makeSubList);
-			makeli.appendChild(makeSubListSeparator);
+			
+			
 			//Add Icon for each Project Type
-			getImage(obj.mtype[1], makeSubList);
+			getImage(obj.mtype[1], makeList);
+			
 			//Add Graphic for each Project Name
-			getProjectGraphic(obj.mgraphic[1], makeSubList);
+			getProjectGraphic(obj.mgraphic[1], makeList);
 			
 			for(var n in obj)
 			{
-				var makeSubli = document.createElement("li");
-				makeSubList.appendChild(makeSubli);
+				var makeli = document.createElement("li");
+				makeList.appendChild(makeli);
 				//0 is label, 1 is the value
 				var optSubText = obj[n][0] + " " + obj[n][1];
-				makeSubli.innerHTML = optSubText;
-				makeSubli.appendChild(linksLi);
+				makeli.innerHTML = optSubText;
+				makeli.appendChild(linksLi);
 			}
 			//add edit and delete button from function
 			//for each item in local storage.
@@ -420,6 +411,11 @@ window.addEventListener("DOMContentLoaded", function()
 			saveMedia(this.key);
 		}
 	}
+	
+function getSearch()
+{
+
+}
 	
 	// Variable defaults
 	// store values of dropdown in array
