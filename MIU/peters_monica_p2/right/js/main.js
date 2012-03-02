@@ -414,7 +414,26 @@ window.addEventListener("DOMContentLoaded", function()
 	
 function getSearch()
 {
-
+	//search by category and term
+	if(term != "" && category != "--Choose Project Type--")
+	{
+		for(i=0, j=localStorage.length; i<j; i++)
+		{
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			for (n in obj)
+			{
+				if(term === obj[n][1] && category === obj.group[1])
+				{
+					for (q in obj)
+					{
+						console.log(obj[q][1]);
+					}
+				}
+			}
+		}
+	}
 }
 	
 	// Variable defaults
@@ -428,9 +447,14 @@ function getSearch()
 	// Set Link & Submit Click Events
 	var displayLink = momo("displayLink");
 	displayLink.addEventListener("click", getData);
+	
 	var clearLink = momo("clear");
 	clearLink.addEventListener("click", clearLocal);
+	
 	var save = momo("submit");
 	//save.addEventListener("click", saveMedia);
 	save.addEventListener("click", validate);
+	
+	var search = momo("search");
+	search.addEventListener("search", getSearch);
 });
