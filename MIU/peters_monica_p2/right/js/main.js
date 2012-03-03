@@ -191,9 +191,11 @@ window.addEventListener("DOMContentLoaded", function()
 			
 			
 			//Add Icon for each Project Type
+			// 35 x 35
 			getImage(obj.mtype[1], makeList);
 			
 			//Add Graphic for each Project Name
+			// 75 x 75
 			getProjectGraphic(obj.mgraphic[1], makeList);
 			
 			for(var n in obj)
@@ -247,7 +249,7 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//add edit single item link
 		var editLink = document.createElement("a");
-		editLink.href = "#";
+		editLink.href = "#item";
 		editLink.key = key;
 		var editText = "Edit Project";
 		editLink.addEventListener("click", editItem);
@@ -260,7 +262,7 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//add delete single item link
 		var deleteLink = document.createElement("a");
-		deleteLink.href = "#";
+		deleteLink.href = "#item";
 		deleteLink.key = key;
 		var deleteText = "Delete Project";
 		deleteLink.addEventListener("click", deleteItem);
