@@ -25,6 +25,16 @@
 <html lang="en">
 	<head>
 		<title>ShowOff! v1.0</title>
+		
+			<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	
 		<meta type="charset" content = "utf-8" />
 		<meta type="robots" content="index,follow" />
 		<meta type="description" content="Manage your personal media library" />
@@ -38,22 +48,19 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		
-		<!-- JQUERY MOBILE -->
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-		
+		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script src="js/libs/modernizr.custom.min.js"></script>
 	</head>
 	</head>
 	<body>
-	<div data-role="page" data-theme="d" data-content-theme="d">
-		<header>
-			<div data-role="header" data-theme="a">
+	<div data-role="page" data-theme="d" data-content-theme="d" id="additems">
+	
+		<div data-role="header" data-theme="a" data-position="fixed">
 				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
 				<small><center>Show off your projects.</center></small>
-			</div>
+		</div><!--/header-->
 			
+		<div data-role="content">
 			<section id="search">
 			<center>
 			<div data-role="fieldcontain">
@@ -64,13 +71,12 @@
 			</center>
 			</section><!--search-->
 			<br />
-		</header>
 		
-		<div data-role="content">
 		
 		<section>
 		<center><h2>Add New Project</h2></center>
 		</section>
+		
 		<section>
 			<center>
 			<br /><br />
@@ -80,7 +86,9 @@
 			</center>
 			<br /><br />
 		</section>
+		
 		<section id="errors"></section>
+		
 		<section id="feature">
 			<form action="#feature" method="post" id="projectForm">
 				<fieldset id="mediaFieldSet">
@@ -105,33 +113,39 @@
 				</fieldset>
 			</form>
 			<br /><br />
+		</section><!--/feature-->
+		
+		<section>
+			<h3>browse projects</h3>
+				<ul data-role="listview" data-inset="true" data-theme="d" data-filter="false">
+					<li data-filtertext="ios"><a href="#items" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects">ios</a></li>
+					<li><a href="#items" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects">android</a></li>
+					<li><a href="#items" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects">html5</a></li>			
+					<li><a href="#items" id="wordpress"><img src="images/wordpress.jpg" border="0" width="35" height="35" alt="Browse WordPress Projects">wordpress</a></li>			
+					<li><a href="#items" id="graphic"><img src="images/graphic.jpg" border="0" width="35" height="35" alt="Browse Graphic Projects">graphic</a></li>			
+					<li><a href="#items" id="author"><img src="images/author.jpg" border="0" width="35" height="35" alt="Browse Author Projects">author</a></li>			
+				</ul>
 		</section>
 		
-			<section>
-				<h3>browse projects</h3>
-					<ul data-role="listview" data-inset="true" data-theme="d" data-filter="false">
-						<li data-filtertext="ios"><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects">ios</a></li>
-						<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects">android</a></li>
-						<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects">html5</a></li>			
-						<li><a href="" id="wordpress"><img src="images/wordpress.jpg" border="0" width="35" height="35" alt="Browse WordPress Projects">wordpress</a></li>			
-						<li><a href="" id="graphic"><img src="images/graphic.jpg" border="0" width="35" height="35" alt="Browse Graphic Projects">graphic</a></li>			
-						<li><a href="" id="author"><img src="images/author.jpg" border="0" width="35" height="35" alt="Browse Author Projects">author</a></li>			
-					</ul>
-			</section>
-		
-			<footer data-role="footer" data-theme="a">
+		<footer data-role="footer" data-theme="a" data-position="fixed">
 			<center><small>
 				Project 2 by Monica Peters. <br />Full Sail University, Mobile Interfaces & Usability.
 				<br />
 				<a id="rawcode" href="https://github.com/monigarr/mdv-projects/tree/gh-pages/MIU/peters_monica_p2">Raw Code</a> | 
 				<a id="liveapp" href="http://monigarr.github.com/mdv-projects/MIU/peters_monica_p2/right/additem.html">Live App</a>
 			</small></center>
-			</footer>		
-			</div><!--content-->
-	</div><!--/page-->
-	
-	<script type="text/javascript" src="js/json.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+		</footer>		
 		
+		</div><!--content-->
+	</div><!--/page /additems-->
+	
+	<!-- JQUERY MOBILE -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>	
 	</body>
 </html>

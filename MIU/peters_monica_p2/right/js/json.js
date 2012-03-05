@@ -1,10 +1,9 @@
 //
 //    Full Sail University
-//    Visual Frameworks
+//    Mobile Interfaces and Usability
 //    Monica Peters
-//    Web App Part 4
-//    Week 4 Project 4
-//    Due Thursday Feb. 23rd 2012
+//    Week 2 Project 2
+//    Due Thursday March 8th 2012
 //	  json.js
 
 // Add Test Data 

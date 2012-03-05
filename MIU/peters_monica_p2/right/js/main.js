@@ -161,16 +161,16 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//Write Data from Local Storage to the Browswer.
 		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id","items");
 		makeDiv.setAttribute("data-role", "page");
-		
+		makeDiv.setAttribute("id","items");
+		makeDiv.setAttribute("data-add-back-btn", "true");
 		//jqmobile list view
 		//http://jquerymobile.com/demos/1.0.1/docs/lists/lists-themes.html
-		var makeList = document.createElement("ul");
-		makeList.setAttribute("data-role", "listview");
+		var makeList = document.createElement("div");
+		makeList.setAttribute("data-role", "collapsible-set");
 		makeList.setAttribute("data-inset", "true");
 		makeList.setAttribute("data-theme", "d");
-		
+		makeList.setAttribute("data-add-back-btn", "true");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		momo("items").style.display = "black";
@@ -179,33 +179,34 @@ window.addEventListener("DOMContentLoaded", function()
 		{
 			//CHANGE TO JQUERYMOBILE GRID VIEW
 			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
-			var makeli = document.createElement("li");
-			var linksLi = document.createElement("li");
-						
+			var makeli = document.createElement("div");
+			makeli.setAttribute("data-collapsible", "true");
+			makeli.setAttribute("data-collapsed", "true");
+			var linksLi = document.createElement("div");
 			makeList.appendChild(makeli);
-			
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//convert string back to object so it won't be one long string
 			var obj = JSON.parse(value);
-			
-			
+			var makeSubList = document.createElement("div");
+			makeSubList.setAttribute("data-role", "collapsible");
+			makeSubList.setAttribute("data-add-back-btn", "true");
+			makeSubList.setAttribute("data-collapsed", "true");
+			makeli.appendChild(makeSubList);
 			//Add Icon for each Project Type
-			// 35 x 35
-			getImage(obj.mtype[1], makeList);
-			
+			getImage(obj.mtype[1], makeSubList);
 			//Add Graphic for each Project Name
-			// 75 x 75
-			getProjectGraphic(obj.mgraphic[1], makeList);
+			getProjectGraphic(obj.mgraphic[1], makeSubList);
 			
 			for(var n in obj)
 			{
-				var makeli = document.createElement("li");
-				makeList.appendChild(makeli);
+				var makeSubli = document.createElement("div");
+				makeSubli.setAttribute("data-add-back-btn", "true");
+				makeSubList.appendChild(makeSubli);
 				//0 is label, 1 is the value
 				var optSubText = obj[n][0] + " " + obj[n][1];
-				makeli.innerHTML = optSubText;
-				makeli.appendChild(linksLi);
+				makeSubli.innerHTML = optSubText;
+				makeSubli.appendChild(linksLi);
 			}
 			//add edit and delete button from function
 			//for each item in local storage.
@@ -216,7 +217,7 @@ window.addEventListener("DOMContentLoaded", function()
 	//Get icon for the relevant project type displayed
 	function getImage(mediaType, makeSubList)
 	{
-		var imageLi = document.createElement("li");
+		var imageLi = document.createElement("div");
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", "images/" + mediaType + ".jpg");
@@ -227,7 +228,7 @@ window.addEventListener("DOMContentLoaded", function()
 	//Get graphic url for project.
 	function getProjectGraphic(projectName, makeSubList)
 	{
-		var projectGraphicLi = document.createElement("li");
+		var projectGraphicLi = document.createElement("div");
 		makeSubList.appendChild(projectGraphicLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", projectName);
@@ -249,7 +250,7 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//add edit single item link
 		var editLink = document.createElement("a");
-		editLink.href = "#item";
+		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Project";
 		editLink.addEventListener("click", editItem);
@@ -262,7 +263,7 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//add delete single item link
 		var deleteLink = document.createElement("a");
-		deleteLink.href = "#item";
+		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Project";
 		deleteLink.addEventListener("click", deleteItem);
@@ -414,30 +415,6 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	}
 	
-function getSearch()
-{
-	//search by category and term
-	if(term != "" && category != "--Choose Project Type--")
-	{
-		for(i=0, j=localStorage.length; i<j; i++)
-		{
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			for (n in obj)
-			{
-				if(term === obj[n][1] && category === obj.group[1])
-				{
-					for (q in obj)
-					{
-						console.log(obj[q][1]);
-					}
-				}
-			}
-		}
-	}
-}
-	
 	// Variable defaults
 	// store values of dropdown in array
 	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],
@@ -449,14 +426,9 @@ function getSearch()
 	// Set Link & Submit Click Events
 	var displayLink = momo("displayLink");
 	displayLink.addEventListener("click", getData);
-	
 	var clearLink = momo("clear");
 	clearLink.addEventListener("click", clearLocal);
-	
 	var save = momo("submit");
 	//save.addEventListener("click", saveMedia);
 	save.addEventListener("click", validate);
-	
-	var search = momo("search");
-	search.addEventListener("search", getSearch);
 });
