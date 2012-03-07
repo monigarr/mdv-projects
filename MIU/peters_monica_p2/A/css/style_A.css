@@ -58,3 +58,7 @@ label.error{
 	margin: 10px 0;
 	color: #cc0000;
 }
+
+footer p{
+	align: center;
+}

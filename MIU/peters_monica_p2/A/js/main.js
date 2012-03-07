@@ -64,6 +64,8 @@ window.addEventListener("DOMContentLoaded", function()
 				momo("clear").style.display = "inline";
 				momo("displayLink").style.display = "none";
 				momo("addNew").style.display = "inline";
+				momo("search").style.display = "inline";
+				momo("newest").style.display = "inline";
 				break;
 			case "off":
 				momo("projectForm").style.display = "block";
@@ -71,6 +73,9 @@ window.addEventListener("DOMContentLoaded", function()
 				momo("displayLink").style.display = "inline";
 				momo("addNew").style.display = "none";
 				momo("items").style.display = "none";
+				momo("addNew").style.display = "inline";
+				momo("search").style.display = "inline";
+				mom0("newest").style.display - "inline";
 				break;
 			default:
 				return false;
