@@ -149,52 +149,39 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 		
 		//Write Data from Local Storage to the Browswer.
-		
-		var makeDiv = document.createElement("div");
+		var makeDiv = document.createElement("ul");
 		makeDiv.setAttribute("id","items");
-		makeDiv.setAttribute("data-role", "page");
-		makeDiv.setAttribute("data-add-back-btn", "true");
-		makeDiv.setAttribute("data-theme", "d");
-		makeDiv.setAttribute("data-filter", "true");
-		
-		//data filter to search all items
-		var makeFilter = document.createElement("ul");
-		makeFilter.setAttribute("data-role", "content");
-		makeFilter.setAttribute("data-filter", "true");
-		makeFilter.setAttribute("data-add-back-btn", "true");
-		makeFilter.setAttribute("data-theme", "d");
-		
 		var makeList = document.createElement("ul");
-		makeList.setAttribute("data-role", "listview");
 		makeList.setAttribute("data-inset", "true");
+		makeList.setAttribute("data-role", "listview");
+		makeList.setAttribute("data-filter", "true");
 		makeList.setAttribute("data-theme", "d");
-		//data filter here creates for each item not good
-		//makeList.setAttribute("data-filter", "true");
 		
-		makeDiv.appendChild(makeFilter);
-		makeFilter.appendChild(makeList);
+		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		momo("items").style.display = "black";
+		//momo("items").style.display = "black";
 		
 		for(var i=0, len=localStorage.length; i<len; i++)
 		{
-			//CHANGE TO JQUERYMOBILE GRID VIEW
-			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
-			var makeli = document.createElement("content");
-			var linksLi = document.createElement("section");
+			var makeli = document.createElement("li");
+			makeli.setAttribute("id", "test");
 			
-			
+			var linksLi = document.createElement("li");
+			linksLi.setAttribute("id", "testtwo");
 			makeList.appendChild(makeli);
+			
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//convert string back to object so it won't be one long string
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
-			makeSubList.setAttribute("data-role", "listview");
 			makeSubList.setAttribute("data-inset", "true");
+			makeSubList.setAttribute("id", "testthree");
+			
 			var makeSubListSeparator = document.createElement("hr");
 			makeli.appendChild(makeSubList);
 			makeli.appendChild(makeSubListSeparator);
+			
 			//Add Icon for each Project Type
 			getImage(obj.mtype[1], makeSubList);
 			//Add Graphic for each Project Name
@@ -251,7 +238,6 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//add edit single item link
 		var editLink = document.createElement("a");
-		editLink.setAttribute("data-ajax", "false");
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Project";
@@ -265,7 +251,6 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//add delete single item link
 		var deleteLink = document.createElement("a");
-		deleteLink.setAttribute("data-ajax", "false");
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Project";
@@ -429,10 +414,8 @@ window.addEventListener("DOMContentLoaded", function()
 	// Set Link & Submit Click Events
 	var displayLink = momo("displayLink");
 	displayLink.addEventListener("click", getData);
-	
 	var clearLink = momo("clear");
 	clearLink.addEventListener("click", clearLocal);
-	
 	var save = momo("submit");
 	//save.addEventListener("click", saveMedia);
 	save.addEventListener("click", validate);

@@ -27,13 +27,13 @@
 		<title>ShowOff! v1.0</title>
 		
 			<!--  Mobile viewport optimized: j.mp/bplateviewport -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!-- Mobile IE needs ClearType for smoothing fonts -->
-	<meta http-equiv="cleartype" content="on">
-	
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		
 	
 		<meta type="charset" content = "utf-8" />
 		<meta type="robots" content="index,follow" />
@@ -43,6 +43,9 @@
 		<meta type="viewport" content="user-scalable=yes, width=device-width" />
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 		-->
+		
+			<!--stylesheets-->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,12 +57,14 @@
 	</head>
 	<body>
 	<div data-role="page" data-theme="d" data-content-theme="d" id="additems">
-	
-		<div data-role="header" data-theme="a" data-position="fixed">
-				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects.</center></small>
-		</div><!--/header-->
-		
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="navbar" data-theme="c">
 			<ul>
 				<li><a href="#browse" id="browse" rel="external" data-ajax="false" data-icon="grid">Browse</a></li>
@@ -68,15 +73,11 @@
 				<li><a href="#clear" id="clear" rel="external" data-ajax="false" data-icon="delete">Delete</a></li>
 			</ul>
 		</div><!-- /navbar -->	
-		
 		<div data-role="content">
-		
 		<section>
 		<center><h2>Add New Project</h2></center>
-		</section>
-		
-		<section id="errors"></section>
-		
+		</section>	
+		<section id="errors"></section>	
 		<section id="feature">
 			<form action="#feature" method="post" id="projectForm">
 				<fieldset id="mediaFieldSet">
@@ -116,10 +117,14 @@
 	</div><!--/page /additems-->
 
 	<div data-role="page" data-theme="d" id="browse" data-add-back-btn="true"> 
-		<div data-role="header" data-theme="a" data-position="fixed">
-			<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-			<small><center>Show off your projects.</center></small>
-		</div><!--/header-->
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="content">
 			<h3>browse projects</h3>
 				<ul data-role="listview" data-inset="true" data-theme="d">
@@ -162,11 +167,14 @@
 	</div><!--/page /items-->-->
 	
 	<div data-role="page" data-theme="d" id="ios" data-add-back-btn="true">
-		
-		<div data-role="header" data-theme="a" data-position="fixed">
-			<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-			<small><center>Show off your projects.</center></small>
-	</div><!--/header-->
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="navbar" data-theme="c">
 					<ul>
 						<li><a href="#browse" id="browse" rel="external" data-ajax="false" data-icon="grid">Browse</a></li>
@@ -197,10 +205,14 @@
 	</div><!--/page /ios-->
 
 	<div data-role="page" data-theme="d" id="android" data-add-back-btn="true"> 
-		<div data-role="header" data-theme="a" data-position="fixed">
-			<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-			<small><center>Show off your projects.</center></small>
-	</div><!--/header-->
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="content">...</div><!--/content-->
 		<div data-role="footer" data-theme="a" data-position="fixed">
 			<center><small>
@@ -213,10 +225,14 @@
 	</div><!--/page /android-->
 
 	<div data-role="page" data-theme="d" id="html5" data-add-back-btn="true"> 
-		<div data-role="header" data-theme="a" data-position="fixed">
-				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects.</center></small>
-		</div><!--/header-->
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="content">...</div><!--/content-->
 		<div data-role="footer" data-theme="a" data-position="fixed">
 			<center><small>
@@ -229,10 +245,14 @@
 	</div><!--/page /android-->
 
 	<div data-role="page" data-theme="d" id="wordpress" data-add-back-btn="true"> 
-		<div data-role="header" data-theme="a" data-position="fixed">
-				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects.</center></small>
-		</div><!--/header-->
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="content">...</div><!--/content-->
 		<div data-role="footer" data-theme="a" data-position="fixed">
 			<center><small>
@@ -245,10 +265,14 @@
 	</div><!--/page /android-->
 	
 	<div data-role="page" data-theme="d" id="graphic" data-add-back-btn="true"> 
-		<div data-role="header" data-theme="a" data-position="fixed">
-				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects.</center></small>
-		</div><!--/header /graphic-->
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="content">...</div><!--/content /graphic-->
 		<div data-role="footer" data-theme="a" data-position="fixed">
 			<center><small>
@@ -261,10 +285,14 @@
 	</div><!--/page /android-->
 
 	<div data-role="page" data-theme="d" id="author" data-add-back-btn="true"> 
-		<div data-role="header" data-theme="a" data-position="fixed">
-				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects.</center></small>
-		</div><!--/header-->
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="content">...</div><!--/content /author-->
 		<div data-role="footer" data-theme="a" data-position="fixed">
 			<center><small>

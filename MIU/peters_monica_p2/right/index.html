@@ -28,15 +28,16 @@
 		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
 		<!-- Mobile IE needs ClearType for smoothing fonts -->
 		<meta http-equiv="cleartype" content="on">
-		
+		<!--seo-->
 		<meta type="description" content="Show off your Projects." />
 		<meta type="keywords" content = "media library, add media, monica peters, miu" />
 		<meta type="charset" content = "utf-8" />
 		<meta type="robots" content="index,follow" />
+		<!--stylesheets-->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css"/>
 		<!--comment out when using jquery mobile
 		<meta type="viewport" content="user-scalable=yes, width=device-width" />
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
@@ -52,12 +53,15 @@
 	</head>
 	
 	<body>
-	<div data-role="page" data-theme="d" data-content-theme="e" id="home" data-position="fixed">
-		<div data-role="header" data-theme="a">
-				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects.</center></small>
-				
-			</div><!--/header-->
+	<div data-role="page" data-theme="d" id="home" data-position="fixed">
+		<header>
+			<div data-role="header" data-theme="a">
+				<p>
+					<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
+					<small><center>Show off your projects.</center></small>	
+				</p>
+			</div>
+		</header><!--/header-->
 		<div data-role="content">
 			<center>
 				<a href="additem.html" id="addNew">
