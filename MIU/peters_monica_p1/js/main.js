@@ -175,7 +175,11 @@ window.addEventListener("DOMContentLoaded", function()
 		makeList.setAttribute("data-divider-theme", "e");
 		makeList.setAttribute("data-icon","html5.jpg");
 		//makeList.setAttribute("data-filtertext", "ios");
+<<<<<<< HEAD
 		//makeList.setAttribute("class","ui-li-icon");
+=======
+		makeList.setAttribute("class","ui-li-icon");
+>>>>>>> master
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
