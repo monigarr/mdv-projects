@@ -152,6 +152,7 @@ window.addEventListener("DOMContentLoaded", function()
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
 		makeDiv.setAttribute("data-role", "content");
+		makeDiv.setAttribute("data-add-back-btn", "true");
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
 		makeList.setAttribute("data-theme", "d");
@@ -178,8 +179,6 @@ window.addEventListener("DOMContentLoaded", function()
 			var makeSubList = document.createElement("p");
 			makeli.appendChild(makeSubList);
 
-			//Add Icon for each Project Type
-			getImage(obj.mtype[1], makeSubList);
 			//Add Graphic for each Project Name
 			getProjectGraphic(obj.mgraphic[1], makeSubList);
 			
@@ -192,6 +191,8 @@ window.addEventListener("DOMContentLoaded", function()
 				makeSubli.innerHTML = optSubText;
 				makeSubli.appendChild(linksLi);
 			}
+			//Add Icon for each Project Type
+			getImage(obj.mtype[1], makeSubList);
 			//add edit and delete button from function
 			//for each item in local storage.
 			makeItemLinks(localStorage.key(i), linksLi);
