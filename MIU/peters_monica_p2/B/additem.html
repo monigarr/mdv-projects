@@ -24,93 +24,248 @@
     
 <html lang="en">
 	<head>
-		<title>ShowOff! v1.0</title>
+		<title>ShowOff! B</title>
 		<meta type="charset" content = "utf-8" />
 		<meta type="robots" content="index,follow" />
 		<meta type="description" content="Manage your personal media library" />
 		<meta type="keywords" content = "media library, add media, monica peters, vfw" />
-		<!--comment out when using jquery mobile
-		<meta type="viewport" content="user-scalable=yes, width=device-width" />
-		<link rel="stylesheet" href="css/styles.css" type="text/css" />
-		-->
 		<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		
 		<!-- JQUERY MOBILE -->
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />	
 	</head>
 	</head>
 	<body>
-	<div data-role="page" data-theme="d" data-content-theme="d">
-		<header>
-			<div data-role="header" data-theme="a">
-				<h1><a href="index.html" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects.</center></small>
-			</div>
-			<br /> 
-			<nav id="searchProjects"><input type="search" id="searc-basic" value="Search Projects" data-mini="true" data-theme="d" data-shadow="true" /></nav>
-			<br />
-		</header>
-		
-		<div data-role="content">
-		
-		<section>
-		<center><h2>Add New Project</h2></center>
-		</section>
-		<section>
+	
+	<div data-role="page" id="home" data-theme="a" data-content-theme="e">
+		<div data-role="header" data-theme="a">
+			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+			<small><center>Show off your projects. (b)</center></small>
+		</div>		
+		<div data-role="content" data-theme="a">
+			<p>
 			<center>
-			<br /><br />
-			<a href="additem.html" id="addNew" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="plus" data-inline="true" data-theme="e" style="display:none;">Add New Project</a>
-			<a href="#items" id="displayLink" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="grid" data-inline="true" data-theme="e">Show All Projects</a>
-			<a href="#clear" id="clear" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="delete" data-inline="true" data-theme="e">Delete All Projects</a>
+				<a href="#additem" id="additem" rel="internal" data-theme="e" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-add-back-btn="true"/>Add New Project</a>
+				<br/>
+				<a href="#newest" id="newest" rel="internal" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-mini="true" data-add-back-btn="true"/>Newest Projects</a>
+				<br/>
+				<a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-role="button" data-mini="true" data-add-back-btn="true"/>Show All Projects</a>
+				<br/>
 			</center>
-			<br /><br />
-		</section>
-		<section id="errors"></section>
-		<section id="feature">
-			<form action="#feature" method="post" id="projectForm">
-				<fieldset id="mediaFieldSet">
-					<center>
-						<span><small>* fields required.</small><br /></span>
-					</center>
-						<ul id="media">
-							<li id="select"><label for="mtype">* Project Type:</label></li>
-							<li id="mediadate"><label for="mdate">* Project Date: </label><input type="date" id="mdate" placeholder="day/month/year" data-mini="true" /></li>
-							<li id="medianame"><label for="mname">* Project Name: </label><input type="text" id="mname" data-mini="true" /></li>
-							<li id="mediarating"><label for="mrating">Project Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating" data-mini="true" ></li>
-							<li id="mediatopics"><label for="mtopic">Project Incentive:</label> 
-								<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" /><label for="inspiration">Inspiration</label>
-								<input type="radio" value="school" id="school" name="mtopics" data-mini="true" /><label for="school">School</label>
-								<input type="radio" value="work" id="work" name="mtopics" data-mini="true" /><label for="work">Work</label><br /><br />
-							</li>
-							<li id="mediatags"><label for="mtags">Project Tags:</label><input type="text" id="mtags" data-mini="true" /></li>
-							<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url: 75x75</label><input type="text" id="mgraphic" data-mini="true" /></li>
-							<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label><textarea id="mcomments" data-mini="true" /></textarea></li>
-							<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" />
-						</ul>
-				</fieldset>
-			</form>
-			<br /><br />
-		</section>
-		
-			<section>
+			</p>			
+			
+			</center>	
+		</div>
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="contact" data-theme="a" data-add-back-btn="true">
+		<div data-role="header">
+				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+				<small><center>Show off your projects. (a)</center></small>	
+		</div>
+		<div data-role="content">
+			<section id="newStream">
+				<h2>Contact</h2>
+					<ul data-role="listview" data-inset="true">
+						<li>
+							<a href="http:www.MonicaLamb.com">
+								<p>
+								Monica Peters<br/>
+								I developed this mobile app as a student project.  
+								</p>
+							</a>
+						</li>
+						<li>
+							<a href="http://www.FullSail.edu">
+								<p>
+								Full Sail University</br>
+								Online Mobile Development Course.
+								</p>
+							</a>
+						</li>
+					</ul>
+
+			
+			</section>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="additem" data-theme="a" data-add-back-btn="true">
+		<div data-role="header" data-theme="a">
+			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+			<small><center>Show off your projects. (a)</center></small>	
+		</div>
+		<div data-role="content">
+			<section id="addNew">
+				<center><h2>Add New Project</h2></center>
+			</section>
+			<section id="nav" data-theme="a">
+				<center>
+				<br /><br />
+				<a href="additem.html" id="addNew" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="plus" data-inline="true" data-theme="e" style="display:none;">Add New Project</a>
+				<a href="#clear" id="clear" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="delete" data-inline="true" data-theme="e">Delete All Projects</a>
+				<br /><br />
+				</center>
+			</section>
+			<section id="errors"></section>
+			<section id="feature">
+				<form action="#feature" method="post" id="projectForm">
+					<fieldset id="mediaFieldSet">
+						<center>
+							<span><small>* fields required.</small><br /></span>
+						</center>
+							<ul id="media">
+								<li id="select"><label for="mtype">* Project Type:</label></li>
+								<li id="mediadate"><label for="mdate">* Project Date: </label><input type="date" id="mdate" placeholder="day/month/year" data-mini="true" /></li>
+								<li id="medianame"><label for="mname">* Project Name: </label><input type="text" id="mname" data-mini="true" /></li>
+								<li id="mediarating"><label for="mrating">Project Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating" data-mini="true" /></li>
+								<li id="mediatopics"><label for="mtopic">Project Incentive:</label> 
+									<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" /><label for="inspiration">Inspiration</label>
+									<input type="radio" value="school" id="school" name="mtopics" data-mini="true" /><label for="school">School</label>
+									<input type="radio" value="work" id="work" name="mtopics" data-mini="true" /><label for="work">Work</label><br /><br />
+								</li>
+								<li id="mediatags"><label for="mtags">Project Tags:</label><input type="text" id="mtags" data-mini="true" /></li>
+								<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url: 75x75</label><input type="text" id="mgraphic" data-mini="true" /></li>
+								<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label><textarea id="mcomments" data-mini="true" /></textarea></li>
+								<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" />
+							</ul>
+					</fieldset>
+				</form>
+				<br /><br />
+			</section>	
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-theme="a">
+				<ul>
+					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="browse" data-theme="a" data-add-back-btn="true">
+		<div data-role="header">
+				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+				<small><center>Show off your projects. (b)</center></small>	
+		</div>
+		<div data-role="content">
+			<section id="browse">
 				<h3>browse projects</h3>
-					<ul data-role="listview" data-inset="true" data-theme="d" data-filter="false">
-						<li data-filtertext="ios"><a href="" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects">ios</a></li>
-						<li><a href="" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects">android</a></li>
-						<li><a href="" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects">html5</a></li>			
-						<li><a href="" id="wordpress"><img src="images/wordpress.jpg" border="0" width="35" height="35" alt="Browse WordPress Projects">wordpress</a></li>			
-						<li><a href="" id="graphic"><img src="images/graphic.jpg" border="0" width="35" height="35" alt="Browse Graphic Projects">graphic</a></li>			
-						<li><a href="" id="author"><img src="images/author.jpg" border="0" width="35" height="35" alt="Browse Author Projects">author</a></li>			
+					<ul data-role="listview" data-inset="true" data-theme="d" data-filter="true">
+						<li><a href="additem.html#items" data-filter="ios" id="ios"><img src="images/ios.jpg" border="0" width="35" height="35" alt="Browse iOS Projects"/>ios</a></li>
+						<li><a href="additem.html#items" data-filter="android" id="android"><img src="images/android.jpg" border="0" width="35" height="35" alt="Browse Android Projects"/>android</a></li>
+						<li><a href="additem.html#items" data-filter="html5" id="html5"><img src="images/html5.jpg" border="0" width="35" height="35" alt="Browse HTML5 Projects"/>html5</a></li>			
+						<li><a href="additem.html#items" data-filter="wordpress" id="wordpress"><img src="images/wordpress.jpg" border="0" width="35" height="35" alt="Browse WordPress Projects"/>wordpress</a></li>			
+						<li><a href="additem.html#items" data-filter="graphic" id="graphic"><img src="images/graphic.jpg" border="0" width="35" height="35" alt="Browse Graphic Projects"/>graphic</a></li>			
+						<li><a href="additem.html#items" data-filter="author" id="author"><img src="images/author.jpg" border="0" width="35" height="35" alt="Browse Author Projects"/>author</a></li>			
 					</ul>
 			</section>
-		
-		<footer data-role="footer" data-theme="a"><center><small>Project 1 by Monica Peters. <br />Full Sail University, Mobile Interfaces & Usability.</small></center></footer>
-		</div><!--content-->
-	</div><!--/page-->
+		</div>
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="newest" data-theme="a" data-add-back-btn="true">
+		<div data-role="header">
+				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+				<small><center>Show off your projects. (a)</center></small>	
+		</div>
+		<div data-role="content">
+			<section id="newStream">
+				<h2>Newest Projects</h2>
+					<ul data-role="listview" data-inset="true">
+						<li>
+							<a href="#">
+								<h3>MarlanaThompson.com</h3>
+								<p><strong>Wordpress website I installed, customized, and hosted for small business client.</strong></p>
+								<p class="ui-li-aside"><strong>3/1/2010</strong></p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<h3>aamb.ca</h3>
+								<p><strong>Wordpress website I installed, customized, and hosted for small government office.</strong></p>
+								<p class="ui-li-aside"><strong>2/1/2010</strong></p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<h3>CeciliaThompson.com</h3>
+								<p><strong>Wordpress website I installed, customized, and hosted for small business client.</strong></p>
+								<p class="ui-li-aside"><strong>1/1/2010</strong></p>
+							</a>
+						</li>
+					</ul>
+
+			
+			</section>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="info" data-theme="a" data-add-back-btn="true"> 
+		<div data-role="header">
+				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+				<small><center>Show off your projects. (a)</center></small>	
+		</div>
+		<div data-role="content">
+			<p>
+			<center>
+				<a href="https://github.com/monigarr/mdv-projects/tree/master/MIU/peters_monica_p2/A/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App A Code</a><br/>
+				<a href="http://monigarr.github.com/mdv-projects/MIU/peters_monica_p2/A/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App A Live</a><br/>
+				<a href="https://github.com/monigarr/mdv-projects/tree/master/MIU/peters_monica_p2/B/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App B Code</a><br/>
+				<a href="http://monigarr.github.com/mdv-projects/MIU/peters_monica_p2/B/additem.html" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App B Live</a><br/>
+				Monica Peters.<br/>
+				March 7th 2012<br/>
+				Full Sail University<br/>
+				Mobile Interfaces and Usability Course.<br/>
+			</center>
+			</p>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>	
 	
 	<script type="text/javascript" src="js/json.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>

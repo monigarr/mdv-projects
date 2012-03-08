@@ -170,12 +170,7 @@ window.addEventListener("DOMContentLoaded", function()
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
 		makeList.setAttribute("data-inset", "true");
-		makeList.setAttribute("data-theme", "d");
-		makeList.setAttribute("data-split-theme", "d");
-		makeList.setAttribute("data-divider-theme", "e");
-		makeList.setAttribute("data-icon","html5.jpg");
-		//makeList.setAttribute("data-filtertext", "ios");
-		makeList.setAttribute("class","ui-li-icon");
+		makeList.setAttribute("data-theme", "a");
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
@@ -195,8 +190,8 @@ window.addEventListener("DOMContentLoaded", function()
 			var makeSubList = document.createElement("ul");
 			makeSubList.setAttribute("data-role", "listview");
 			makeSubList.setAttribute("data-inset", "true");
-			makeSubList.setAttribute("data-split-theme", "d");
-			makeSubList.setAttribute("data-divider-theme", "d");
+			makeSubList.setAttribute("data-split-theme", "a");
+			makeSubList.setAttribute("data-divider-theme", "a");
 			var makeSubListSeparator = document.createElement("hr");
 			makeli.appendChild(makeSubList);
 			makeli.appendChild(makeSubListSeparator);
