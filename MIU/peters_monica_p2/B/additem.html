@@ -41,10 +41,35 @@
 	</head>
 	<body>
 	
+	<div data-role="page" id="home" data-theme="a" data-content-theme="e">
+		<div data-role="header" data-theme="a">
+			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+			<small><center>Show off your projects. (b)</center></small>
+		</div>		
+		<div data-role="content" data-theme="a">	
+			<center>
+				<a href="#additem" id="addNew" rel="internal" data-ajax="false" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true"/>Add New Project</a>
+				<a href="#newest" id="newest" rel="internal" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-add-back-btn="true"/>Newest Projects</a>
+				<a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-role="button" data-add-back-btn="true"/>Show All Projects</a>
+				<br/><br/>
+				<a href="#clear" id="clear" rel="external" data-theme="e" data-ajax="false" data-inline="true" data-icon="delete" data-role="button" data-mini="true" data-add-back-btn="true">delete all projects</a>
+			</center>
+		</div>
+
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" class="ui-btn-active"rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	<div data-role="page" id="additem" data-theme="a" data-add-back-btn="true">
 		<div data-role="header" data-theme="a">
 			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-			<small><center>Show off your projects. (a)</center></small>	
+			<small><center>Show off your projects. (b)</center></small>	
 		</div>
 		<div data-role="content">
 			<section id="addNew">
@@ -87,35 +112,10 @@
 			</div>
 		</div>
 	</div>
-	<div data-role="page" id="home" data-theme="a" data-content-theme="e">
-		<div data-role="header" data-theme="a">
-			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-			<small><center>Show off your projects. (b)</center></small>
-		</div>		
-		<div data-role="content" data-theme="a">	
-			<center>
-				<a href="#additem" id="addNew" rel="internal" data-ajax="false" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true"/>Add New Project</a>
-				<a href="#newest" id="newest" rel="internal" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-add-back-btn="true"/>Newest Projects</a>
-				<a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-role="button" data-add-back-btn="true"/>Show All Projects</a>
-				<br/><br/>
-				<a href="#clear" id="clear" rel="external" data-theme="c" data-ajax="false" data-inline="true" data-icon="delete" data-role="button" data-mini="true" data-add-back-btn="true">delete all projects</a>
-			</center>
-		</div>
-
-		<div data-role="footer" data-theme="a" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" id="home" class="ui-btn-active"rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
-					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
-					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
 	<div data-role="page" id="contact" data-theme="a" data-add-back-btn="true">
 		<div data-role="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (a)</center></small>	
+				<small><center>Show off your projects. (b)</center></small>	
 		</div>
 		<div data-role="content">
 			<section id="newStream">
@@ -184,7 +184,7 @@
 	<div data-role="page" id="newest" data-theme="a" data-add-back-btn="true">
 		<div data-role="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (a)</center></small>	
+				<small><center>Show off your projects. (b)</center></small>	
 		</div>
 		<div data-role="content">
 			<section id="newStream">
@@ -307,7 +307,7 @@
 	<div data-role="page" id="info" data-theme="a" data-add-back-btn="true"> 
 		<div data-role="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (a)</center></small>	
+				<small><center>Show off your projects. (b)</center></small>	
 		</div>
 		<div data-role="content">
 			<p>
@@ -316,10 +316,14 @@
 				<a href="http://monigarr.github.com/mdv-projects/MIU/peters_monica_p2/A/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App A Live</a><br/>
 				<a href="https://github.com/monigarr/mdv-projects/tree/master/MIU/peters_monica_p2/B/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App B Code</a><br/>
 				<a href="http://monigarr.github.com/mdv-projects/MIU/peters_monica_p2/B/additem.html" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App B Live</a><br/>
+				<br/>
+				<address>
 				Monica Peters.<br/>
 				March 7th 2012<br/>
+				ShowOff App B<br/><br/>
 				Full Sail University<br/>
 				Mobile Interfaces and Usability Course.<br/>
+				</address>
 			</center>
 			</p>
 		</div>
