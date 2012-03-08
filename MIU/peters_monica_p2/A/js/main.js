@@ -64,8 +64,6 @@ window.addEventListener("DOMContentLoaded", function()
 				momo("clear").style.display = "inline";
 				momo("displayLink").style.display = "none";
 				momo("addNew").style.display = "inline";
-				momo("search").style.display = "inline";
-				momo("newest").style.display = "inline";
 				break;
 			case "off":
 				momo("projectForm").style.display = "block";
@@ -73,9 +71,6 @@ window.addEventListener("DOMContentLoaded", function()
 				momo("displayLink").style.display = "inline";
 				momo("addNew").style.display = "none";
 				momo("items").style.display = "none";
-				momo("addNew").style.display = "inline";
-				momo("search").style.display = "inline";
-				mom0("newest").style.display - "inline";
 				break;
 			default:
 				return false;
@@ -153,25 +148,28 @@ window.addEventListener("DOMContentLoaded", function()
 			autoFillData();
 		}
 		
-		//Write Data from Local Storage to the Browser.
+		//Write Data from Local Storage to the Browswer.
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
 		makeDiv.setAttribute("data-role", "content");
-		makeDiv.setAttribute("data-theme", "d");
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
+		makeList.setAttribute("data-theme", "d");
 		makeList.setAttribute("data-inset", "true");
 		makeList.setAttribute("data-filter", "true");
 		
-		makeBr.appendChild(makeDiv);
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		momo("items").style.display = "black";
 		
 		for(var i=0, len=localStorage.length; i<len; i++)
 		{
+			//CHANGE TO JQUERYMOBILE GRID VIEW
+			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
 			var makeli = document.createElement("li");
-			var linksLi = document.createElement("p");
+			makeli.setAttribute("id", "one");
+			var linksLi = document.createElement("div");
+			linksLi.setAttribute("id", "two");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -179,6 +177,7 @@ window.addEventListener("DOMContentLoaded", function()
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("p");
 			makeli.appendChild(makeSubList);
+
 			//Add Icon for each Project Type
 			getImage(obj.mtype[1], makeSubList);
 			//Add Graphic for each Project Name
@@ -187,7 +186,6 @@ window.addEventListener("DOMContentLoaded", function()
 			for(var n in obj)
 			{
 				var makeSubli = document.createElement("div");
-				makeSubli.setAttribute("id", "test2");
 				makeSubList.appendChild(makeSubli);
 				//0 is label, 1 is the value
 				var optSubText = obj[n][0] + " " + obj[n][1];
@@ -204,7 +202,7 @@ window.addEventListener("DOMContentLoaded", function()
 	function getImage(mediaType, makeSubList)
 	{
 		var imageLi = document.createElement("div");
-		imageLi.setAttribute("align", "right");
+		imageLi.setAttribute("align", "left");
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", "images/" + mediaType + ".jpg");
@@ -216,7 +214,7 @@ window.addEventListener("DOMContentLoaded", function()
 	function getProjectGraphic(projectName, makeSubList)
 	{
 		var projectGraphicLi = document.createElement("div");
-		projectGraphicLi.setAttribute("align", "left");
+		projectGraphicLi.setAttribute("align", "right");
 		makeSubList.appendChild(projectGraphicLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", projectName);
@@ -232,6 +230,10 @@ window.addEventListener("DOMContentLoaded", function()
 	//Create Edit and Delete links for each stored item when displayed
 	function makeItemLinks(key, linksLi)
 	{
+		//create line break to create space 
+		//around elements
+		var breakTag = document.createElement("br");
+		
 		//add edit single item link
 		var editLink = document.createElement("a");
 		editLink.href = "#";
