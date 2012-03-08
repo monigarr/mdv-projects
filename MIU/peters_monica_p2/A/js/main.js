@@ -151,10 +151,12 @@ window.addEventListener("DOMContentLoaded", function()
 		//Write Data from Local Storage to the Browswer.
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
-		makeDiv.setAttribute("data-role", "page");
+		makeDiv.setAttribute("data-role", "content");
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
+		makeList.setAttribute("data-theme", "d");
 		makeList.setAttribute("data-inset", "true");
+		makeList.setAttribute("data-filter", "true");
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
@@ -165,18 +167,17 @@ window.addEventListener("DOMContentLoaded", function()
 			//CHANGE TO JQUERYMOBILE GRID VIEW
 			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
 			var makeli = document.createElement("li");
-			var linksLi = document.createElement("li");
+			makeli.setAttribute("id", "one");
+			var linksLi = document.createElement("div");
+			linksLi.setAttribute("id", "two");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//convert string back to object so it won't be one long string
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement("ul");
-			makeSubList.setAttribute("data-role", "listview");
-			makeSubList.setAttribute("data-inset", "true");
-			var makeSubListSeparator = document.createElement("hr");
+			var makeSubList = document.createElement("p");
 			makeli.appendChild(makeSubList);
-			makeli.appendChild(makeSubListSeparator);
+
 			//Add Icon for each Project Type
 			getImage(obj.mtype[1], makeSubList);
 			//Add Graphic for each Project Name
@@ -184,7 +185,7 @@ window.addEventListener("DOMContentLoaded", function()
 			
 			for(var n in obj)
 			{
-				var makeSubli = document.createElement("li");
+				var makeSubli = document.createElement("div");
 				makeSubList.appendChild(makeSubli);
 				//0 is label, 1 is the value
 				var optSubText = obj[n][0] + " " + obj[n][1];
@@ -200,7 +201,8 @@ window.addEventListener("DOMContentLoaded", function()
 	//Get icon for the relevant project type displayed
 	function getImage(mediaType, makeSubList)
 	{
-		var imageLi = document.createElement("li");
+		var imageLi = document.createElement("div");
+		imageLi.setAttribute("align", "left");
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", "images/" + mediaType + ".jpg");
@@ -211,7 +213,8 @@ window.addEventListener("DOMContentLoaded", function()
 	//Get graphic url for project.
 	function getProjectGraphic(projectName, makeSubList)
 	{
-		var projectGraphicLi = document.createElement("li");
+		var projectGraphicLi = document.createElement("div");
+		projectGraphicLi.setAttribute("align", "right");
 		makeSubList.appendChild(projectGraphicLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", projectName);
