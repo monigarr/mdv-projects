@@ -41,75 +41,6 @@
 	</head>
 	<body>
 	
-	<div data-role="page" id="home" data-theme="a" data-content-theme="e">
-		<div data-role="header" data-theme="a">
-			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-			<small><center>Show off your projects. (b)</center></small>
-		</div>		
-		<div data-role="content" data-theme="a">
-			<p>
-			<center>
-				<a href="#additem" id="additem" rel="internal" data-theme="e" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-add-back-btn="true"/>Add New Project</a>
-				<br/>
-				<a href="#newest" id="newest" rel="internal" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-mini="true" data-add-back-btn="true"/>Newest Projects</a>
-				<br/>
-				<a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-role="button" data-mini="true" data-add-back-btn="true"/>Show All Projects</a>
-				<br/>
-			</center>
-			</p>			
-			
-			</center>	
-		</div>
-		<div data-role="footer" data-theme="a" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
-					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
-					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div data-role="page" id="contact" data-theme="a" data-add-back-btn="true">
-		<div data-role="header">
-				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (a)</center></small>	
-		</div>
-		<div data-role="content">
-			<section id="newStream">
-				<h2>Contact</h2>
-					<ul data-role="listview" data-inset="true">
-						<li>
-							<a href="http:www.MonicaLamb.com">
-								<p>
-								Monica Peters<br/>
-								I developed this mobile app as a student project.  
-								</p>
-							</a>
-						</li>
-						<li>
-							<a href="http://www.FullSail.edu">
-								<p>
-								Full Sail University</br>
-								Online Mobile Development Course.
-								</p>
-							</a>
-						</li>
-					</ul>
-
-			
-			</section>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
-					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
-					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
 	<div data-role="page" id="additem" data-theme="a" data-add-back-btn="true">
 		<div data-role="header" data-theme="a">
 			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
@@ -118,14 +49,6 @@
 		<div data-role="content">
 			<section id="addNew">
 				<center><h2>Add New Project</h2></center>
-			</section>
-			<section id="nav" data-theme="a">
-				<center>
-				<br /><br />
-				<a href="additem.html" id="addNew" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="plus" data-inline="true" data-theme="e" style="display:none;">Add New Project</a>
-				<a href="#clear" id="clear" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="delete" data-inline="true" data-theme="e">Delete All Projects</a>
-				<br /><br />
-				</center>
 			</section>
 			<section id="errors"></section>
 			<section id="feature">
@@ -159,6 +82,72 @@
 				<ul>
 					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
 					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="home" data-theme="a" data-content-theme="e">
+		<div data-role="header" data-theme="a">
+			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+			<small><center>Show off your projects. (b)</center></small>
+		</div>		
+		<div data-role="content" data-theme="a">	
+			<center>
+				<a href="#additem" id="addNew" rel="internal" data-ajax="false" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true"/>Add New Project</a>
+				<a href="#newest" id="newest" rel="internal" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-add-back-btn="true"/>Newest Projects</a>
+				<a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-role="button" data-add-back-btn="true"/>Show All Projects</a>
+				<br/><br/>
+				<a href="#clear" id="clear" rel="external" data-theme="c" data-ajax="false" data-inline="true" data-icon="delete" data-role="button" data-mini="true" data-add-back-btn="true">delete all projects</a>
+			</center>
+		</div>
+
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" class="ui-btn-active"rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="contact" data-theme="a" data-add-back-btn="true">
+		<div data-role="header">
+				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+				<small><center>Show off your projects. (a)</center></small>	
+		</div>
+		<div data-role="content">
+			<section id="newStream">
+				<h2>Contact</h2>
+					<ul data-role="listview" data-inset="true">
+						<li>
+							<a href="http://www.monicalamb.com/blog3/contact/">
+								<p>
+								Monica Peters<br/>
+								Developer for Hire<br/>
+								Akwesasne NY 13655<br/>  
+								</p>
+							</a>
+						</li>
+						<li>
+							<a href="http://www.FullSail.edu">
+								<p>
+								Full Sail University<br/>
+								Online Mobile Development Course.<br/>
+								</p>
+							</a>
+						</li>
+					</ul>
+
+			
+			</section>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#contact"  id="contact" class="ui-btn-active" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
 				</ul>
 			</div>
@@ -199,33 +188,111 @@
 		</div>
 		<div data-role="content">
 			<section id="newStream">
+				<center>
 				<h2>Newest Projects</h2>
-					<ul data-role="listview" data-inset="true">
-						<li>
-							<a href="#">
-								<h3>MarlanaThompson.com</h3>
-								<p><strong>Wordpress website I installed, customized, and hosted for small business client.</strong></p>
-								<p class="ui-li-aside"><strong>3/1/2010</strong></p>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<h3>aamb.ca</h3>
-								<p><strong>Wordpress website I installed, customized, and hosted for small government office.</strong></p>
-								<p class="ui-li-aside"><strong>2/1/2010</strong></p>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<h3>CeciliaThompson.com</h3>
-								<p><strong>Wordpress website I installed, customized, and hosted for small business client.</strong></p>
-								<p class="ui-li-aside"><strong>1/1/2010</strong></p>
-							</a>
-						</li>
-					</ul>
-
-			
-			</section>
+					<!--ONE WINDOW DRILLDOWN -->				
+					<ul data-role="listview" data-theme="d" data-inset="true">
+						<!--THUMBNAIL GRID-->
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								<li>
+									<img width="75px" height="75px" src="http://www.marlanathompson.com/wp-content/uploads/2010/01/OC-Logo-Wolf.jpg" />
+										<ul data-role="listview" data-theme="d" data-inset="true">
+											<li>
+												<a href="http://www.marlanathompson.com">
+												<img width="75px" height="75px" src="http://www.marlanathompson.com/wp-content/uploads/2010/01/OC-Logo-Wolf.jpg" />
+												<h3>MarlanaThompson.com</h3>
+												<p class="ui-li-aside"><strong>3/1/2010</strong></p>
+												<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+												</a>
+											</li>
+										</ul>
+								</li>
+							</div>
+							<div class="ui-block-b">
+							<li>
+								<img width="75px" height="75px" src="http://aamb.ca/wp-content/uploads/aamb1.jpg" />
+									<ul data-role="listview" data-theme="d" data-inset="true">
+										<li>
+											<a href="http://www.aamb.ca">
+											<img width="75px" height="75px" src="http://aamb.ca/wp-content/uploads/aamb1.jpg" />
+											<h3>aamb.ca</h3>
+											<p class="ui-li-aside"><strong>2/1/2010</strong></p>
+											<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+											</a>
+										</li>
+									</ul>
+							</li>
+						</div>
+						</div>	
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+							<li>
+								<img width="75px" height="75px" src="http://www.tipsandtricks-hq.com/wp-content/uploads/icons/wordpress-icon-64-64.png" />
+								<ul data-role="listview" data-theme="d" data-inset="true">
+									<li>
+										<a href="http://www.ceciliathompsonart.com">
+										<img width="75px" height="75px" src="http://www.tipsandtricks-hq.com/wp-content/uploads/icons/wordpress-icon-64-64.png" />
+										<h3>CeciliaThompsonArt.com</h3>
+										<p class="ui-li-aside"><strong>1/1/2010</strong></p>
+										<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</div>
+						<div class="ui-block-b">
+							<li>
+								<img width="75px" height="75px" src="http://asset1.aws.sortfolio.com/listings/logos/13403_1319382177.large.png?1319382177" />
+								<ul data-role="listview" data-theme="d" data-inset="true">
+									<li>
+										<a href="http://www.seawaywebsites.com">
+										<img width="75px" height="75px" src="http://asset1.aws.sortfolio.com/listings/logos/13403_1319382177.large.png?1319382177" />
+										<h3>SeawayWebSites.com</h3>
+										<p class="ui-li-aside"><strong>1/1/2006</strong></p>
+										<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</div>
+						</div>	
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+							<li>	
+								<img width="75" height="75px" src="http://farm1.staticflickr.com/163/387546423_fe1235a17c_m.jpg"/>
+								<ul data-role="listview" data-theme="d" data-inset="true">
+									<li>
+										<a href="http://www.MonicaLamb.com/blog3">
+										<img width="75" height="75px" src="http://farm1.staticflickr.com/163/387546423_fe1235a17c_m.jpg"/>
+										<h3>Endangered Language ChatBot</h3>
+										<p class="ui-li-aside"><strong>1/1/1997</strong></p>
+										<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</div>
+						
+						<div class="ui-block-b">
+							<li>
+								<img width="75px" height="75px" src="http://farm1.staticflickr.com/122/buddyicons/46658372@N00.jpg?1162501478" />
+									<ul data-role="listview" data-theme="d" data-inset="true">
+										<li>
+											<a href="http://www.monicalamb.com/blog3">
+											<img width="75px" height="75px" src="http://farm1.staticflickr.com/122/buddyicons/46658372@N00.jpg?1162501478" />
+											<h3>MonicaLamb.com</h3>
+											<p class="ui-li-aside"><strong>1/1/1996</strong></p>
+											<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+											</a>
+										</li>
+									</ul>
+							</li>
+						</div>
+					</div>
+					</ul><!--/ONE WINDOW DRILLDOWN-->
+				</center>
+			</section><!--/news stream-->
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
@@ -261,7 +328,7 @@
 				<ul>
 					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="plus" data-add-back-btn="true"/>Home</a></li>
 					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
-					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
+					<li><a href="#info" id="info" class="ui-btn-active" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
 				</ul>
 			</div>
 		</div>

@@ -1,10 +1,10 @@
 //
 //    Full Sail University
-//    Visual Frameworks
+//    Mobile Interfaces & Usability
 //    Monica Peters
-//    Web App Part 4
-//    Week 4 Project 4
-//    Due Thursday Feb. 23rd 2012
+//    Web App Part 2
+//    Week 2 Project 2
+//    Due Thursday March 8th 2012
 //    main.js
 
 // Wait until DOM is ready
@@ -69,8 +69,8 @@ window.addEventListener("DOMContentLoaded", function()
 				noDollarSign("projectForm").style.display = "block";
 				noDollarSign("clear").style.display = "inline";
 				noDollarSign("displayLink").style.display = "inline";
-				noDollarSign("addNew").style.display = "none";
-				noDollarSign("items").style.display = "none";
+				noDollarSign("addNew").style.display = "inline";
+				noDollarSign("items").style.display = "inline";
 				break;
 			default:
 				return false;
@@ -168,9 +168,11 @@ window.addEventListener("DOMContentLoaded", function()
 		//jqmobile list view
 		//http://jquerymobile.com/demos/1.0.1/docs/lists/lists-themes.html
 		var makeList = document.createElement("ul");
+		makeList.setAttribute("id", "one");
 		makeList.setAttribute("data-role", "listview");
-		makeList.setAttribute("data-inset", "true");
+
 		makeList.setAttribute("data-theme", "a");
+		makeList.setAttribute("data-filter", "true");
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
@@ -181,13 +183,16 @@ window.addEventListener("DOMContentLoaded", function()
 			//CHANGE TO JQUERYMOBILE GRID VIEW
 			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
 			var makeli = document.createElement("li");
+			makeli.setAttribute("id", "two");
 			var linksLi = document.createElement("li");
+			linksLi.setAttribute("id", "three");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//convert string back to object so it won't be one long string
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
+			makeSubList.setAttribute("id", "four");
 			makeSubList.setAttribute("data-role", "listview");
 			makeSubList.setAttribute("data-inset", "true");
 			makeSubList.setAttribute("data-split-theme", "a");
@@ -203,6 +208,7 @@ window.addEventListener("DOMContentLoaded", function()
 			for(var n in obj)
 			{
 				var makeSubli = document.createElement("li");
+				makeSubli.setAttribute("id", "five");
 				makeSubList.appendChild(makeSubli);
 				//0 is label, 1 is the value
 				var optSubText = obj[n][0] + " " + obj[n][1];
