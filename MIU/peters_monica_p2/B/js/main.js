@@ -2,9 +2,9 @@
 //    Full Sail University
 //    Visual Frameworks
 //    Monica Peters
-//    Web App Part 2
-//    Week 2 Project 2
-//    Due Thursday March 8th 2012
+//    Web App Part 4
+//    Week 4 Project 4
+//    Due Thursday Feb. 23rd 2012
 //    main.js
 
 // Wait until DOM is ready
@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", function()
 {
 
 	// getElementById Function
-	function momo(x)
+	function noDollarSign(x)
 	{
 		var theElement = document.getElementById(x);
 		return theElement;
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		//formTag is an array of all form tags
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = momo("select"),
+			selectLi = noDollarSign("select"),
 			makeSelect = document.createElement("select");
 			makeSelect.setAttribute("id", "mtype");
 		//populate with options
@@ -60,17 +60,17 @@ window.addEventListener("DOMContentLoaded", function()
 		switch(n)
 		{
 			case "on":
-				momo("projectForm").style.display = "none";
-				momo("clear").style.display = "inline";
-				momo("displayLink").style.display = "none";
-				momo("addNew").style.display = "inline";
+				noDollarSign("projectForm").style.display = "none";
+				noDollarSign("clear").style.display = "inline";
+				noDollarSign("displayLink").style.display = "none";
+				noDollarSign("addNew").style.display = "inline";
 				break;
 			case "off":
-				momo("projectForm").style.display = "block";
-				momo("clear").style.display = "inline";
-				momo("displayLink").style.display = "inline";
-				momo("addNew").style.display = "none";
-				momo("items").style.display = "none";
+				noDollarSign("projectForm").style.display = "block";
+				noDollarSign("clear").style.display = "inline";
+				noDollarSign("displayLink").style.display = "inline";
+				noDollarSign("addNew").style.display = "none";
+				noDollarSign("items").style.display = "none";
 				break;
 			default:
 				return false;
@@ -108,15 +108,15 @@ window.addEventListener("DOMContentLoaded", function()
 			//Gather up all our form field values and store in object.
 			//Object properties contain array with form label and input value
 			var item 			= {};
-				item.mtype 		= ["Project Type:",momo("mtype").value];
-				item.mgraphic   = ["Project Screenshot:",momo("mgraphic").value];
-				item.mname 		= ["Project Name:",momo("mname").value];
-				item.mdate  	= ["Project Date:",momo("mdate").value];
-				item.mrating 	= ["Project Rating:",momo("mrating").value];
+				item.mtype 		= ["Project Type:",noDollarSign("mtype").value];
+				item.mgraphic   = ["Project Screenshot:",noDollarSign("mgraphic").value];
+				item.mname 		= ["Project Name:",noDollarSign("mname").value];
+				item.mdate  	= ["Project Date:",noDollarSign("mdate").value];
+				item.mrating 	= ["Project Rating:",noDollarSign("mrating").value];
 				//radio button
 				item.mtopics 	= ["Project Incentive:",mtopicsValue];
-				item.mtags		= ["Project Tags:",momo("mtags").value];
-				item.mcomments	= ["Project Notes:",momo("mcomments").value];
+				item.mtags		= ["Project Tags:",noDollarSign("mtags").value];
+				item.mcomments	= ["Project Notes:",noDollarSign("mcomments").value];
 			//Save Data to Local Storage: Use Stringify to convert our object to a string
 			//json.org
 			localStorage.setItem(id, JSON.stringify(item));
@@ -148,51 +148,72 @@ window.addEventListener("DOMContentLoaded", function()
 			autoFillData();
 		}
 		
+		//TODO
+		//add escape hatch / Back Button at top of list
+		//because jqmobile puts list on its own page
+		/*
+		var makePageTop = document.createElement("a");
+		makePageTop.setAttribute("href","additem.html");
+		makePageTop.setAttribute("data-direction","reverse");
+		makePageTop.setAttribute("data-role","button");
+		makePagetop.setAttribute("data-theme","e");
+		*/
+		
 		//Write Data from Local Storage to the Browswer.
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
-		makeDiv.setAttribute("data-role", "content");
-		makeDiv.setAttribute("data-add-back-btn", "true");
+		
+		//make this work with jqmobile
+		makeDiv.setAttribute("data-role", "page");
+		//jqmobile list view
+		//http://jquerymobile.com/demos/1.0.1/docs/lists/lists-themes.html
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
-		makeList.setAttribute("data-theme", "d");
 		makeList.setAttribute("data-inset", "true");
-		makeList.setAttribute("data-filter", "true");
+		makeList.setAttribute("data-theme", "d");
+		makeList.setAttribute("data-split-theme", "d");
+		makeList.setAttribute("data-divider-theme", "e");
+		makeList.setAttribute("data-icon","html5.jpg");
+		//makeList.setAttribute("data-filtertext", "ios");
+		makeList.setAttribute("class","ui-li-icon");
 		
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		momo("items").style.display = "black";
+		noDollarSign("items").style.display = "black";
 		
 		for(var i=0, len=localStorage.length; i<len; i++)
 		{
 			//CHANGE TO JQUERYMOBILE GRID VIEW
 			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
 			var makeli = document.createElement("li");
-			makeli.setAttribute("id", "one");
-			var linksLi = document.createElement("div");
-			linksLi.setAttribute("id", "two");
+			var linksLi = document.createElement("li");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//convert string back to object so it won't be one long string
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement("p");
+			var makeSubList = document.createElement("ul");
+			makeSubList.setAttribute("data-role", "listview");
+			makeSubList.setAttribute("data-inset", "true");
+			makeSubList.setAttribute("data-split-theme", "d");
+			makeSubList.setAttribute("data-divider-theme", "d");
+			var makeSubListSeparator = document.createElement("hr");
 			makeli.appendChild(makeSubList);
-
+			makeli.appendChild(makeSubListSeparator);
+			//Add Icon for each Project Type
+			getImage(obj.mtype[1], makeSubList);
 			//Add Graphic for each Project Name
 			getProjectGraphic(obj.mgraphic[1], makeSubList);
 			
 			for(var n in obj)
 			{
-				var makeSubli = document.createElement("div");
+				var makeSubli = document.createElement("li");
 				makeSubList.appendChild(makeSubli);
 				//0 is label, 1 is the value
 				var optSubText = obj[n][0] + " " + obj[n][1];
 				makeSubli.innerHTML = optSubText;
 				makeSubli.appendChild(linksLi);
 			}
-			//Add Icon for each Project Type
-			getImage(obj.mtype[1], makeSubList);
 			//add edit and delete button from function
 			//for each item in local storage.
 			makeItemLinks(localStorage.key(i), linksLi);
@@ -202,8 +223,7 @@ window.addEventListener("DOMContentLoaded", function()
 	//Get icon for the relevant project type displayed
 	function getImage(mediaType, makeSubList)
 	{
-		var imageLi = document.createElement("div");
-		imageLi.setAttribute("align", "left");
+		var imageLi = document.createElement("li");
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", "images/" + mediaType + ".jpg");
@@ -214,8 +234,7 @@ window.addEventListener("DOMContentLoaded", function()
 	//Get graphic url for project.
 	function getProjectGraphic(projectName, makeSubList)
 	{
-		var projectGraphicLi = document.createElement("div");
-		projectGraphicLi.setAttribute("align", "right");
+		var projectGraphicLi = document.createElement("li");
 		makeSubList.appendChild(projectGraphicLi);
 		var newImg = document.createElement("img");
 		var setSrc = newImg.setAttribute("src", projectName);
@@ -270,11 +289,11 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//populate form fields with current local storage values
 		//1 is value, 0 is label
-		momo("mtype").value = item.mtype[1];
-		momo("mgraphic").value = item.mgraphic[1];
-		momo("mname").value = item.mname[1];
-		momo("mdate").value = item.mdate[1];
-		momo("mrating").value = item.mrating[1];
+		noDollarSign("mtype").value = item.mtype[1];
+		noDollarSign("mgraphic").value = item.mgraphic[1];
+		noDollarSign("mname").value = item.mname[1];
+		noDollarSign("mdate").value = item.mdate[1];
+		noDollarSign("mrating").value = item.mrating[1];
 		// handle radio buttons
 		var radios = document.forms[0].mtopics;
 		for(var i=0; i<radios.length; i++)
@@ -294,17 +313,17 @@ window.addEventListener("DOMContentLoaded", function()
 		// handle yes / no check box
 		if(obj.favorite(1) == "Yes")
 		{
-			momo("fav").setAttributes("checked", "checked");
+			noDollarSign("fav").setAttributes("checked", "checked");
 		}
 		*/
-		momo("mtags").value = item.mtags[1];
-		momo("mcomments").value = item.mcomments[1];
+		noDollarSign("mtags").value = item.mtags[1];
+		noDollarSign("mcomments").value = item.mcomments[1];
 		
 		// Remove the initial listener from the input 'save project' button
 		save.removeEventListener("click", saveMedia);
 		// Change Submit button value to day Edit Button
-		momo("submit").value = "Edit Project";
-		var editSubmit = momo("submit");
+		noDollarSign("submit").value = "Edit Project";
+		var editSubmit = noDollarSign("submit");
 		// Save the key value established in this Function as a property of the editSubmit event
 		// so we can use the value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
@@ -346,9 +365,9 @@ window.addEventListener("DOMContentLoaded", function()
 	function validate(e)
 	{
 		//Define elements we want to check
-		var getMtype = momo("mtype");
-		var getMname = momo("mname");
-		var getMdate = momo("mdate");
+		var getMtype = noDollarSign("mtype");
+		var getMname = noDollarSign("mname");
+		var getMdate = noDollarSign("mdate");
 		
 		//Reset error messages
 		errMsg.innerHTML = "";
@@ -406,16 +425,16 @@ window.addEventListener("DOMContentLoaded", function()
 	// store values of dropdown in array
 	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],
 		mtopicValue,
-		errMsg = momo("errors");
+		errMsg = noDollarSign("errors");
 		
 	makeMediaTypes();
 	
 	// Set Link & Submit Click Events
-	var displayLink = momo("displayLink");
+	var displayLink = noDollarSign("displayLink");
 	displayLink.addEventListener("click", getData);
-	var clearLink = momo("clear");
+	var clearLink = noDollarSign("clear");
 	clearLink.addEventListener("click", clearLocal);
-	var save = momo("submit");
+	var save = noDollarSign("submit");
 	//save.addEventListener("click", saveMedia);
 	save.addEventListener("click", validate);
 });
