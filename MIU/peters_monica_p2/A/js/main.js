@@ -153,9 +153,7 @@ window.addEventListener("DOMContentLoaded", function()
 			autoFillData();
 		}
 		
-		//Write Data from Local Storage to the Browswer.
-		//add space before data filter
-		//add space after data filter
+		//Write Data from Local Storage to the Browser.
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
 		makeDiv.setAttribute("data-role", "content");
@@ -172,10 +170,7 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		for(var i=0, len=localStorage.length; i<len; i++)
 		{
-			//CHANGE TO JQUERYMOBILE GRID VIEW
-			//http://jquerymobile.com/demos/1.1.0-rc.1/docs/content/content-grids.html
 			var makeli = document.createElement("li");
-			makeli.setAttribute("data-inset", "true");
 			var linksLi = document.createElement("p");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
@@ -237,10 +232,6 @@ window.addEventListener("DOMContentLoaded", function()
 	//Create Edit and Delete links for each stored item when displayed
 	function makeItemLinks(key, linksLi)
 	{
-		//create line break to create space 
-		//around elements
-		var breakTag = document.createElement("br");
-		
 		//add edit single item link
 		var editLink = document.createElement("a");
 		editLink.href = "#";
