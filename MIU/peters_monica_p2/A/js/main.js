@@ -2,9 +2,9 @@
 //    Full Sail University
 //    Visual Frameworks
 //    Monica Peters
-//    Web App Part 4
-//    Week 4 Project 4
-//    Due Thursday Feb. 23rd 2012
+//    Web App Part 2
+//    Week 2 Project 2
+//    Due Thursday March 8th 2012
 //    main.js
 
 // Wait until DOM is ready
@@ -152,6 +152,7 @@ window.addEventListener("DOMContentLoaded", function()
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id","items");
 		makeDiv.setAttribute("data-role", "content");
+		makeDiv.setAttribute("data-add-back-btn", "true");
 		var makeList = document.createElement("ul");
 		makeList.setAttribute("data-role", "listview");
 		makeList.setAttribute("data-theme", "d");
@@ -178,8 +179,6 @@ window.addEventListener("DOMContentLoaded", function()
 			var makeSubList = document.createElement("p");
 			makeli.appendChild(makeSubList);
 
-			//Add Icon for each Project Type
-			getImage(obj.mtype[1], makeSubList);
 			//Add Graphic for each Project Name
 			getProjectGraphic(obj.mgraphic[1], makeSubList);
 			
@@ -192,6 +191,8 @@ window.addEventListener("DOMContentLoaded", function()
 				makeSubli.innerHTML = optSubText;
 				makeSubli.appendChild(linksLi);
 			}
+			//Add Icon for each Project Type
+			getImage(obj.mtype[1], makeSubList);
 			//add edit and delete button from function
 			//for each item in local storage.
 			makeItemLinks(localStorage.key(i), linksLi);
