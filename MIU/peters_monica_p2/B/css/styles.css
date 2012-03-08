@@ -25,7 +25,8 @@ article, aside, figure, footer, header, hgroup, nav, section {
 }
 
 body { 
-	font-family: Verdana, Arial, Helvetica, san-serif;
+	/*font-family: Verdana, Arial, Helvetica, san-serif;*/
+	font-family: "freight-sans-pro",Baskerville,Palatino,"Book Antiqua",serif;
 	font-size: 12px;
 	width: 95%;
 	height: 95%;
