@@ -1,0 +1,247 @@
+/*
+    Full Sail University
+    Mobile Interfaces and Usability
+    Monica Peters
+    Web App Project 1
+    Week 1 Project 1
+    Due Thursday March 1st 2012
+    styles.css
+*/
+
+/*
+	project type icons are 35 x 35
+	project screenshots are 75 x 75
+	Vertical Stack Design Concept
+	with JQuery Mobile
+	Feature: top center
+	Search:  middle top center
+	Browse:  center bottom
+*/
+
+
+/* add multiple browser support */
+article, aside, figure, footer, header, hgroup, nav, section {
+	display:block;
+}
+
+body { 
+	/*font-family: Verdana, Arial, Helvetica, san-serif;*/
+	font-family: "freight-sans-pro",Baskerville,Palatino,"Book Antiqua",serif;
+	font-size: 12px;
+	width: 95%;
+	height: 95%;
+	margin: 0 0 15px 15px 0;
+	padding: 10px;
+	overflow: scroll;
+} 
+
+
+/*LAYOUT*/
+
+section { 
+	display: block;
+} 
+
+header { 
+	text-align: center;
+} 
+
+nav { 
+	display: block;
+} 
+
+footer { 
+	display: block;
+} 
+
+article { 
+	display: inline;
+} 
+
+div#items {
+	font-family: san-serif;
+	display: block;
+	width: auto;
+	height: auto;
+	margin: auto;
+	padding: 5px;
+	outline: dashed;
+	color: navy;
+	font-weight: normal;
+	line-height: 1.2em;
+	text-transform: lowercase;
+	background-color: #ffffff;
+}
+
+
+small#header {
+	position: relative;
+	top: 33px;
+	left: 30px;
+	z-index: 3;
+}
+
+/* Feature at Center Stage with CTA */
+article#feature {
+	position:relative;
+	width: 170px;
+	height: 75px;
+	top: 70px;
+	left: 140px;
+	z-index:9;
+	display: block;
+	text-decoration: none;
+	border: 5px double;
+	color: #ffffff;
+	background-color: #cccccc;
+	text-align: center;
+	font-size: 28px;
+	margin: 5px 5px 9px 5px;
+	padding: 15px 15px;
+}
+
+/* Search at Top Left */
+nav#searchProjects {
+	position: absolute;
+	top: 3px;
+	right: 7px;
+	z-index: 1;
+}
+
+/* Browse at Top Right */
+section#browse {
+	position: absolute;
+	top: 90px;
+	left: 7px;
+	z-index: 4;
+}
+
+section#topNav {
+	position: absolute;
+	top: 70px;
+	left: 140px;
+}
+
+
+/*LINKS*/
+
+a { 
+	outline: none;
+	text-decoration: none;
+	color: navy;
+} 
+
+/*pseudoclass*/
+a:hover {
+	outline: 1px dotted blue;
+	text-decoration: underline;
+}
+
+
+/*TYPOGRAPHY*/
+
+h1 { 
+	/* Parisienne imported from google fonts http://www.google.com/webfonts */
+	font-family: Parisienne;
+	font-size: 37px;
+	margin: 3px;
+	padding: 5px;
+	border: 1px navy;
+	width: 55%;
+	text-align: left;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 0;
+} 
+
+p { 
+	color: #000000;
+	font: italic small-caps normal 12px/1.2em Verdana;
+	letter-spacing: .02em;
+	text-align: center;
+	/* negative to left. positive to right*/
+	/*text-indent: -600px;*/
+	text-transform: lowercase;
+} 
+
+
+/*FORMS*/
+
+legend { 
+	text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+} 
+
+/* rounded box */
+fieldset { 
+	display: block;
+	text-decoration: none;
+	border: 5px double;
+	color: #000000;
+	background-color: #cccccc;
+	text-align: left;
+	font-size: 14px;
+	margin: 5px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+	position: relative;
+	top: 75px;
+	left: 140px;
+	width: 270px;
+} 
+
+label { 
+	display: inline;
+	/*border: 1px solid blue;*/
+} 
+
+input[type=submit] { 
+	color: #ffffff;
+	background-color: navy;
+	-moz-border-radius: 35%;
+	border-radius: 35%;
+} 
+
+/*LISTS*/
+
+div#items {
+	display: block;
+	color: #000000;
+	background-color: #ffffff;
+	font-size: 12px;
+	position: absolute;
+	top: 100px;
+	left: 140px;
+	width: 300px;
+	margin: 3px 3px 3px 1px;
+	padding: 3px 3px 3px 1px;
+	z-index: 0;
+	text-align:left;
+}
+
+.projectIconAlign {
+	display:inline;
+	float:right;
+	width: 35px;
+	height: 35px;
+	margin: 3px 3px 3px 3px;
+}
+
+.projectScreenshotAlign {
+	float:left;
+	width: 75px;
+	height: 75px;
+	margin: 3px 3px 3px 3px;
+}
+
+
+#errors { 
+	color: #000000;
+	background-color: orange;
+	text-decoration: none;
+	display: block;
+} 
+
+li { 
+	
+	display: block;
+} 
