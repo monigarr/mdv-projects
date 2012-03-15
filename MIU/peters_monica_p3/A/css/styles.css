@@ -38,13 +38,14 @@ li {
 }
 
 div #cancel {
-	font-size: small;
+	/*font-size: small;
 	font-variant: small-caps;
 	font-weight: normal;
 	text-decoration: none;
 	margin 0;
 	position: relative;
 	text-align: center;
+	*/
 }
 
 div,a#footer {
@@ -54,9 +55,10 @@ div,a#footer {
 }
 
 div #submit {
-	width: 85px;
+	/*width: 85px;
 	height: 25px;
 	margin: 0 0;
 	position: relative;
 	font-size: 15px;
+	*/
 }
