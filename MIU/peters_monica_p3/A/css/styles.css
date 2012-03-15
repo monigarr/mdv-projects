@@ -44,6 +44,13 @@ div #cancel {
 	text-decoration: none;
 	margin 0;
 	position: relative;
+	text-align: center;
+}
+
+div,a#footer {
+	font-size: small;
+	font-variant: small-cap;
+	text-decoration: none;
 }
 
 div #submit {
