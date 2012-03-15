@@ -6,11 +6,40 @@
 //    Week 3 Project 3
 //    Due Thursday March 15th 2012
 //    main.js
-
+	
+	//Week 3 MIU
+	var parseProjectForm = function(data)
+	{
+		// uses form data here;
+		console.log(data);
+	}
+	
+	$(document).ready(function()
+	{
+		var projectForm = $("#projectForm");
+		projectForm.validate(
+		{
+		//options to change behavior of validator
+			invalidHandler: function(form, validator)
+			{
+				//error messages
+				
+			},
+			submitHandler: function()
+			{
+				//when valid form is submitted
+				//store all data
+				//target form
+				var data = projectForm.serializeArray();
+				//call function & pass data in
+				parseProjectForm(data);
+			}
+		})
+	});
+	
 // Wait until DOM is ready
 window.addEventListener("DOMContentLoaded", function()
 {
-
 	// getElementById Function
 	function noDollarSign(x)
 	{
@@ -26,6 +55,9 @@ window.addEventListener("DOMContentLoaded", function()
 			selectLi = noDollarSign("select"),
 			makeSelect = document.createElement("select");
 			makeSelect.setAttribute("id", "mtype");
+			makeSelect.setAttribute("name", "mtype");
+			makeSelect.setAttribute("data-native-menu", "false");
+			makeSelect.setAttribute("class", "required");
 		//populate with options
 		for(var i=0, j=mediaGroups.length; i<j; i++) 
 		{
@@ -363,6 +395,7 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	}
 	
+	/*
 	function validate(e)
 	{
 		//Define elements we want to check
@@ -372,9 +405,9 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		//Reset error messages
 		errMsg.innerHTML = "";
-			getMtype.style.border = "1px solid black";
-			getMname.style.border = "1px solid black";
-			getMdate.style.border = "1px solid black";
+			getMtype.style.border = "1px solid #FFFF99";
+			getMname.style.border = "1px solid #FFFF99";
+			getMdate.style.border = "1px solid #FFFF99";
 		
 		//Get error messages
 		var messageAry = [];
@@ -382,23 +415,30 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		if(getMtype.value === "-- Choose Project Type--")
 		{
-			alert("Choose Project Type");
-			window.location.reload();
+			var MtypeError = "Choose Project Type";
+			getMtype.style.border = "1px solid #FFFF99";
+			messageAry.push(MtypeError);
+			
+			//alert("Choose Project Type");
+			//window.location.reload();
 		}
 		
 		// Project Name Validation
 		if(getMname.value === "")
 		{
-			alert("Enter Project Name");
-			window.location.reload();
+			var MnameError = "Enter Project Name.";
+			getMname.style.border = "1px solid #FFFF99";
+			messageAry.push(MnameError);
+			//alert("Enter Project Name");
+			//window.location.reload();
 		}
 		
 		// Project Date Validation
 		if(getMdate.value === "")
 		{
-			var mdateError = "Enter Project Date";
-			getMdate.style.border = "1px solid red";
-			messageAry.push(mdateError);
+			var MdateError = "Enter Project Date";
+			getMdate.style.border = "1px solid #FFFF99";
+			messageAry.push(MdateError);
 		}
 		
 		//if errors, show them on screen
@@ -412,8 +452,7 @@ window.addEventListener("DOMContentLoaded", function()
 			}
 			e.preventDefault();
 			return false;
-		}else
-		{
+		}else{
 			//If everything is good, save the data
 			//Send key value that came from editData function
 			//Remember key value was passed thru editSubmit even listener 
@@ -421,6 +460,8 @@ window.addEventListener("DOMContentLoaded", function()
 			saveMedia(this.key);
 		}
 	}
+	*/
+	
 	
 	// Variable defaults
 	// store values of dropdown in array
@@ -437,5 +478,5 @@ window.addEventListener("DOMContentLoaded", function()
 	clearLink.addEventListener("click", clearLocal);
 	var save = noDollarSign("submit");
 	//save.addEventListener("click", saveMedia);
-	save.addEventListener("click", validate);
+	//save.addEventListener("click", validate);
 });

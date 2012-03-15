@@ -47,10 +47,13 @@
 		
 		<!-- Mobile IE needs ClearType for smoothing fonts -->
 		<meta http-equiv="cleartype" content="on">
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />	
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
 		
 		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="js/libs/modernizr.custom.min.js"></script>
+		
+		<!-- Monica's custom style sheet-->
+		<link rel="stylesheet" href="css/styles.css" />
 	
 	</head>
 	</head>
@@ -100,23 +103,82 @@
 							<span><small>* fields required.</small><br /></span>
 						</center>
 							<ul id="media">
-								<li id="select"><label for="mtype">* Project Type:</label></li>
-								<li id="mediadate"><label for="mdate">* Project Date: </label><input type="date" id="mdate" placeholder="day/month/year" data-mini="true" /></li>
-								<li id="medianame"><label for="mname">* Project Name: </label><input type="text" id="mname" data-mini="true" /></li>
-								<li id="mediarating"><label for="mrating">Project Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating" data-mini="true" /></li>
-								<li id="mediatopics"><label for="mtopic">Project Incentive:</label> 
-									<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" /><label for="inspiration">Inspiration</label>
-									<input type="radio" value="school" id="school" name="mtopics" data-mini="true" /><label for="school">School</label>
-									<input type="radio" value="work" id="work" name="mtopics" data-mini="true" /><label for="work">Work</label><br /><br />
-								</li>
-								<li id="mediatags"><label for="mtags">Project Tags:</label><input type="text" id="mtags" data-mini="true" /></li>
-								<li id="mediagraphic"><label for="mgraphic">Project ScreenShot Url: 75x75</label><input type="text" id="mgraphic" data-mini="true" /></li>
-								<li id="mediacomments"><label for="mcomments">Project Case Study Notes:</label><textarea id="mcomments" data-mini="true" /></textarea></li>
-								<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" />
+								<div data-role="fieldcontain">
+									<li id="select">
+										<label for="mtype">* Project Type:</label>
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="mediadate">
+										<label for="mdate">* Project Date: </label>
+										<input type="date" id="mdate" data-mini="true" class="required" />
+										<br />
+										<div id="hint">day/month/year</div>
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="medianame"><label for="mname">* Project Name: </label>
+										<input type="text" id="mname" data-mini="true" class="required" />
+										<br />
+										<div id="hint">Short description.
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="mediarating"><label for="mrating">Project Rating: </label>
+										<input type="range" min="1" max="10" name="rating" value="5" id="mrating" data-mini="true"/>
+										<br />
+										<div id="hint">0 = Sad. 10 = Happy.</div>
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<fieldset data-role="controlgroup">
+										<li id="mediatopics">
+										<label for="mtopic">
+											<legend>Project Incentive:</legend>
+										</label> 
+											<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" />
+											<label for="inspiration">Inspiration</label>
+											
+											<input type="radio" value="school" id="school" name="mtopics" data-mini="true" />
+											<label for="school">School</label>
+											
+											<input type="radio" value="work" id="work" name="mtopics" data-mini="true" />
+											<label for="work">Work</label>
+											<br />
+											<div id="hint">Why did you do this Project?</div>
+										</li>
+									</fieldset>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="mediatags">
+										<label for="mtags">Project Tags:</label>
+										<input type="text" id="mtags" data-mini="true" />
+									<br />
+									<div id="hint">Keywords separated by a space.</div>
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="mediagraphic">
+										<label for="mgraphic">Project ScreenShot</label>
+										<input type="text" id="mgraphic" data-mini="true" />
+									<br />
+									<div id="hint">http://www.YourSite.com/images/graphic.gif</div>
+									<div id="hint">(75 width x 75 height)</div>
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="mediacomments">
+										<label for="mcomments">Project Case Study Notes:</label>
+										<textarea id="mcomments" data-mini="true" /></textarea>
+										<br />
+										<div id="hint">Outcomes, Deliverables, Expectations</div>
+									</li>
+									
+								</div>
 							</ul>
+						<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" />
 					</fieldset>
 				</form>
-				<br /><br />
 			</section>	
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -355,10 +417,16 @@
 		</div>
 	</div>	
 	
-	<script type="text/javascript" src="js/json.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<!--jquery and jquery mobile-->
+	<!--note that order of js is important below-->
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-		
+	<!--plugins-->
+	<script src="js/libs/jquery.validate.min.js"></script>
+
+	<!--custom js-->	
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
 	</body>
 </html>
