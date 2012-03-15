@@ -111,16 +111,16 @@
 								<div data-role="fieldcontain">
 									<li id="mediadate">
 										<label for="mdate">* Project Date: </label>
-										<input type="date" id="mdate" data-mini="true" class="required" />
+										<input type="date" id="mdate" class="required date" />
 										<br />
-										<div id="hint">day/month/year</div>
+										<div id="hint">mm/dd/yyyy</div>
 									</li>
 								</div>
 								<div data-role="fieldcontain">
 									<li id="medianame"><label for="mname">* Project Name: </label>
 										<input type="text" id="mname" data-mini="true" class="required" />
 										<br />
-										<div id="hint">Short description.
+										<div id="hint">Short description.</div>
 									</li>
 								</div>
 								<div data-role="fieldcontain">
@@ -136,7 +136,7 @@
 										<label for="mtopic">
 											<legend>Project Incentive:</legend>
 										</label> 
-											<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" />
+											<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" checked />
 											<label for="inspiration">Inspiration</label>
 											
 											<input type="radio" value="school" id="school" name="mtopics" data-mini="true" />
@@ -145,7 +145,7 @@
 											<input type="radio" value="work" id="work" name="mtopics" data-mini="true" />
 											<label for="work">Work</label>
 											<br />
-											<div id="hint">Why did you do this Project?</div>
+											<div id="hint">Why did you add this project?</div>
 										</li>
 									</fieldset>
 								</div>
@@ -160,7 +160,7 @@
 								<div data-role="fieldcontain">
 									<li id="mediagraphic">
 										<label for="mgraphic">Project ScreenShot</label>
-										<input type="text" id="mgraphic" data-mini="true" />
+										<input type="text" id="mgraphic" />
 									<br />
 									<div id="hint">http://www.YourSite.com/images/graphic.gif</div>
 									<div id="hint">(75 width x 75 height)</div>
@@ -173,10 +173,11 @@
 										<br />
 										<div id="hint">Outcomes, Deliverables, Expectations</div>
 									</li>
-									
 								</div>
 							</ul>
-						<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" />
+								<div data-role="fieldcontain">
+									<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" align="left" />
+								</div>
 					</fieldset>
 				</form>
 			</section>	

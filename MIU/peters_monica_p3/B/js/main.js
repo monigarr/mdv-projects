@@ -54,10 +54,10 @@ window.addEventListener("DOMContentLoaded", function()
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = noDollarSign("select"),
 			makeSelect = document.createElement("select");
+			makeSelect.setAttribute("class", "required");
 			makeSelect.setAttribute("id", "mtype");
 			makeSelect.setAttribute("name", "mtype");
 			makeSelect.setAttribute("data-native-menu", "false");
-			makeSelect.setAttribute("class", "required");
 		//populate with options
 		for(var i=0, j=mediaGroups.length; i<j; i++) 
 		{
@@ -395,7 +395,7 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	}
 	
-	/*
+	
 	function validate(e)
 	{
 		//Define elements we want to check
@@ -460,7 +460,6 @@ window.addEventListener("DOMContentLoaded", function()
 			saveMedia(this.key);
 		}
 	}
-	*/
 	
 	
 	// Variable defaults

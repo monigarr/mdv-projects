@@ -18,7 +18,9 @@
 	Browse:  center bottom
 */
 
-
+a:link {
+	text-decoration: none;
+}
 
 label.error{
 	/*default is inline*/
@@ -27,20 +29,25 @@ label.error{
 	color: #FFFF99;
 }
 
-#errors { 
-	color: #FFFF99;
-	background-color: orange;
-	text-decoration: none;
-	display: block;
-} 
-
-ul { 
-	
-	list-style-type: none;
-	margin: 3px 0;
-} 
-
 li {
 	list-style-type: none;
 	margin: 3px 0;
+}
+
+button#submit {
+	display: inline;
+	text-align: left;
+	width: 55px;
+	height: 25px;
+	margin: 3px 3px 3px 3px;
+}
+
+a#clear {
+	display: inline;
+	text-align: center;
+	font-size: small;
+	font-variant: small-caps;
+	font-weight: normal;
+	text-decoration: none;
+	width: 100%;
 }

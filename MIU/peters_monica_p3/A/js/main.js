@@ -361,15 +361,18 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		if(getMtype.value === "-- Choose Project Type--")
 		{
-			alert("Choose Project Type");
+			alert("Enter Project Type");
 			window.location.reload();
 		}
 		
 		// Project Name Validation
 		if(getMname.value === "")
 		{
-			alert("Enter Project Name");
-			window.location.reload();
+			var MnameError = "Enter Project Name.";
+			getMname.style.border = "1px solid #FFFF99";
+			messageAry.push(MnameError);
+			//alert("Enter Project Name");
+			//window.location.reload();
 		}
 		
 		// Project Date Validation
