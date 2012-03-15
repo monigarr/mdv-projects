@@ -402,6 +402,9 @@ window.addEventListener("DOMContentLoaded", function()
 		var getMtype = noDollarSign("mtype");
 		var getMname = noDollarSign("mname");
 		var getMdate = noDollarSign("mdate");
+		var getMday = noDollarSign("mday");
+		var getMmonth = noDollarSign("mmonth");
+		var getMyear = noDollarSign("myear");
 		
 		//Reset error messages
 		errMsg.innerHTML = "";
@@ -434,12 +437,38 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 		
 		// Project Date Validation
+		
 		if(getMdate.value === "")
 		{
 			var MdateError = "Enter Project Date";
 			getMdate.style.border = "1px solid #FFFF99";
 			messageAry.push(MdateError);
 		}
+		
+		// Project Day Validation
+		/*if(getMday.value === "")
+		{
+			var MdayError = "Enter Day";
+			getMday.style.border = "1px solid #FFFF99";
+			messageAry.push(MdayError);
+		}
+		
+		
+		if(getMmonth.value === "")
+		{
+			var MmonthError = "Enter Month";
+			getMmonth.style.border = "1px solid #FFFF99";
+			messageAry.push(MmonthError);
+		}
+		*/
+		
+		/*if(getMyear.value === "")
+		{
+			var MyearError = "Enter Year";
+			getMyear.style.border = "1px solid #FFFF99";
+			messageAry.push(MyearError);
+		}
+		*/
 		
 		//if errors, show them on screen
 		if(messageAry.length >= 1)
