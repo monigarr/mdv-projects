@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+    
+    <!--
+    Full Sail University
+    Mobile Interfaces and Usability
+    Monica Peters
+    Week 3 Project 3
+    Due Thursday March 15th 2012
+    
+    additem.html
+    
+    Goal 1: Apply the elements of a given design pattern to an interface.
+    Goal 2: Justify the choices made in implementing a design pattern, 
+            including giving options not pursued.
+	Goal 3: Upgrade Form with input hints, dropdown chooser input prompt
+		    good defaults, prominent DONE button, same page error messages,
+		    corresponding labels for each input, dropdowns have prefilled values,
+		    range slider viewable value, verify form loads correctly.
+    
+    Use:  Portfolio Manager for Web Developers that want
+          to show off their work from their mobile devices during 
+          job interviews, client consultations, and similar meetings.
+          
+	Benefit:	localStorage so internet connection is not required.
+				client locations with crappy or zero internet service
+				can still view portfolio and inspiration.
+    -->
+    
+<html lang="en">
+	<head>
+		<title>ShowOff! v1.0</title>
+		<meta type="charset" content = "utf-8" />
+		<meta type="robots" content="index,follow" />
+		<meta type="description" content="Manage your personal media library" />
+		<meta type="keywords" content = "media library, add media, monica peters, vfw" />
+		<!--comment out when using jquery mobile -->
+		<meta type="viewport" content="user-scalable=yes, width=device-width" />
+		<link rel="stylesheet" href="css/styles.css" type="text/css" />
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+	</head>
+	</head>
+	<body>
+	<div data-role="page" id="additem" data-theme="d" data-add-back-btn="true">
+		<div data-role="header">
+			<h1><center><a href="index.html" class="logoAlign">ShowOff!</a></center></h1>
+			<small><center>Show off your projects. (a)</center></small>	
+		</div>
+		<div data-role="content">
+			<section id="addNew">
+				<center><h2>Add New Project</h2></center>
+			</section>
+			<section id="nav">
+				<center>
+				<br /><br />
+				<a href="additem.html" id="addNew" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="plus" data-inline="true" data-theme="e" style="display:none;">Add New Project</a>
+				<a href="#items" id="displayLink" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="grid" data-inline="true" data-theme="e">Show All Projects</a>
+				<a href="#clear" id="clear" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="delete" data-inline="true" data-theme="e">Delete All Projects</a>
+				<br /><br />
+				</center>
+			</section>
+			<section id="errors"></section>
+			<section id="feature">
+				<form action="#" method="post" id="projectForm">
+					<fieldset id="mediaFieldSet">
+						<center>
+							<span><small>* fields required.</small><br /></span>
+						</center>
+							<ul id="media">
+								<section id="select">
+									<li id="select">
+										<label for="mtype">Project Type</label>
+										<div id="hint">Required: Makes future searches faster</div>
+									</li>
+								</section>
+								<br />
+								<section id="mdate">
+									<li id="mdate">
+										<label for="mdate">Project Date</label>
+										<br />
+										<input type="date" id="mdate" placeholder="Project Date mm/dd/yyyy" />
+										<div id="hint">Required: 12/30/2012</div>
+									</li>
+								</section>
+								<br />
+								<section id="mname">
+									<li id="mname">
+										<label for="mname">Project Name</label>
+										<br />
+										<input type="text" id="mname" placeholder="* Project Name"  />
+										<div id="hint">Required: Short meaningful description</div>
+									</li>
+								</section>
+								<br />
+								<section id="mediarating">
+									<li id="mediarating">
+										<label for="mrating">Project Rating:</label>
+										<br />
+										<input type="range" min="1" max="10" name="rating" value="5" id="mrating" />
+										<div id="hint">0 = Crap. 10 = Awesome</div>
+									</li>
+								</section>
+								<br />
+								<section id="mediatopics">
+									<li id="mediatopics">
+										<label for="mtopic">Project Incentive:</label>
+											<br />
+											<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" />
+												<label for="inspiration">Inspiration</label>
+												<br />
+											<input type="radio" value="school" id="school" name="mtopics" data-mini="true" />
+												<label for="school">School</label>
+												<br />
+											<input type="radio" value="work" id="work" name="mtopics" data-mini="true" />
+												<label for="work">Work</label>
+												<br />
+											<div id="hint">Why are you adding this project?</div>
+									</li>
+								</section>
+								<br />
+								<section id="mediatags">
+									<li id="mediatags">
+										<label for="mtags">Project Tags</label>
+										<br />
+										<input type="text" id="mtags" placeholder="Project Tags"  />
+										<div id="hint">Keywords separated by space</div>
+									</li>
+								</section>
+								<br />
+								<section id="mediagraphic">
+									<li id="mediagraphic">
+										<label for="mgraphic">Project Screenshot</label>
+										<br />
+										<input type="text" id="mgraphic" placeholder="Project Screenshot 75 width x 75 height"  />
+										<div id="hint">http://www.YourSite.com/yourgraphic.jpg</div>
+									</li>
+								</section>
+								<br />
+								<section id="mediacomments">
+									<li id="mediacomments">
+										<label for="mcomments">Case Study</label>
+										<br />
+										<textarea id="mcomments" placeholder="Project Case Study Notes" /></textarea>
+										<div id="hint">Objectives, outcomes, deliverables, and expectations</div>
+									</li>
+								</section>
+								<br />
+								<section id="submit">
+									<div id="submit">
+										<input type="submit" data-theme="e" value="Save Project" id="submit" />
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" id="cancel">cancel</a>
+									</div>
+								</section>
+							</ul>
+					</fieldset>
+				</form>
+				<br /><br />
+			</section>	
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#browse"  id="browse" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true">Browse</a></li>
+					<li><a href="#newest" id="newest" rel="internal" data-ajax="true" data-inline="true" data-icon="star" data-add-back-btn="true">Newest</a></li>
+					<li><a href="#info" id="info" rel="internal" data-ajax="true" data-inline="true" data-icon="info" data-add-back-btn="true">Info</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

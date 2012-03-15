@@ -1,0 +1,53 @@
+/*
+    Full Sail University
+    Mobile Interfaces and Usability
+    Monica Peters
+    Web App Project 1
+    Week 1 Project 1
+    Due Thursday March 1st 2012
+    styles.css
+*/
+
+/*
+	project type icons are 35 x 35
+	project screenshots are 75 x 75
+	Vertical Stack Design Concept
+	with JQuery Mobile
+	Feature: top center
+	Search:  middle top center
+	Browse:  center bottom
+*/
+
+a:link {
+	text-decoration: none;
+}
+
+label.error{
+	/*default is inline*/
+	display: block;
+	margin: 10px 0;
+	color: #FFFF99;
+}
+
+li {
+	list-style-type: none;
+	margin: 3px 0;
+}
+
+button#submit {
+	display: inline;
+	text-align: left;
+	width: 55px;
+	height: 25px;
+	margin: 3px 3px 3px 3px;
+}
+
+a#clear {
+	display: inline;
+	text-align: center;
+	font-size: small;
+	font-variant: small-caps;
+	font-weight: normal;
+	text-decoration: none;
+	width: 100%;
+}
