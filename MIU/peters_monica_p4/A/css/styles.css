@@ -22,14 +22,6 @@ body {
 	background-image:url('../images/deep_backgrounds/grid_bg.png');
 }
 
-#logoAlign{
-	position: fixed;
-	z-index: 1;
-	text-decoration: none;
-	font-size: 13px;
-	align: left;
-}
-
 a:link {
 	text-decoration: none;
 }
@@ -54,7 +46,7 @@ button#submit {
 	margin: 3px 3px 3px 3px;
 }
 
-a#clear {
+/*a#clear {
 	display: inline;
 	text-align: center;
 	font-size: 17px;
@@ -63,11 +55,8 @@ a#clear {
 	width: 100%;
 	color: #ff9933;
 	margin: 13px 13px 13px 13px;
-}	
-
-header {
-	align: left;
 }
+*/
 
 .ui-body {
 	/*background-image: url("../images/deep_backgrounds/grid_bg.png");*/
