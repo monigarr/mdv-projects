@@ -138,12 +138,12 @@ window.addEventListener("DOMContentLoaded", function()
 			var id = Math.floor(Math.random()*10000001);
 		}
 		
-		//Remove Weird Data that creates keys for file directories
+		/*//Remove Weird Data that creates keys for file directories
 		else if(key === "A-Z" || "a-z")
 		{
 			//delete weird data and move on
 			localStorage.removeItem(this.key);
-		}
+		}*/
 		else
 		{
 			//set the id to existing key we're editing
@@ -170,7 +170,6 @@ window.addEventListener("DOMContentLoaded", function()
 			//Save Data to Local Storage: Use Stringify to convert our object to a string
 			//json.org
 			localStorage.setItem(id, JSON.stringify(item));
-			alert("Project Saved");
 	}
 	
 	//Auto Populate local storage

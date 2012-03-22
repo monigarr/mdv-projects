@@ -3,7 +3,7 @@
     Mobile Interfaces and Usability
     Monica Peters
     Web App Project 4 Week 4
-    A
+    B no jqmobile on form
     Due Thursday March 22nd 2012
     styles.css
 */
@@ -23,9 +23,11 @@ body {
 }
 
 #logoAlign{
-	position: absolute;
-	top: 7px;
-	left: 7px;
+	position: fixed;
+	z-index: 1;
+	text-decoration: none;
+	font-size: 13px;
+	align: left;
 }
 
 a:link {
@@ -55,20 +57,24 @@ button#submit {
 a#clear {
 	display: inline;
 	text-align: center;
-	font-size: 17px;
+	font-size: 25px;
 	font-variant: small-caps;
 	font-weight: bold;
 	width: 100%;
-	color: #ff9933;
+	color: yellow;
 	margin: 13px 13px 13px 13px;
 }	
+
+header {
+	align: left;
+}
 
 .ui-body {
 	/*background-image: url("../images/deep_backgrounds/grid_bg.png");*/
 }
 
 .ui-page {
-    background-image: url("../images/deep_backgrounds/grid_bg.png");
+    background-image: url("../images/deep_backgrounds/glass_prism VintageFabricReq08.jpg");
 }
 
 .ui-icon-showoff-home {
