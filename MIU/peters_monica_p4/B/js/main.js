@@ -88,6 +88,7 @@ window.addEventListener("DOMContentLoaded", function()
 	//Turn nav links off / on
 	function toggleControls(n)
 	{
+		/*comment out because its messing with my form
 		switch(n)
 		{
 			case "on":
@@ -106,6 +107,7 @@ window.addEventListener("DOMContentLoaded", function()
 			default:
 				return false;
 		}
+		*/
 	}
 	
 	function saveMedia(key)
@@ -426,7 +428,8 @@ window.addEventListener("DOMContentLoaded", function()
 			}
 			e.preventDefault();
 			return false;
-		}else
+		}
+		else
 		{
 			//If everything is good, save the data
 			//Send key value that came from editData function

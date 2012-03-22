@@ -22,6 +22,10 @@ body {
 	background-image:url('images/deep_backgrounds/glass_prismVintageFabricReq02.jpg');
 }
 
+h1 {
+	color: yellow;
+}
+
 #logoAlign{
 	position: fixed;
 	z-index: 1;
@@ -29,9 +33,13 @@ body {
 	font-size: 13px;
 	align: left;
 }
+a:h1 {
+	color: yellow;
+}
 
 a:link {
 	text-decoration: none;
+	color: yellow;
 }
 
 label.error{
@@ -75,36 +83,4 @@ header {
 
 .ui-page {
     background-image: url("../images/deep_backgrounds/glass_prism VintageFabricReq08.jpg");
-}
-
-.ui-icon-showoff-home {
-	background-image: url("home.png");
-}
-
-.ui-icon-showoff-info {
-	background-image: url("info.png");	
-}
-
-.ui-icon-showoff-add {
-	background-image: url("add.png");	
-}
-
-.ui-icon-showoff-search {
-	background-image: url("search.png");	
-}
-
-.ui-icon-showoff-browse {
-	background-image: url("browse.png");	
-}
-
-.ui-icon-showoff-news {
-	background-image: url("news.png");	
-}
-
-.ui-icon-showoff-edit {
-	background-image: url("edit.png");	
-}
-
-.ui-icon-showoff-delete {
-	background-image: url("delete.png");	
 }
