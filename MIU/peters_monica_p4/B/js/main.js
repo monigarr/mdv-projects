@@ -3,6 +3,7 @@
 //    Mobile Interfaces & Usability
 //    Monica Peters
 //    Mobile Web App Part 4
+//    A
 //    Week 4 Project 4
 //    Due Thursday March 22nd 2012
 //    main.js
@@ -52,7 +53,7 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		//formTag is an array of all form tags
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = noDollarSign("select"),
+			selectLi = noDollarSign("mtype"),
 			makeSelect = document.createElement("select");
 			makeSelect.setAttribute("class", "required");
 			makeSelect.setAttribute("id", "mtype");
@@ -136,6 +137,7 @@ window.addEventListener("DOMContentLoaded", function()
 			//alert(localStorage.key(0));
 			var id = Math.floor(Math.random()*10000001);
 		}
+		
 		//Remove Weird Data that creates keys for file directories
 		else if(key === "A-Z" || "a-z")
 		{
@@ -330,15 +332,14 @@ window.addEventListener("DOMContentLoaded", function()
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
 		
-		//show form to edit iem
-		toggleControls("off");
+		//show form to edit item
+		//toggleControls("off");
 		
 		//populate form fields with current local storage values
 		//1 is value, 0 is label
 		noDollarSign("mtype").value = item.mtype[1];
-		noDollarSign("mgraphic").value = item.mgraphic[1];
-		noDollarSign("mname").value = item.mname[1];
 		noDollarSign("mdate").value = item.mdate[1];
+		noDollarSign("mname").value = item.mname[1];
 		noDollarSign("mrating").value = item.mrating[1];
 		// handle radio buttons
 		var radios = document.forms[0].mtopics;
@@ -347,10 +348,12 @@ window.addEventListener("DOMContentLoaded", function()
 			if(radios(i).value === "school" && item.mtopics(1) === "school")
 			{
 				radios(i).setAttribute("checked", "checked");
-			}else if(radios(i).value === "work" && item.mtopics(1) === "work")
+			}
+			else if(radios(i).value === "work" && item.mtopics(1) === "work")
 			{
 				radios(i).setAttribute("checked", "checked");
-			}else if(radios(i).value === "inspiration" && item.mtopics(1) === "inspiration")
+			}
+			else if(radios(i).value === "inspiration" && item.mtopics(1) === "inspiration")
 			{
 				radios(i).setAttribute("checked", "checked");
 			}
@@ -363,13 +366,16 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 		*/
 		noDollarSign("mtags").value = item.mtags[1];
+		noDollarSign("mgraphic").value = item.mgraphic[1];
 		noDollarSign("mcomments").value = item.mcomments[1];
 		
 		// Remove the initial listener from the input 'save project' button
 		save.removeEventListener("click", saveMedia);
-		// Change Submit button value to day Edit Button
+		
+		// Change Submit button value to say Edit Button
 		noDollarSign("submit").value = "Edit Project";
 		var editSubmit = noDollarSign("submit");
+		
 		// Save the key value established in this Function as a property of the editSubmit event
 		// so we can use the value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
@@ -415,15 +421,12 @@ window.addEventListener("DOMContentLoaded", function()
 		var getMtype = noDollarSign("mtype");
 		var getMname = noDollarSign("mname");
 		var getMdate = noDollarSign("mdate");
-		var getMday = noDollarSign("mday");
-		var getMmonth = noDollarSign("mmonth");
-		var getMyear = noDollarSign("myear");
 		
 		//Reset error messages
 		errMsg.innerHTML = "";
-			getMtype.style.border = "1px solid #ffff00";
-			getMname.style.border = "1px solid #ffff00";
-			getMdate.style.border = "1px solid #ffff00";
+			getMtype.style.border = "1px solid yellow";
+			getMname.style.border = "1px solid yellow";
+			getMdate.style.border = "1px solid yellow";
 		
 		//Get error messages
 		var messageAry = [];
@@ -432,56 +435,25 @@ window.addEventListener("DOMContentLoaded", function()
 		if(getMtype.value === "-- Choose Project Type--")
 		{
 			var MtypeError = "Choose Project Type";
-			getMtype.style.border = "1px solid #ffff99";
+			getMtype.style.border = "1px solid yellow";
 			messageAry.push(MtypeError);
-			
-			//alert("Choose Project Type");
-			//window.location.reload();
 		}
 		
 		// Project Name Validation
 		if(getMname.value === "")
 		{
-			var MnameError = "Enter Project Name.";
-			getMname.style.border = "1px solid #ffff99";
+			var MnameError = "Enter Project Name";
+			getMname.style.border = "1px solid yellow";
 			messageAry.push(MnameError);
-			//alert("Enter Project Name");
-			//window.location.reload();
 		}
 		
 		// Project Date Validation
-		
 		if(getMdate.value === "")
 		{
 			var MdateError = "Enter Project Date";
-			getMdate.style.border = "1px solid #ffff99";
+			getMdate.style.border = "1px solid yellow";
 			messageAry.push(MdateError);
 		}
-		
-		// Project Day Validation
-		/*if(getMday.value === "")
-		{
-			var MdayError = "Enter Day";
-			getMday.style.border = "1px solid #FFFF99";
-			messageAry.push(MdayError);
-		}
-		
-		
-		if(getMmonth.value === "")
-		{
-			var MmonthError = "Enter Month";
-			getMmonth.style.border = "1px solid #FFFF99";
-			messageAry.push(MmonthError);
-		}
-		*/
-		
-		/*if(getMyear.value === "")
-		{
-			var MyearError = "Enter Year";
-			getMyear.style.border = "1px solid #FFFF99";
-			messageAry.push(MyearError);
-		}
-		*/
 		
 		//if errors, show them on screen
 		if(messageAry.length >= 1)
@@ -519,8 +491,6 @@ window.addEventListener("DOMContentLoaded", function()
 	var clearLink = noDollarSign("clear");
 	clearLink.addEventListener("click", clearLocal);
 	
-	var save = noDollarSign("submit");
-	
 	var displayIOSLink = noDollarSign("displayIOSLink");
 	displayIOSLink.addEventListener("click", getData);
 	
@@ -539,6 +509,8 @@ window.addEventListener("DOMContentLoaded", function()
 	var displayAuthorLink = noDollarSign("displayAuthorLink");
 	displayAuthorLink.addEventListener("click", getData);
 	
+	var save = noDollarSign("submit");
+	
 	//save.addEventListener("click", saveMedia);
-	//save.addEventListener("click", validate);
+	save.addEventListener("click", validate);
 });

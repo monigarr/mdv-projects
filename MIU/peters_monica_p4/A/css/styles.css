@@ -2,8 +2,8 @@
     Full Sail University
     Mobile Interfaces and Usability
     Monica Peters
-    Web App Project 4
-    Week 4 Project 4
+    Web App Project 4 Week 4
+    A
     Due Thursday March 22nd 2012
     styles.css
 */
@@ -23,9 +23,11 @@ body {
 }
 
 #logoAlign{
-	position: absolute;
-	top: 7px;
-	left: 7px;
+	position: fixed;
+	z-index: 1;
+	text-decoration: none;
+	font-size: 13px;
+	align: left;
 }
 
 a:link {
@@ -62,6 +64,10 @@ a#clear {
 	color: #ff9933;
 	margin: 13px 13px 13px 13px;
 }	
+
+header {
+	align: left;
+}
 
 .ui-body {
 	/*background-image: url("../images/deep_backgrounds/grid_bg.png");*/

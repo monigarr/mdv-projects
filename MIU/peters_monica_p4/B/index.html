@@ -5,6 +5,7 @@
     Mobile Interfaces and Usability
     Monica Peters
 	Week 4 Project 4
+	A
     Due Thursday March 22nd 2012
     
     additem.html
@@ -28,7 +29,7 @@
     
 <html lang="en">
 	<head>
-		<title>ShowOff! B</title>
+		<title>ShowOff! A</title>
 		<meta type="charset" content = "utf-8" />
 		<meta type="robots" content="index,follow" />
 		<meta type="description" content="Manage your personal media library" />
@@ -48,6 +49,8 @@
 		<!-- Mobile IE needs ClearType for smoothing fonts -->
 		<meta http-equiv="cleartype" content="on">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+			
+		<link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
 		
 		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="js/libs/modernizr.custom.min.js"></script>
@@ -63,142 +66,136 @@
 	<div data-role="page" id="home" data-theme="d" data-add-back-btn="true">
 		<div data-role="header">
 			<h1><a href="#home">ShowOff!</a></h1>
-			<small><center>Show off your projects. (b)</center></small>
-		</div>		
+			<small><center>Show off your projects. (a)</center></small>
+		</div><!--/header-->
 		<div data-role="content">	
 			<center>
 				<section id="feature">
 					<a href="#newest"><img src="images/feature_image_with_cta_wow_yay.png" width="120px" height="126px" border="0" /></a>
-				</section>
+				</section><!--/feature-->
 				<a href="#newest" id="newest" rel="internal" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-add-back-btn="true" data-theme="b" />What's New</a><br />
 				<a href="#additem" id="addNew" rel="internal" data-ajax="false" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" data-theme="b" />Add New</a><br />
 				<a href="#clear" id="clear" rel="internal" data-ajax="false" data-inline="true" data-rel="dialog" data-add-back-btn="true" />delete all</a>
 			</center>
-		</div>
+		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-role="button" data-add-back-btn="true" />Search</a></li>
-					<li><a href="#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-role="button" />Browse</a></li>					
+					<li><a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
-			</div>
-		</div>
-	</div>
+			</div><!--/navbar-->
+		</div><!--/footer-->
+	</div><!--/page /home-->
+	
 	<div data-role="page" id="additem" data-theme="d" data-add-back-btn="true">
 		<div data-role="header" data-theme="a">
 			<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-			<small><center>Show off your projects. (b)</center></small>	
-		</div>
+			<small><center>Show off your projects. (a)</center></small>	
+		</div><!--/header-->
 		<div data-role="content">
 			<section id="addNew">
 				<center><h2>Add New Project</h2></center>
-			</section>
-			<section id="errors"></section>
-			<section id="feature">
-				<form action="#feature" method="post" id="projectForm">
+			</section><!--/addNew-->
+			<section id="errors"></section><!--/errors-->
+			<form action="#feature" method="post" id="projectForm">
 					<fieldset id="mediaFieldSet">
-						<center>
-							<span><small>* fields required.</small><br /></span>
-						</center>
+						<center><span><small>* fields required.</small><br /></span></center>
 							<ul id="media">
 								<div data-role="fieldcontain">
-									<li id="select">
+									<li id="mtype">
 										<label for="mtype">* Project Type:</label>
 									</li>
 								</div>
 								<div data-role="fieldcontain">
-									<li id="mediadate">
+									<li id="mdate">
 										<label for="mdate">* Media Date: </label> 
-										<input type="date" id="mdate" type="date" class="required" />
-										<div id="hint">mm/dd/yyyy</div>
+										<input type="date" id="mdate" class="required" placeholder="10/01/1990" />
 									</li>
 								</div>
 								<div data-role="fieldcontain">
-									<li id="mname"><label for="mname">* Project Name: </label>
-										<input type="text" id="mname" class="required" />
-										<br />
-										<div id="hint">Short description.</div>
+									<li id="mname">
+										<label for="mname">* Project Name: </label>
+										<input type="text" id="mname" class="required" placeholder="Short description" />
 									</li>
 								</div>
-								<div data-role="fieldcontain">
-									<li id="mediarating"><label for="mrating">Project Rating: </label>
-										<input type="range" min="1" max="10" name="rating" value="5" id="mrating" data-mini="true"/>
-										<br />
-										<div id="hint">0 = Sad. 10 = Happy.</div>
-									</li>
-								</div>
-								<div data-role="fieldcontain">
-									<fieldset data-role="controlgroup">
-										<li id="mediatopics">
-										<label for="mtopic">
-											<legend>Project Incentive:</legend>
-										</label> 
-											<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" checked />
-											<label for="inspiration">Inspiration</label>
-											
-											<input type="radio" value="school" id="school" name="mtopics" data-mini="true" />
-											<label for="school">School</label>
-											
-											<input type="radio" value="work" id="work" name="mtopics" data-mini="true" />
-											<label for="work">Work</label>
-											<br />
-											<div id="hint">Why did you add this project?</div>
-										</li>
-									</fieldset>
-								</div>
-								<div data-role="fieldcontain">
-									<li id="mediatags">
-										<label for="mtags">Project Tags:</label>
-										<input type="text" id="mtags" data-mini="true" />
-									<br />
-									<div id="hint">Keywords separated by a space.</div>
-									</li>
-								</div>
-								<div data-role="fieldcontain">
-									<li id="mediagraphic">
-										<label for="mgraphic">Project ScreenShot</label>
-										<input type="text" id="mgraphic" />
-									<br />
-									<div id="hint">http://www.YourSite.com/images/graphic.gif</div>
-									<div id="hint">(75 width x 75 height)</div>
-									</li>
-								</div>
-								<div data-role="fieldcontain">
-									<li id="mediacomments">
-										<label for="mcomments">Project Case Study Notes:</label>
-										<textarea id="mcomments" data-mini="true" /></textarea>
-										<br />
-										<div id="hint">Outcomes, Deliverables, Expectations</div>
-									</li>
-								</div>
-							</ul>
+									<!--not required so fold up-->
+									<div data-role="collapsible">
+									<h3>Optional Details</h3>
+										<div data-role="fieldcontain">
+											<li id="mediarating"><label for="mrating">Project Rating: </label>
+												<input type="range" min="1" max="10" name="rating" value="5" id="mrating" data-mini="true"/>
+												<br />
+												<div id="hint">0 = Sad. 10 = Happy.</div>
+											</li>
+										</div>
+										<div data-role="fieldcontain">
+											<fieldset data-role="controlgroup">
+												<li id="mediatopics">
+												<label for="mtopic">
+													<legend>Project Incentive:</legend>
+												</label> 
+													<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" checked />
+													<label for="inspiration">Inspiration</label>
+													
+													<input type="radio" value="school" id="school" name="mtopics" data-mini="true" />
+													<label for="school">School</label>
+													
+													<input type="radio" value="work" id="work" name="mtopics" data-mini="true" />
+													<label for="work">Work</label>
+													<br />
+													<div id="hint">Why did you add this project?</div>
+												</li>
+											</fieldset>
+										</div>
+										<div data-role="fieldcontain">
+											<li id="mediatags">
+												<label for="mtags">Project Tags:</label>
+												<input type="text" id="mtags" placeholder="Keywords separated by a space." />
+											</li>
+										</div>
+										<div data-role="fieldcontain">
+											<li id="mediagraphic">
+												<label for="mgraphic">Project ScreenShot</label>
+												<input type="text" id="mgraphic" placeholder="http://YourSite.com/images/graphic.gif" />
+											</li>
+										</div>
+										<div data-role="fieldcontain">
+											<li id="mediacomments">
+												<label for="mcomments">Project Case Study Notes:</label>
+												<textarea id="mcomments" data-mini="true" placeholder="Outcomes, Deliverables, Expectations" /></textarea>
+											</li>
+										</div>
+									</div>
+									<!--/collapsible-->
+							</ul><!--/media-->
 								<div data-role="fieldcontain">
 									<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" align="left" />
-								</div>
-					</fieldset>
+								</div><!--/fieldcontain submit-->
+					</fieldset><!--/mediaFieldSet-->
 				</form>
-			</section>	
-		</div>
+		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" rel="internal" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true"/>Home</a></li>
 					<li><a href="#items" id="displayLink" class="ui-btn-active" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-role="button" data-add-back-btn="true" />Search</a></li>
-					<li><a href="#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-role="button" />Browse</a></li>					
+					<li><a href="#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
 				</ul>
-			</div>
-		</div>
-	</div>
+			</div><!--/navbar-->
+		</div><!--/footer-->
+	</div><!--/page /additem-->
+	
 	<div data-role="page" id="contact" data-theme="d" data-add-back-btn="true">
 		<div data-role="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (b)</center></small>	
-		</div>
+				<small><center>Show off your projects. (a)</center></small>	
+		</div><!--/header-->
 		<div data-role="content">
 			<section id="newStream">
 				<h2>Contact</h2>
@@ -224,24 +221,25 @@
 
 			
 			</section>
-		</div>
+		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#home" id="home" rel="external" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true"/>Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-role="button" data-add-back-btn="true" />Search</a></li>
-					<li><a href="#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-role="button" />Browse</a></li>					
+					<li><a href="#home" id="home" rel="internal" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true"/>Home</a></li>
+					<li><a href="#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" class="ui-btn-active" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true"/>Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
 				</ul>
-			</div>
-		</div>
-	</div>
+			</div><!--/navbar-->
+		</div><!--/footer-->
+	</div><!--/page /contact-->
+	
 	<div data-role="page" id="browse" data-theme="d" data-add-back-btn="true">
 		<div data-role="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (b)</center></small>	
-		</div>
+				<small><center>Show off your projects. (a)</center></small>	
+		</div><!--/header-->
 		<div data-role="content">
 			<section id="browse">
 				<h3>browse projects</h3>
@@ -254,7 +252,7 @@
 						<li data-filtertext="author"><a href="#items" data-filter-placeholder="author" id="displayAuthorLink" rel="internal" data-ajax="false"><img src="images/author.jpg" border="0" width="35" height="35" alt="Browse Author Projects"/>author</a></li>			
 					</ul>
 			</section>
-		</div>
+		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
@@ -265,19 +263,20 @@
 					<li><a href="#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true"/>Info</a></li>
 				</ul>
 			</div>
-		</div>
-	</div>
+		</div><!--/footer-->
+	</div><!--/page /browse-->
+	
 	<div data-role="page" id="newest" data-theme="d" data-add-back-btn="true">
 		<div data-role="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (b)</center></small>	
+				<small><center>Show off your projects. (a)</center></small>	
 		</div>
 		<div data-role="content">
 			<section id="newStream">
 				<center>
 				<h2>Newest Projects</h2>
 					<!--ONE WINDOW DRILLDOWN -->				
-					<ul data-role="listview" data-theme="d" data-inset="true">
+					<ul data-role="listview" data-theme="d" data-inset="true" data-back-btn="true">
 						<!--THUMBNAIL GRID-->
 						<div class="ui-grid-a">
 							<div class="ui-block-a">
@@ -391,11 +390,12 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div><!--/page newest-->
+	
 	<div data-role="page" id="info" data-theme="d" data-add-back-btn="true"> 
 		<div data-role="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
-				<small><center>Show off your projects. (b)</center></small>	
+				<small><center>Show off your projects. (a)</center></small>	
 		</div>
 		<div data-role="content">
 			<p>
@@ -426,15 +426,18 @@
 				</ul>
 			</div>
 		</div>
-	</div>	
+	</div><!--/page /info-->
 
 	
 	<!--jquery and jquery mobile-->
 	<!--note that order of js is important below-->
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	
 	<!--plugins-->
 	<script src="js/libs/jquery.validate.min.js"></script>
+	<script src="jQuery.ui.datepicker.js"></script>
+	<script src="jquery.ui.datepicker.mobile.js"></script>
 
 	<!--custom js-->	
 	<script type="text/javascript" src="js/json.js"></script>
