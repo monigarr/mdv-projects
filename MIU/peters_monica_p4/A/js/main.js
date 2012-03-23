@@ -511,5 +511,5 @@ window.addEventListener("DOMContentLoaded", function()
 	var save = noDollarSign("submit");
 	
 	//save.addEventListener("click", saveMedia);
-	save.addEventListener("click", validate);
+	//save.addEventListener("click", validate);
 });
