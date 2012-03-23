@@ -145,7 +145,7 @@ window.addEventListener("DOMContentLoaded", function()
 				item.mdate  	= ["Project Date:",momo("mdate").value];
 				item.mrating 	= ["Project Rating:",momo("mrating").value];
 				//radio button
-				item.mtopics 	= ["Project Incentive:",mtopicsValue];
+				item.mtopics 	= ["Project Incentive:",momo("mtopics").value];
 				item.mtags		= ["Project Tags:",momo("mtags").value];
 				item.mcomments	= ["Project Notes:",momo("mcomments").value];
 			//Save Data to Local Storage: Use Stringify to convert our object to a string
@@ -376,64 +376,65 @@ window.addEventListener("DOMContentLoaded", function()
 	
 function validate(e)
 {
-//Define elements we want to check
-var getMtype = momo("mtype");
-var getMname = momo("mname");
-var getMdate = momo("mdate");
-
-//Reset error messages
-errMsg.innerHTML = "";
-getMtype.style.border = "1px solid black";
-getMname.style.border = "1px solid black";
-getMdate.style.border = "1px solid black";
-
-//Get error messages
-var messageAry = [];
-//Check Type Validation
-
-if(getMtype.value === "-- Choose Project Type--")
-{
-alert("Enter Project Type");
-window.location.reload();
-}
-
-// Project Name Validation
-if(getMname.value === "")
-{
-var MnameError = "Enter Project Name.";
-getMname.style.border = "1px solid #FFFF99";
-messageAry.push(MnameError);
-//alert("Enter Project Name");
-//window.location.reload();
-}
-
-// Project Date Validation
-if(getMdate.value === "")
-{
-var mdateError = "Enter Project Date";
-getMdate.style.border = "1px solid red";
-messageAry.push(mdateError);
-}
-
-//if errors, show them on screen
-if(messageAry.length >= 1)
-{
-for(var i=0, j=messageAry.length; i<j; i++)
-{
-var txt = document.createElement("li");
-txt.innerHTML = messageAry(i);
-errMsg.appendChild(txt);
-}
-e.preventDefault();
-return false;
-}else
-{
-//If everything is good, save the data
-//Send key value that came from editData function
-//Remember key value was passed thru editSubmit even listener
-//as a property.
-saveMedia(this.key);
-}
+	//Define elements we want to check
+	var getMtype = momo("mtype");
+	var getMname = momo("mname");
+	var getMdate = momo("mdate");
+	
+	//Reset error messages
+	errMsg.innerHTML = "";
+	getMtype.style.border = "1px solid black";
+	getMname.style.border = "1px solid black";
+	getMdate.style.border = "1px solid black";
+	
+	//Get error messages
+	var messageAry = [];
+	//Check Type Validation
+	
+	if(getMtype.value === "-- Choose Project Type--")
+	{
+		alert("Enter Project Type");
+		window.location.reload();
+	}
+	
+	// Project Name Validation
+	if(getMname.value === "")
+	{
+		var MnameError = "Enter Project Name.";
+		getMname.style.border = "1px solid #FFFF99";
+		messageAry.push(MnameError);
+		//alert("Enter Project Name");
+		//window.location.reload();
+	}
+	
+	// Project Date Validation
+	if(getMdate.value === "")
+	{
+		var mdateError = "Enter Project Date";
+		getMdate.style.border = "1px solid red";
+		messageAry.push(mdateError);
+	}
+	
+	//if errors, show them on screen
+	if(messageAry.length >= 1)
+	{
+		for(var i=0, j=messageAry.length; i<j; i++)
+		{
+			var txt = document.createElement("li");
+			txt.innerHTML = messageAry(i);
+			errMsg.appendChild(txt);
+		}
+		e.preventDefault();
+		return false;
+		}
+		else
+		{
+		//If everything is good, save the data
+		//Send key value that came from editData function
+		//Remember key value was passed thru editSubmit even listener
+		//as a property.
+		saveMedia(this.key);
+	}
 }
 
 	// Variable defaults
@@ -452,5 +453,5 @@ saveMedia(this.key);
 	
 	var save = momo("submit");
 	//save.addEventListener("click", saveMedia);
-	//save.addEventListener("click", validate);
+	save.addEventListener("click", validate);
 });
