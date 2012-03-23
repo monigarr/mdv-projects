@@ -8,7 +8,7 @@
 	B no jqmobile on form
     Due Thursday March 22nd 2012
     
-    additem.html
+    index.html
     
     Goal 1: Apply the elements of a given design pattern to an interface.
     Goal 2: Justify the choices made in implementing a design pattern, 
@@ -49,6 +49,8 @@
 		<!-- Mobile IE needs ClearType for smoothing fonts -->
 		<meta http-equiv="cleartype" content="on">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+			
+		<link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
 		
 		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="js/libs/modernizr.custom.min.js"></script>
@@ -101,9 +103,8 @@
 			</section><!--/addNew-->
 			<section id="errors"></section><!--/errors-->
 
-			<!--start-->
-			<section id="feature">
-				<form action="#" method="post" id="projectForm">
+			<!--WITHOUT JQMOBILE-->
+				<form action="#additem" method="post" id="projectForm">
 					<fieldset id="mediaFieldSet">
 						<center>
 							<span><small>* fields required.</small><br /></span>
@@ -121,7 +122,7 @@
 										<label for="mdate">Project Date</label>
 										<br />
 										<input type="date" id="mdate" placeholder="01/01/1990" />
-										<div id="hint">Required: dd/mm/yyyy</div>
+										<div id="hint">Required: 01/01/1990</div>
 									</li>
 								</section>
 								<br />
@@ -129,7 +130,7 @@
 									<li id="mname">
 										<label for="mname">Project Name</label>
 										<br />
-										<input type="text" id="mname" placeholder="* Project Name"  />
+										<input type="text" id="mname" placeholder="Project Name"  />
 										<div id="hint">Required: Short meaningful description</div>
 									</li>
 								</section>
@@ -196,8 +197,7 @@
 							</ul>
 					</fieldset>
 				</form>
-			</section><!--/feature-->
-			<!--stop-->
+			<!--stop WITHOUT JQMOBILE-->
 
 
 

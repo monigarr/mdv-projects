@@ -88,8 +88,6 @@ window.addEventListener("DOMContentLoaded", function()
 	//Turn nav links off / on
 	function toggleControls(n)
 	{
-		/* comment out because this is 
-		// messing with my week 4 ui
 		switch(n)
 		{
 			case "on":
@@ -108,7 +106,6 @@ window.addEventListener("DOMContentLoaded", function()
 			default:
 				return false;
 		}
-		*/
 	}
 	
 	function saveMedia(key)
@@ -386,9 +383,9 @@ function validate(e)
 	
 	//Reset error messages
 	errMsg.innerHTML = "";
-	getMtype.style.border = "1px solid yellow";
-	getMname.style.border = "1px solid yellow";
-	getMdate.style.border = "1px solid yellow";
+	getMtype.style.border = "1px solid red";
+	getMname.style.border = "1px solid red";
+	getMdate.style.border = "1px solid red";
 	
 	//Get error messages
 	var messageAry = [];
@@ -403,9 +400,9 @@ function validate(e)
 	// Project Name Validation
 	if(getMname.value === "")
 	{
-		//var MnameError = "Enter Project Name.";
-		//getMname.style.border = "1px solid #FFFF99";
-		//messageAry.push(MnameError);
+		var MnameError = "Enter Project Name.";
+		getMname.style.border = "1px solid red";
+		messageAry.push(MnameError);
 		alert("Enter Project Name");
 		window.location.reload();
 	}
@@ -413,9 +410,9 @@ function validate(e)
 	// Project Date Validation
 	if(getMdate.value === "")
 	{
-		//var mdateError = "Enter Project Date";
-		//getMdate.style.border = "1px solid red";
-		//messageAry.push(mdateError);
+		var mdateError = "Enter Project Date";
+		getMdate.style.border = "1px solid red";
+		messageAry.push(mdateError);
 		alert("Enter Project Date");
 		window.location.reload();
 	}
@@ -457,6 +454,6 @@ function validate(e)
 	clearLink.addEventListener("click", clearLocal);
 	
 	var save = momo("submit");
-	//save.addEventListener("click", saveMedia);
-	save.addEventListener("click", validate);
+	save.addEventListener("click", saveMedia);
+	//save.addEventListener("click", validate);
 });
