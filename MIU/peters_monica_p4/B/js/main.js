@@ -145,7 +145,8 @@ window.addEventListener("DOMContentLoaded", function()
 				item.mdate  	= ["Project Date:",momo("mdate").value];
 				item.mrating 	= ["Project Rating:",momo("mrating").value];
 				//radio button
-				item.mtopics 	= ["Project Incentive:",momo("mtopics").value];
+				//view last few lines of this js
+				item.mtopics 	= ["Project Incentive:",mtopicValue];
 				item.mtags		= ["Project Tags:",momo("mtags").value];
 				item.mcomments	= ["Project Notes:",momo("mcomments").value];
 			//Save Data to Local Storage: Use Stringify to convert our object to a string
@@ -383,9 +384,9 @@ function validate(e)
 	
 	//Reset error messages
 	errMsg.innerHTML = "";
-	getMtype.style.border = "1px solid black";
-	getMname.style.border = "1px solid black";
-	getMdate.style.border = "1px solid black";
+	getMtype.style.border = "1px solid red";
+	getMname.style.border = "1px solid red";
+	getMdate.style.border = "1px solid red";
 	
 	//Get error messages
 	var messageAry = [];
@@ -401,10 +402,10 @@ function validate(e)
 	if(getMname.value === "")
 	{
 		var MnameError = "Enter Project Name.";
-		getMname.style.border = "1px solid #FFFF99";
+		getMname.style.border = "1px solid red";
 		messageAry.push(MnameError);
-		//alert("Enter Project Name");
-		//window.location.reload();
+		alert("Enter Project Name");
+		window.location.reload();
 	}
 	
 	// Project Date Validation
@@ -413,6 +414,8 @@ function validate(e)
 		var mdateError = "Enter Project Date";
 		getMdate.style.border = "1px solid red";
 		messageAry.push(mdateError);
+		alert("Enter Project Date");
+		window.location.reload();
 	}
 	
 	//if errors, show them on screen
@@ -452,6 +455,6 @@ function validate(e)
 	clearLink.addEventListener("click", clearLocal);
 	
 	var save = momo("submit");
-	//save.addEventListener("click", saveMedia);
-	save.addEventListener("click", validate);
+	save.addEventListener("click", saveMedia);
+	//save.addEventListener("click", validate);
 });
