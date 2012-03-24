@@ -164,7 +164,7 @@ window.addEventListener("DOMContentLoaded", function()
 				item.mdate  	= ["Project Date:",noDollarSign("mdate").value];
 				item.mrating 	= ["Project Rating:",noDollarSign("mrating").value];
 				//radio button
-				item.mtopics 	= ["Project Incentive:",mtopicsValue];
+				item.mtopics 	= ["Project Incentive:",mtopicValue];
 				item.mtags		= ["Project Tags:",noDollarSign("mtags").value];
 				item.mcomments	= ["Project Notes:",noDollarSign("mcomments").value];
 			//Save Data to Local Storage: Use Stringify to convert our object to a string
@@ -511,6 +511,6 @@ window.addEventListener("DOMContentLoaded", function()
 	
 	var save = noDollarSign("submit");
 	
-	//save.addEventListener("click", saveMedia);
-	save.addEventListener("click", validate);
+	save.addEventListener("click", saveMedia);
+	//save.addEventListener("click", validate);
 });

@@ -145,7 +145,8 @@ window.addEventListener("DOMContentLoaded", function()
 				item.mdate  	= ["Project Date:",momo("mdate").value];
 				item.mrating 	= ["Project Rating:",momo("mrating").value];
 				//radio button
-				item.mtopics 	= ["Project Incentive:",momo("mtopics").value];
+				//view last few lines of this js
+				item.mtopics 	= ["Project Incentive:",mtopicValue];
 				item.mtags		= ["Project Tags:",momo("mtags").value];
 				item.mcomments	= ["Project Notes:",momo("mcomments").value];
 			//Save Data to Local Storage: Use Stringify to convert our object to a string

@@ -121,7 +121,7 @@
 									<li id="mdate">
 										<label for="mdate">Project Date</label>
 										<br />
-										<input type="date" id="mdate" placeholder="01/01/1990" />
+										<input type="date" id="mdate" value="01/01/2012" />
 										<div id="hint">Required: 01/01/1990</div>
 									</li>
 								</section>
@@ -130,7 +130,7 @@
 									<li id="mname">
 										<label for="mname">Project Name</label>
 										<br />
-										<input type="text" id="mname" placeholder="Project Name"  />
+										<input type="text" id="mname" value="Project Name"  />
 										<div id="hint">Required: Short meaningful description</div>
 									</li>
 								</section>
@@ -148,13 +148,13 @@
 									<li id="mediatopics">
 										<label for="mtopic">Project Incentive:</label>
 											<br />
-											<input type="radio" value="personal" id="inspiration" name="mtopics" data-mini="true" />
+											<input type="radio" value="personal" id="inspiration" name="mtopics" checked />
 												<label for="inspiration">Inspiration</label>
 												<br />
-											<input type="radio" value="school" id="school" name="mtopics" data-mini="true" />
+											<input type="radio" value="school" id="school" name="mtopics" />
 												<label for="school">School</label>
 												<br />
-											<input type="radio" value="work" id="work" name="mtopics" data-mini="true" />
+											<input type="radio" value="work" id="work" name="mtopics"  />
 												<label for="work">Work</label>
 												<br />
 											<div id="hint">Why are you adding this project?</div>
@@ -165,7 +165,7 @@
 									<li id="mediatags">
 										<label for="mtags">Project Tags</label>
 										<br />
-										<input type="text" id="mtags" placeholder="Project Tags"  />
+										<input type="text" id="mtags" value="Project Tags"  />
 										<div id="hint">Keywords separated by space</div>
 									</li>
 								</section>
@@ -174,7 +174,7 @@
 									<li id="mediagraphic">
 										<label for="mgraphic">Project Screenshot</label>
 										<br />
-										<input type="text" id="mgraphic" placeholder="Project Screenshot 75 width x 75 height"  />
+										<input type="text" id="mgraphic" value="Project Screenshot 75 width x 75 height"  />
 										<div id="hint">http://www.YourSite.com/yourgraphic.jpg</div>
 									</li>
 								</section>
@@ -183,17 +183,16 @@
 									<li id="mediacomments">
 										<label for="mcomments">Case Study</label>
 										<br />
-										<textarea id="mcomments" placeholder="Project Case Study Notes" /></textarea>
+										<textarea id="mcomments" />Enter details later</textarea>
 										<div id="hint">Objectives, outcomes, deliverables, and expectations</div>
 									</li>
 								</section>
 								<br />
-								<section id="submit">
-									<div id="submit">
-										<input type="submit" data-theme="e" value="Save Project" id="submit" />
-										<input type="reset" data-theme="e" value="reset" /> 
-									</div><!--/submit-->
-								</section>
+								<div data-role="fieldcontain">
+									<input type="submit" data-theme="e" value="Save Project" id="submit" align="left" />
+								    <input type="reset" data-theme="c" value="reset" align="left" /> 
+								</div><!--/fieldcontain submit-->
+								
 							</ul>
 					</fieldset>
 				</form>
