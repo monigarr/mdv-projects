@@ -2,29 +2,22 @@
     
     <!--
     Full Sail University
-    Mobile Interfaces and Usability
+    Advanced Scalable Data Infrastructures
     Monica Peters
-	Week 4 Project 4
-	A
-    Due Thursday March 22nd 2012
+	Week 1 Project 1
+    Due Thursday May 3rd 2012
     
     additem.html
     
-    Goal 1: Apply the elements of a given design pattern to an interface.
-    Goal 2: Justify the choices made in implementing a design pattern, 
-            including giving options not pursued.
-	Goal 3: Upgrade Form with input hints, dropdown chooser input prompt
-		    good defaults, prominent DONE button, same page error messages,
-		    corresponding labels for each input, dropdowns have prefilled values,
-		    range slider viewable value, verify form loads correctly.
-    
+    Goals: 
+		Correctly include the jQuery library into your app.
+		Replace manual DOM queries and traversal with the equivalent jQuery selectors.
+		Replace manual DOM event handlers with the equivalent jQuery event bindings, including closures.
+		Replace manual DOM manipulation with the equivalent framework methods
+		
     Use:  Portfolio Manager for Web Developers that want
           to show off their work from their mobile devices during 
           job interviews, client consultations, and similar meetings.
-          
-	Benefit:	localStorage so internet connection is not required.
-				client locations with crappy or zero internet service
-				can still view portfolio and inspiration.
     -->
     
 <html lang="en">
@@ -59,7 +52,6 @@
 		<!-- call custom style sheets last when using jqmobile -->
 		<link rel="stylesheet" href="css/styles.css" />
 	
-	</head>
 	</head>
 	<body>
 	
@@ -402,17 +394,16 @@
 		<div data-role="content">
 			<p>
 			<center>
-				<a href="https://github.com/monigarr/mdv-projects/tree/master/MIU/peters_monica_p4/A/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App A Code</a><br/>
-				<a href="http://monigarr.github.com/mdv-projects/MIU/peters_monica_p4/A/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App A Live</a><br/>
-				<a href="https://github.com/monigarr/mdv-projects/tree/master/MIU/peters_monica_p4/B/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App B Code</a><br/>
-				<a href="http://monigarr.github.com/mdv-projects/MIU/peters_monica_p4/B/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">App B Live</a><br/>
-				<br/>
+				<a href="https://github.com/monigarr/mdv-projects/tree/master/ASD/week1/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">Show Off! ASD Code</a><br/>
+				<a href="http://monigarr.github.com/mdv-projects/ASD/week1/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">Show Off! ASD Live</a>
+				<br/><br/>
 				<address>
 				Monica Peters.<br/>
-				March 22nd 2012<br/><br/>
-				<strong>ShowOff App A</strong><br/><br/>
+				<strong>ShowOff! ASD</strong><br/><br/>
 				Full Sail University<br/>
-				Mobile Interfaces and Usability Course.<br/>
+				Advanced Scalable Data Infrastructures (ASD) Course.<br/>
+				Week 1 Project 1<br/>
+				May 3rd 2012<br/><br/>
 				</address>
 			</center>
 			</p>
@@ -433,9 +424,11 @@
 	
 	<!--jquery and jquery mobile-->
 	<!--note that order of js is important below-->
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<!--<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-	
+	comment out local code when ready to go live-->
+	<script src="js/jquery-1.7.1.js"></script>
+	<script src=""></script>
 	<!--plugins-->
 	<script src="js/libs/jquery.validate.min.js"></script>
 	<script src="jQuery.ui.datepicker.js"></script>
