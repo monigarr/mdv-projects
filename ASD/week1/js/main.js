@@ -1,11 +1,9 @@
 //
 //    Full Sail University
-//    Mobile Interfaces & Usability
+//    Advanced Scalability & Design Interfaces
 //    Monica Peters
-//    Mobile Web App Part 4
-//    A
-//    Week 4 Project 4
-//    Due Thursday March 22nd 2012
+//    Week 1 Project 1
+//    Due Thursday May 3rd 2012
 //    main.js
 	
 $(document).ready(function()
