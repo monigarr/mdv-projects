@@ -42,8 +42,9 @@ $(document).ready(function()
 		// getElementById Function
 		function noDollarSign(x)
 		{
-			var theElement = document.getElementById(x);
-			//var theElement = $();
+			//var theElement = document.getElementById(x);
+			//http://jsperf.com/jquery-attr-vs-native-setattribute
+			var theElement = $("x");
 			return theElement;
 		}
 		
