@@ -2,12 +2,46 @@
 //    Full Sail University
 //    Advanced Scalability & Design Interfaces
 //    Monica Peters
-//    Week 1 Project 1
-//    Due Thursday May 3rd 2012
+//    Week 2 Project 2
+//    Due Thursday May 10th 2012
 //    main.js
+
+/*	Corrected week 1 issues with week 2 project:
+ Try http://wddbs.com/jshero/ to find errors. 
+ Unclosed quote on line 318 is breaking a lot of the code.
+	* Change all uses of $ to the jQuery equivalent.
+    * Coding/Manipulation: 
+		Line 59 creation would be $("); 
+		setAttribute would become .attr, 
+		.innerHTML will be .html, 
+		.appendChild would be .append, 
+		.style would be .css.
+		 
+    *** Check out .val to set your values. 
+    	http://api.jquery.com/val/
+    
+    * Change addEventListener to .on
+    
+    * Coding/Functionality: Poor (0/10pts) 
+    		Points can be refunded when CRUD is functional.
+ 
+*/
 	
 $(document).ready(function()
 {
+
+	// Variable defaults
+	// store values of dropdown in array
+	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],
+		mtopicValue,
+		errMsg = $("errors");
+		
+	var parseProjectForm = function(data)
+	{
+		// uses form data here;
+		console.log(data);
+	};
+			
 	var projectForm = $("#projectForm");
 	projectForm.validate(
 	{
@@ -26,20 +60,12 @@ $(document).ready(function()
 			//call function & pass data in
 			parseProjectForm(data);
 		}
-	})
-
-	
-		//Week 3 MIU
-		var parseProjectForm = function(data)
-		{
-			// uses form data here;
-			console.log(data);
-		}
+	});
 		
 	// Wait until DOM is ready
-	window.addEventListener("DOMContentLoaded", function()
+	window.on("DOMContentLoaded", function()
 	{
-		function noDollarSign(x)
+		function $(x)
 		{
 			//var theElement = document.getElementById(x);
 			//http://jsperf.com/jquery-attr-vs-native-setattribute
@@ -55,35 +81,36 @@ $(document).ready(function()
 			var formTag = $("form"),
 				selectLi = $("mtype"),
 				makeSelect = $("select");
-				makeSelect.setAttribute("class", "required");
-				makeSelect.setAttribute("id", "mtype");
-				makeSelect.setAttribute("name", "mtype");
-				makeSelect.setAttribute("data-native-menu", "false");
+				makeSelect.attr("class", "required");
+				makeSelect.attr("id", "mtype");
+				makeSelect.attr("name", "mtype");
+				makeSelect.attr("data-native-menu", "false");
 			//populate with options
 			for(var i=0, j=mediaGroups.length; i<j; i++) 
 			{
 				//create option for each string in array
 				var makeOption = $("option");
 				var optText = mediaGroups[i];
-				makeOption.setAttribute("value", optText);
+				makeOption.attr("value", optText);
 				//put text somewhere
-				makeOption.innerHTML = optText;
+				makeOption.html = optText;
 				
-				makeSelect.appendChild(makeOption);
+				makeSelect.append(makeOption);
 			}
-			selectLi.appendChild(makeSelect);
+			selectLi.append(makeSelect);
 		}
 		
 		//Find value of Selected Radio Button
 		function getSelectedRadio()
 		{
 			//create radio array
-			var radios = document.forms[0].mtopics;
+			//var radios = document.forms[0].mtopics;
+			var radios = $("#mtopics").val();
 			for(var i=0; i<radios.length; i++)
 			{
 				if(radios[i].checked)
 				{
-					mtopicsValue = radios[i].value;
+					mtopicValue = radios[i].value;
 				}
 			}
 		}
@@ -96,30 +123,30 @@ $(document).ready(function()
 			switch(n)
 			{
 				case "on":
-					noDollarSign("projectForm").style.display = "block";
-					noDollarSign("clear").style.display = "inline";
-					noDollarSign("displayLink").style.display = "inline";
-					noDollarSign("addNew").style.display = "inline";
-					noDollarSign("displayIOSLink").style.display = "inline";
-					noDollarSign("displayAndroidLink").style.display = "inline";
-					noDollarSign("displayHtml5Link").style.display = "inline";
-					noDollarSign("displayWordpressLink").style.display = "inline";
-					noDollarSign("displayGraphicLink").style.display = "inline";
-					noDollarSign("displayAuthorLink").style.display = "inline";
+					$("projectForm").css.display = "block";
+					$("clear").css.display = "inline";
+					$("displayLink").css.display = "inline";
+					$("addNew").css.display = "inline";
+					$("displayIOSLink").css.display = "inline";
+					$("displayAndroidLink").css.display = "inline";
+					$("displayHtml5Link").css.display = "inline";
+					$("displayWordpressLink").css.display = "inline";
+					$("displayGraphicLink").css.display = "inline";
+					$("displayAuthorLink").css.display = "inline";
 					break;
 				case "off":
-					noDollarSign("projectForm").style.display = "block";
-					noDollarSign("clear").style.display = "inline";
-					noDollarSign("displayLink").style.display = "inline";
-					//noDollarSign("displayLink").listview("refresh");
-					noDollarSign("addNew").style.display = "inline";
-					noDollarSign("items").style.display = "inline";
-					noDollarSign("displayIOSLink").style.display = "inline";
-					noDollarSign("displayAndroidLink").style.display = "inline";
-					noDollarSign("displayHtml5Link").style.display = "inline";
-					noDollarSign("displayWordpressLink").style.display = "inline";
-					noDollarSign("displayGraphicLink").style.display = "inline";
-					noDollarSign("displayAuthorLink").style.display = "inline";
+					$("projectForm").css.display = "block";
+					$("clear").css.display = "inline";
+					$("displayLink").css.display = "inline";
+					//$("displayLink").listview("refresh");
+					$("addNew").css.display = "inline";
+					$("items").css.display = "inline";
+					$("displayIOSLink").css.display = "inline";
+					$("displayAndroidLink").css.display = "inline";
+					$("displayHtml5Link").css.display = "inline";
+					$("displayWordpressLink").css.display = "inline";
+					$("displayGraphicLink").css.display = "inline";
+					$("displayAuthorLink").css.display = "inline";
 					break;
 				default:
 					return true;
@@ -159,15 +186,15 @@ $(document).ready(function()
 				//Gather up all our form field values and store in object.
 				//Object properties contain array with form label and input value
 				var item 			= {};
-					item.mtype 		= ["Project Type:",noDollarSign("mtype").value];
-					item.mgraphic   = ["Project Screenshot:",noDollarSign("mgraphic").value];
-					item.mname 		= ["Project Name:",noDollarSign("mname").value];
-					item.mdate  	= ["Project Date:",noDollarSign("mdate").value];
-					item.mrating 	= ["Project Rating:",noDollarSign("mrating").value];
+					item.mtype 		= ["Project Type:",$("mtype").val()];
+					item.mgraphic   = ["Project Screenshot:",$("mgraphic").val()];
+					item.mname 		= ["Project Name:",$("mname").val()];
+					item.mdate  	= ["Project Date:",$("mdate").val()];
+					item.mrating 	= ["Project Rating:",$("mrating").val()];
 					//radio button
-					item.mtopics 	= ["Project Incentive:",mtopicValue];
-					item.mtags		= ["Project Tags:",noDollarSign("mtags").value];
-					item.mcomments	= ["Project Notes:",noDollarSign("mcomments").value];
+					item.mtopics 	= ["Project Incentive:",$("mtopicValue").val()];
+					item.mtags		= ["Project Tags:",$("mtags").val()];
+					item.mcomments	= ["Project Notes:",$("mcomments").val()];
 				//Save Data to Local Storage: Use Stringify to convert our object to a string
 				//json.org
 				localStorage.setItem(id, JSON.stringify(item));
@@ -202,27 +229,27 @@ $(document).ready(function()
 	
 			
 			//Write Data from Local Storage to the Browswer.
-			/*var makeDiv = document.createElement("div");
-			makeDiv.setAttribute("id","items");
-			makeDiv.setAttribute("data-role", "content");
-			makeDiv.setAttribute("data-theme", "d");
+			var makeDiv = document.createElement("div");
+			makeDiv.attr("id","items");
+			makeDiv.attr("data-role", "content");
+			makeDiv.attr("data-theme", "d");
 			
 			var makeDivPrimary = document.createElement("div");
-			makeDivPrimary.setAttribute("class", "content-primary");
+			makeDivPrimary.attr("class", "content-primary");
 	
 			var makeList = document.createElement("ul");
-			makeList.setAttribute("id", "one");
-			makeList.setAttribute("data-role", "listview");
-			makeList.setAttribute("data-filter", "true");
-			makeList.setAttribute("data-inset", "true");
+			makeList.attr("id", "one");
+			makeList.attr("data-role", "listview");
+			makeList.attr("data-filter", "true");
+			makeList.attr("data-inset", "true");
 			//$('#items').listview('refresh');	
 			//makeList.listview("refresh");
 			
-			makeDiv.appendChild(makeDivPrimary);
-			makeDivPrimary.appendChild(makeList);
-			document.body.appendChild(makeDiv);
-			noDollarSign("items").style.display = "black";
-			*/
+			makeDiv.append(makeDivPrimary);
+			makeDivPrimary.append(makeList);
+			document.body.append(makeDiv);
+			$("items").css.display = "black";
+			
 			
 			$('<div id="items" data-role="content" data-theme="d"');
 			$('<div class="content-primary">');
@@ -231,28 +258,24 @@ $(document).ready(function()
 							
 			for(var i=0, len=localStorage.length; i<len; i++)
 			{
-				/*var makeli = document.createElement("li");
-				makeli.setAttribute("id", "two");
-				*/
-				$('<li id="two">');
+				var makeli = document.createElement("li");
+				makeli.attr("id", "two");
 				
-				/*var linksLi = document.createElement("div");
-				linksLi.setAttribute("id", "three");
-				*/
-				$('<div id="three">').appendTo('#two');
+				var linksLi = document.createElement("div");
+				linksLi.attr("id", "three");
 				
-				//makeList.appendChild(makeli);
+				//makeList.append(makeli);
 				
 				var key = localStorage.key(i);
 				var value = localStorage.getItem(key);
 				//convert string back to object so it won't be one long string
 				var obj = JSON.parse(value);
-				/*var makeSubList = document.createElement("a");
-				makeSubList.setAttribute("href", "#");
-				makeSubList.setAttribute("id", "four");
+				var makeSubList = document.createElement("a");
+				makeSubList.attr("href", "#");
+				makeSubList.attr("id", "four");
 	
-				makeli.appendChild(makeSubList);
-				*/
+				makeli.append(makeSubList);
+				
 				$('<a href="#" id="four"></a>').appendTo("#three");
 				//Add Icon for each Project Type
 				//getImage(obj.mtype[1], makeSubList);
@@ -260,19 +283,17 @@ $(document).ready(function()
 				getProjectGraphic(obj.mgraphic[1], makeSubList);
 				
 				//build p to hold all values for each project
-				/*var makeSubli = document.createElement("p");
-				makeSubli.setAttribute("id", "five");
-				makeSubList.appendChild(makeSubli);
-				*/
-				$('<p id="five"></p>').appendTo("#four");
+				var makeSubli = document.createElement("p");
+				makeSubli.attr("id", "five");
+				makeSubList.append(makeSubli);
 				
 				for(var n in obj)
 				{
 					//0 is label, 1 is the value
 					//var optSubText = obj[n][0] + " " + obj[n][1];
 					var optSubText = obj[n][1];
-					makeSubli.innerHTML = optSubText;
-					makeSubli.appendChild(linksLi);
+					makeSubli.html = optSubText;
+					makeSubli.append(linksLi);
 				}
 				//add edit and delete button from function
 				//for each item in local storage.
@@ -283,19 +304,15 @@ $(document).ready(function()
 		//Get icon for the relevant project type displayed
 		function getImage(mediaType, makeSubList)
 		{
-			/*var imageLi = document.createElement("div");
-			imageLi.setAttribute("align", "left");		
-			makeSubList.appendChild(imageLi);
-			*/
-			$('<div id="six" align="left"></div>').appendTo("#five");
+			var imageLi = document.createElement("div");
+			imageLi.attr("align", "left");		
+			makeSubList.append(imageLi);
 			
-			/*var newImg = document.createElement("img");
-			var setSrc = newImg.setAttribute("src", "images/" + mediaType + ".jpg");
-			var alignImg = newImg.setAttribute("class", "projectIconAlign");
-			imageLi.appendChild(newImg);
-			*/
-			$('<img src="images/+mediaType+.jpg" class="projectIconAlign">')
-				.appendto("#six");
+			var newImg = document.createElement("img");
+			var setSrc = newImg.attr("src", "images/" + mediaType + ".jpg");
+			var alignImg = newImg.attr("class", "projectIconAlign");
+			imageLi.append(newImg);
+			
 			
 		}
 		
@@ -303,18 +320,15 @@ $(document).ready(function()
 		//Get graphic url for project.
 		function getProjectGraphic(projectName, makeSubList)
 		{
-			/*var projectGraphicLi = document.createElement("div");
-			makeSubList.appendChild(projectGraphicLi);
+			var projectGraphicLi = document.createElement("div");
+			makeSubList.append(projectGraphicLi);
 			var newImg = document.createElement("img");
-			var setSrc = newImg.setAttribute("src", projectName);
-			var alignImg = newImg.setAttribute("class", "projectScreenshotAlign");
-			var setWidth = newImg.setAttribute("width", "75px");
-			var setHeight = newImg.setAttribute("height", "75px");
-			projectGraphicLi.appendChild(newImg);
-			*/
-			$('<div>').appendTo("#projectGraphicLi");
-			$('<img src="projectName" class="projectScreenshotAlign" width="75px" height="75px")
-				.appendTo("#newImg");
+			var setSrc = newImg.attr("src", projectName);
+			var alignImg = newImg.attr("class", "projectScreenshotAlign");
+			var setWidth = newImg.attr("width", "75px");
+			var setHeight = newImg.attr("height", "75px");
+			projectGraphicLi.append(newImg);
+			
 		}
 		
 		//Get youtube video review url for project.
@@ -328,26 +342,26 @@ $(document).ready(function()
 			var breakTag = document.createElement("br");
 			
 			//add edit single item link
-			/*var editLink = document.createElement("a");
+			var editLink = document.createElement("a");
 			editLink.href = "#";
 			editLink.key = key;
 			var editText = "Edit Project";
-			editLink.addEventListener("click", editItem);
-			editLink.innerHTML = editText;	
-			linksLi.appendChild(editLink);
+			editLink.on("click", editItem);
+			editLink.html = editText;	
+			linksLi.append(editLink);
 			
 			//add line break after edit project link
 			//before delete project link
-			linksLi.appendChild(breakTag);
+			linksLi.append(breakTag);
 			
 			//add delete single item link
 			var deleteLink = document.createElement("a");
 			deleteLink.href = "#";
 			deleteLink.key = key;
 			var deleteText = "Delete Project";
-			deleteLink.addEventListener("click", deleteItem);
-			deleteLink.innerHTML = deleteText;
-			linksLi.appendChild(deleteLink);
+			deleteLink.on("click", deleteItem);
+			deleteLink.html = deleteText;
+			linksLi.append(deleteLink);
 		}
 		
 		//Edit single item
@@ -362,48 +376,48 @@ $(document).ready(function()
 			
 			//populate form fields with current local storage values
 			//1 is value, 0 is label
-			noDollarSign("mtype").value = item.mtype[1];
-			noDollarSign("mdate").value = item.mdate[1];
-			noDollarSign("mname").value = item.mname[1];
-			noDollarSign("mrating").value = item.mrating[1];
+			$("mtype").val() = item.mtype[1];
+			$("mdate").val() = item.mdate[1];
+			$("mname").val() = item.mname[1];
+			$("mrating").val() = item.mrating[1];
 			// handle radio buttons
 			var radios = document.forms[0].mtopics;
 			for(var i=0; i<radios.length; i++)
 			{
 				if(radios(i).value === "school" && item.mtopics(1) === "school")
 				{
-					radios(i).setAttribute("checked", "checked");
+					radios(i).attr("checked", "checked");
 				}
 				else if(radios(i).value === "work" && item.mtopics(1) === "work")
 				{
-					radios(i).setAttribute("checked", "checked");
+					radios(i).attr("checked", "checked");
 				}
 				else if(radios(i).value === "inspiration" && item.mtopics(1) === "inspiration")
 				{
-					radios(i).setAttribute("checked", "checked");
+					radios(i).attr("checked", "checked");
 				}
 			}
 			/*
 			// handle yes / no check box
 			if(obj.favorite(1) == "Yes")
 			{
-				noDollarSign("fav").setAttributes("checked", "checked");
+				$("fav").attr("checked", "checked");
 			}
 			*/
-			noDollarSign("mtags").value = item.mtags[1];
-			noDollarSign("mgraphic").value = item.mgraphic[1];
-			noDollarSign("mcomments").value = item.mcomments[1];
+			$("mtags").val() = item.mtags[1];
+			$("mgraphic").val() = item.mgraphic[1];
+			$("mcomments").val() = item.mcomments[1];
 			
 			// Remove the initial listener from the input 'save project' button
 			save.removeEventListener("click", saveMedia);
 			
 			// Change Submit button value to say Edit Button
-			noDollarSign("submit").value = "Edit Project";
-			var editSubmit = noDollarSign("submit");
+			$("submit").val() = "Edit Project";
+			var editSubmit = $("submit");
 			
 			// Save the key value established in this Function as a property of the editSubmit event
 			// so we can use the value when we save the data we edited.
-			editSubmit.addEventListener("click", validate);
+			editSubmit.on("click", validate);
 			editSubmit.key = this.key;
 		}
 		
@@ -443,15 +457,15 @@ $(document).ready(function()
 		function validate(e)
 		{
 			//Define elements we want to check
-			var getMtype = noDollarSign("mtype");
-			var getMname = noDollarSign("mname");
-			var getMdate = noDollarSign("mdate");
+			var getMtype = $("mtype").val();
+			var getMname = $("mname").val();
+			var getMdate = $("mdate").val();
 			
 			//Reset error messages
-			errMsg.innerHTML = "";
-				getMtype.style.border = "1px solid yellow";
-				getMname.style.border = "1px solid yellow";
-				getMdate.style.border = "1px solid yellow";
+			errMsg.html = "";
+				getMtype.css.border = "1px solid yellow";
+				getMname.css.border = "1px solid yellow";
+				getMdate.css.border = "1px solid yellow";
 			
 			//Get error messages
 			var messageAry = [];
@@ -460,7 +474,7 @@ $(document).ready(function()
 			if(getMtype.value === "-- Choose Project Type--")
 			{
 				var MtypeError = "Choose Project Type";
-				getMtype.style.border = "1px solid yellow";
+				getMtype.css.border = "1px solid yellow";
 				messageAry.push(MtypeError);
 			}
 			
@@ -468,7 +482,7 @@ $(document).ready(function()
 			if(getMname.value === "")
 			{
 				var MnameError = "Enter Project Name";
-				getMname.style.border = "1px solid yellow";
+				getMname.css.border = "1px solid yellow";
 				messageAry.push(MnameError);
 			}
 			
@@ -476,7 +490,7 @@ $(document).ready(function()
 			if(getMdate.value === "")
 			{
 				var MdateError = "Enter Project Date";
-				getMdate.style.border = "1px solid yellow";
+				getMdate.css.border = "1px solid yellow";
 				messageAry.push(MdateError);
 			}
 			
@@ -486,8 +500,8 @@ $(document).ready(function()
 				for(var i=0, j=messageAry.length; i<j; i++)
 				{
 					var txt = document.createElement("li");
-					txt.innerHTML = messageAry(i);
-					errMsg.appendChild(txt);
+					txt.html = messageAry(i);
+					errMsg.append(txt);
 				}
 				e.preventDefault();
 				return false;
@@ -499,44 +513,37 @@ $(document).ready(function()
 				saveMedia(this.key);
 			}
 		}
-		
-		
-		// Variable defaults
-		// store values of dropdown in array
-		var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],
-			mtopicValue,
-			errMsg = noDollarSign("errors");
 			
 		makeMediaTypes();
 		
 		// Set Link & Submit Click Events
-		var displayLink = noDollarSign("displayLink");
-		displayLink.addEventListener("click", getData);
+		var displayLink = $("displayLink");
+		displayLink.on("click", getData);
 		
-		var clearLink = noDollarSign("clear");
-		clearLink.addEventListener("click", clearLocal);
+		var clearLink = $("clear");
+		clearLink.on("click", clearLocal);
 		
-		var displayIOSLink = noDollarSign("displayIOSLink");
-		displayIOSLink.addEventListener("click", getData);
+		var displayIOSLink = $("displayIOSLink");
+		displayIOSLink.on("click", getData);
 		
-		var displayAndroidLink = noDollarSign("displayAndroidLink");
-		displayAndroidLink.addEventListener("click", getData);
+		var displayAndroidLink = $("displayAndroidLink");
+		displayAndroidLink.on("click", getData);
 		
-		var displayHtml5Link = noDollarSign("displayHtml5Link");
-		displayHtml5Link.addEventListener("click", getData);
+		var displayHtml5Link = $("displayHtml5Link");
+		displayHtml5Link.on("click", getData);
 	
-		var displayWordpressLink = noDollarSign("displayWordpressLink");
-		displayWordpressLink.addEventListener("click", getData);
+		var displayWordpressLink = $("displayWordpressLink");
+		displayWordpressLink.on("click", getData);
 	
-		var displayGraphicLink = noDollarSign("displayGraphicLink");
-		displayGraphicLink.addEventListener("click", getData);
+		var displayGraphicLink = $("displayGraphicLink");
+		displayGraphicLink.on("click", getData);
 	
-		var displayAuthorLink = noDollarSign("displayAuthorLink");
-		displayAuthorLink.addEventListener("click", getData);
+		var displayAuthorLink = $("displayAuthorLink");
+		displayAuthorLink.on("click", getData);
 		
-		var save = noDollarSign("submit");
+		var save = $("submit");
 		
-		save.addEventListener("click", saveMedia);
-		//save.addEventListener("click", validate);
+		save.on("click", saveMedia);
+		//save.on("click", validate);
 	});
 });

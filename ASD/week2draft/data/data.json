@@ -1,0 +1,54 @@
+	{
+  "produce" : [
+		{
+			"type": ["Type:", "fruit"],
+			"name": ["Name:", "Apple"],
+			"ripedate": ["Ripe Date:", "2012-30-01"],
+			"rating": ["Rating:", "8"],
+			"benefit": ["Benefit:", "All"],
+			"tags": ["Tags:", "red delicious"],
+			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
+			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+		},
+		{
+			"type": ["Type:", "fruit"],
+			"name": ["Name:", "Pear"],
+			"ripedate": ["Ripe Date:", "2012-30-01"],
+			"rating": ["Rating:", "8"],
+			"benefit": ["Benefit:", "All"],
+			"tags": ["Tags:", "red delicious"],
+			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
+			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+		},
+		{
+			"type": ["Type:", "fruit"],
+			"name": ["Name:", "Cherries"],
+			"ripedate": ["Ripe Date:", "2012-30-01"],
+			"rating": ["Rating:", "8"],
+			"benefit": ["Benefit:", "All"],
+			"tags": ["Tags:", "red delicious"],
+			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
+			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+		},
+		{
+			"type": ["Type:", "fruit"],
+			"name": ["Name:", "Plum"],
+			"ripedate": ["Ripe Date:", "2012-30-01"],
+			"rating": ["Rating:", "8"],
+			"benefit": ["Benefit:", "All"],
+			"tags": ["Tags:", "red delicious"],
+			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
+			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+		},
+		{
+			"type": ["Type:", "fruit"],
+			"name": ["Name:", "Strawberry"],
+			"ripedate": ["Ripe Date:", "2012-30-01"],
+			"rating": ["Rating:", "8"],
+			"benefit": ["Benefit:", "All"],
+			"tags": ["Tags:", "red delicious"],
+			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
+			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+		}
+	]
+}
