@@ -29,22 +29,37 @@
 	
 $(document).ready(function()
 {
+	function $(x)
+	{
+		var theElement = $(x);
+		return theElement;
+	}
+	
 	// Var Defaults
 	var projectType = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],mtopicValue;
 		errMsg = $("errors");
 		projectId = getUrlVars()["projectId"];
-		projectForm = $("#projectForm");
+		projectForm = $("projectForm");
+		displayLink = $("displayLink");
+		clearLink = $("clear");
+		displayIOSLink = $("displayIOSLink");
+		displayAndroidLink = $("displayAndroidLink");
+		displayHtml5Link = $("displayHtml5Link");
+		displayWordpressLink = $("displayWordpressLink");
+		displayGraphicLink = $("displayGraphicLink");
+		displayAuthorLink = $("displayAuthorLink");
+		save = $("submit");
 		
-		
-		$("#delete").click(function()
-		{
-			deleteProject();
-		});
-		
-		$('#clear').click(function()
-		{
-			clearLocal();
-		});
+		displayLink.on("click", getProjectJSON);
+		clearLink.on("click", clearLocal);
+		displayIOSLink.on("click", getProjectJSON);
+		displayAndroidLink.on("click", getProject);
+		displayHtml5Link.on("click", getProjectJSON);
+		displayWordpressLink.on("click", getProjectJSON);
+		displayGraphicLink.on("click", getProjectJSON);
+		displayAuthorLink.on("click", getProjectJSON);
+		save.on("click", saveProject);
+		//save.on("click", validate);
 		
 		// Project Types DropDown
 		function makeProjectTypes() 
@@ -436,36 +451,16 @@ $(document).ready(function()
 				alert("Project Saved");
 		}
 		
+		$("#delete").click(function()
+		{
+			deleteProject();
+		});
+		
+		$('#clear').click(function()
+		{
+			clearLocal();
+		});
+		
 		makeProjectTypes();
 		setDate();
-		
-		// Set Link & Submit Click Events
-		var displayLink = $("#displayLink");
-		displayLink.on("click", getProjectJSON);
-		
-		var clearLink = $("#clear");
-		clearLink.on("click", clearLocal);
-		
-		var displayIOSLink = $("#displayIOSLink");
-		displayIOSLink.on("click", getProjectJSON);
-		
-		var displayAndroidLink = $("#displayAndroidLink");
-		displayAndroidLink.on("click", getProject);
-		
-		var displayHtml5Link = $("#displayHtml5Link");
-		displayHtml5Link.on("click", getProjectJSON);
-	
-		var displayWordpressLink = $("#displayWordpressLink");
-		displayWordpressLink.on("click", getProjectJSON);
-	
-		var displayGraphicLink = $("#displayGraphicLink");
-		displayGraphicLink.on("click", getProjectJSON);
-	
-		var displayAuthorLink = $("#displayAuthorLink");
-		displayAuthorLink.on("click", getProjectJSON);
-		
-		var save = $("submit");
-		
-		save.on("click", saveProject);
-		//save.on("click", validate);
 });
