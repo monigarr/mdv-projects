@@ -88,46 +88,6 @@ $(document).ready(function()
 			}
 		}
 		
-		function saveProject(key)
-		{
-			//if no key, this is brand new item 
-			//so we need new key
-			if(!key)
-			{
-				var id = Math.floor(Math.random()*10000001);
-			}
-			//Remove Weird Data that creates keys for file directories
-			else if(key === "A-Z" || "a-z")
-			{
-				//delete weird data and move on
-				localStorage.removeItem(this.key);
-			}
-			else
-			{
-				var id = key;
-			}
-			
-			// run function to find Selected Radio Button
-			getSelectedRadio();
-				
-				//Gather up all our form field values and store in object.
-				//Object properties contain array with form label and input value
-				var item 			= {};
-					item.mtype 		= ["Project Type:",$('#mtype').val()];
-					item.mgraphic   = ["Project Screenshot:",$('#mgraphic').val()];
-					item.mname 		= ["Project Name:",$('#mname').val()];
-					item.mdate  	= ["Project Date:",$('#mdate').val()];
-					item.mrating 	= ["Project Rating:",$('#mrating').val()];
-					//radio button
-					item.mtopics 	= ["Project Incentive:",$('#mtopicValue').val()];
-					item.mtags		= ["Project Tags:",$('#mtags').val()];
-					item.mcomments	= ["Project Notes:",$('#mcomments').val()];
-				//Save Data to Local Storage: Use Stringify to convert our object to a string
-				//json.org
-				localStorage.setItem(id, JSON.stringify(item));
-				alert("Project Saved");
-		}
-		
 		//Auto Populate local storage
 		function autoFillData()
 		{
@@ -139,76 +99,42 @@ $(document).ready(function()
 				var id = Math.floor(Math.random()*10000001);
 				localStorage.setItem(id, JSON.stringify(json[n]));
 			}
+			$('#getProjectData').hide();
+			getProjectJSON();
 		}
 		
-		function getData()
+		function getProjectJSON()
 		{
+			$('#errors').empty();
+			$('#getProjectData').hide();
 			
 			if(localStorage.length === 0)
 			{
-				alert("No Projects in local Storage. Test Data was Added.");
-				//populate with test data
-				autoFillData();
+				$('getProjectData').show();
+				$('#getProjectData-button').button();
+				$('#getProjectData-button').click(function()
+				{
+					alert("No Projects in local Storage. Test Data was Added.");
+					//populate with test data
+					autoFillData();
+					return false;
+				});
 			}
-
-			//Write Data from Local Storage to the Browswer.
-			var makeDiv = document.createElement("div");
-				makeDiv.attr("id","items");
-				makeDiv.attr("data-role", "content");
-				makeDiv.attr("data-theme", "d");
-			
-			var makeDivPrimary = document.createElement("div");
-				makeDivPrimary.attr("class", "content-primary");
-	
-			var makeList = document.createElement("ul");
-				makeList.attr("id", "one");
-				makeList.attr("data-role", "listview");
-				makeList.attr("data-filter", "true");
-				makeList.attr("data-inset", "true");
-				//$('#items').listview('refresh');	
-				//makeList.listview("refresh");
-			
-			makeDiv.append(makeDivPrimary);
-			makeDivPrimary.append(makeList);
-			document.body.append(makeDiv);
-			$("items").css.display = "black";
-			
-			
-			$('<div id="items" data-role="content" data-theme="d"');
-			$('<div class="content-primary">');
-			$('<ul id="one" data-role="list-view" data-filter="true" data-inset="true"');
-			
 							
 			for(var i=0, len=localStorage.length; i<len; i++)
 			{
-				var makeli = document.createElement("li");
-				makeli.attr("id", "two");
-				
-				var linksLi = document.createElement("div");
-				linksLi.attr("id", "three");
-				
-				//makeList.append(makeli);
-				
 				var key = localStorage.key(i);
 				var value = localStorage.getItem(key);
-				//convert string back to object so it won't be one long string
 				var obj = JSON.parse(value);
-				var makeSubList = document.createElement("a");
-				makeSubList.attr("href", "#");
-				makeSubList.attr("id", "four");
-	
-				makeli.append(makeSubList);
 				
-				$('<a href="#" id="four"></a>').appendTo("#three");
-				//Add Icon for each Project Type
-				//getImage(obj.mtype[1], makeSubList);
-				//Add Graphic for each Project Name
-				getProjectGraphic(obj.mgraphic[1], makeSubList);
+				$('<li></li>').addClass('project' + key)
+					.attr('data-theme','b')
+					.appendTo('#items');
 				
-				//build p to hold all values for each project
-				var makeSubli = document.createElement("p");
-				makeSubli.attr("id", "five");
-				makeSubList.append(makeSubli);
+				$('<a></a>').addClass('anchor' + key)
+					.attr('rel','external')
+					.attr('href', '#?projectId=' + key)
+					.appendTo('#items li.' + key);
 				
 				for(var n in obj)
 				{
@@ -227,14 +153,14 @@ $(document).ready(function()
 		//Get icon for the relevant project type displayed
 		function getImage(mediaType, makeSubList)
 		{
-			var imageLi = document.createElement("div");
-			imageLi.attr("align", "left");		
-			makeSubList.append(imageLi);
+			var imageLi = $('div')
+				.attr('align', 'left')	
+				.append('#items li a' + key);
 			
-			var newImg = document.createElement("img");
-			var setSrc = newImg.attr("src", "images/" + mediaType + ".jpg");
-			var alignImg = newImg.attr("class", "projectIconAlign");
-			imageLi.append(newImg);
+			var newImg = $('img')
+				.attr("src", "images/" + mediaType + ".jpg")
+				.attr('class', 'projectIconAlign');
+				.append('#imageLi' + key);
 			
 			
 		}
@@ -242,9 +168,9 @@ $(document).ready(function()
 		//Get graphic url for project.
 		function getProjectGraphic(projectName, makeSubList)
 		{
-			var projectGraphicLi = document.createElement("div");
+			var projectGraphicLi = $("div");
 			makeSubList.append(projectGraphicLi);
-			var newImg = document.createElement("img");
+			var newImg = $("img");
 			var setSrc = newImg.attr("src", projectName);
 			var alignImg = newImg.attr("class", "projectScreenshotAlign");
 			var setWidth = newImg.attr("width", "75px");
@@ -448,34 +374,74 @@ $(document).ready(function()
 				saveProject(this.key);
 			}
 		}
+
+		function saveProject(key)
+		{
+			//if no key, this is brand new item 
+			//so we need new key
+			if(!key)
+			{
+				var id = Math.floor(Math.random()*10000001);
+			}
+			//Remove Weird Data that creates keys for file directories
+			else if(key === "A-Z" || "a-z")
+			{
+				//delete weird data and move on
+				localStorage.removeItem(this.key);
+			}
+			else
+			{
+				var id = key;
+			}
 			
+			// run function to find Selected Radio Button
+			getSelectedRadio();
+				
+				//Gather up all our form field values and store in object.
+				//Object properties contain array with form label and input value
+				var item 			= {};
+					item.mtype 		= ["Project Type:",$('#mtype').val()];
+					item.mgraphic   = ["Project Screenshot:",$('#mgraphic').val()];
+					item.mname 		= ["Project Name:",$('#mname').val()];
+					item.mdate  	= ["Project Date:",$('#mdate').val()];
+					item.mrating 	= ["Project Rating:",$('#mrating').val()];
+					//radio button
+					item.mtopics 	= ["Project Incentive:",$('#mtopicValue').val()];
+					item.mtags		= ["Project Tags:",$('#mtags').val()];
+					item.mcomments	= ["Project Notes:",$('#mcomments').val()];
+				//Save Data to Local Storage: Use Stringify to convert our object to a string
+				//json.org
+				localStorage.setItem(id, JSON.stringify(item));
+				alert("Project Saved");
+		}
+		
 		makeProjectTypes();
 		setDate();
 		
 		// Set Link & Submit Click Events
 		var displayLink = $("#displayLink");
-		displayLink.on("click", getData);
+		displayLink.on("click", getProjectJSON);
 		
 		var clearLink = $("#clear");
 		clearLink.on("click", clearLocal);
 		
 		var displayIOSLink = $("#displayIOSLink");
-		displayIOSLink.on("click", getData);
+		displayIOSLink.on("click", getProjectJSON);
 		
 		var displayAndroidLink = $("#displayAndroidLink");
-		displayAndroidLink.on("click", getData);
+		displayAndroidLink.on("click", getProject);
 		
 		var displayHtml5Link = $("#displayHtml5Link");
-		displayHtml5Link.on("click", getData);
+		displayHtml5Link.on("click", getProjectJSON);
 	
 		var displayWordpressLink = $("#displayWordpressLink");
-		displayWordpressLink.on("click", getData);
+		displayWordpressLink.on("click", getProjectJSON);
 	
 		var displayGraphicLink = $("#displayGraphicLink");
-		displayGraphicLink.on("click", getData);
+		displayGraphicLink.on("click", getProjectJSON);
 	
 		var displayAuthorLink = $("#displayAuthorLink");
-		displayAuthorLink.on("click", getData);
+		displayAuthorLink.on("click", getProjectJSON);
 		
 		var save = $("submit");
 		
