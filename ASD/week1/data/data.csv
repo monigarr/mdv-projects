@@ -1,0 +1,18 @@
+//remove following and add to js later
+
+var lines = data.split("\n");
+for (var lineNum = 0; lineNum < lines.length; lineNum++) {
+    var row = lines[lineNum];
+    var columns = row.split(",");
+    console.log(columns);
+} // for lineNum
+
+Title,Species,Name,PriceUSD
+Undead Monkey,Capuchin,Jack,19.95
+
+type,name,ripedate,rating,benefit,tags,graphic,comments
+herb,oregano,2012-16-08,8,All,green,http://images.google.com,delicious in spagetti sauce
+herb,parsley,2012-16-08,8,All,green,http://images.google.com,delicious in meat loaf
+herb,cilantro,2012-16-08,8,All,green,http://images.google.com,delicious in pesto
+herb,peppermint,2012-16-08,8,All,green,http://images.google.com,delicious in salads
+herb,basil,2012-16-08,8,All,green,http://images.google.com,delicious in thai recipes

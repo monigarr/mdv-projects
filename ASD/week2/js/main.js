@@ -35,6 +35,17 @@ $(document).ready(function()
 		projectId = getUrlVars()["projectId"];
 		projectForm = $("#projectForm");
 		
+		
+		$("#delete").click(function()
+		{
+			deleteProject();
+		});
+		
+		$('#clear').click(function()
+		{
+			clearLocal();
+		});
+		
 		// Project Types DropDown
 		function makeProjectTypes() 
 		{
@@ -86,6 +97,16 @@ $(document).ready(function()
 					if(mm<10){mm='0'+mm;}
 					$('#date').val(mm+'/'+dd+'/'+yyyy);
 			}
+		}
+		
+		function getUrlVars()
+		{
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) 
+			{
+				vars[key] = value;
+			});
+		return vars;
 		}
 		
 		//Auto Populate local storage
@@ -207,7 +228,7 @@ $(document).ready(function()
 			deleteLink.href = "#";
 			deleteLink.key = key;
 			var deleteText = "Delete Project";
-			deleteLink.on("click", deleteItem);
+			deleteLink.on("click", deleteProject);
 			deleteLink.html = deleteText;
 			linksLi.append(deleteLink);
 		}
@@ -268,7 +289,7 @@ $(document).ready(function()
 			});
 		}
 		
-		function deleteItem()
+		function deleteProject()
 		{
 			var ask = confirm("You really want to Delete this Project?");
 			if(ask)
