@@ -29,78 +29,37 @@
 	
 $(document).ready(function()
 {
-
-	// Variable defaults
-	// store values of dropdown in array
-	var mediaGroups = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],
-		mtopicValue,
+	// Var Defaults
+	var projectType = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],mtopicValue;
 		errMsg = $("errors");
+		projectId = getUrlVars()["projectId"];
+		projectForm = $("#projectForm");
 		
-	var parseProjectForm = function(data)
-	{
-		// uses form data here;
-		console.log(data);
-	};
-			
-	var projectForm = $("#projectForm");
-	projectForm.validate(
-	{
-	//options to change behavior of validator
-		invalidHandler: function(form, validator)
+		// Project Types DropDown
+		function makeProjectTypes() 
 		{
-			//error messages
-			
-		},
-		submitHandler: function()
-		{
-			//when valid form is submitted
-			//store all data
-			//target form
-			var data = projectForm.serializeArray();
-			//call function & pass data in
-			parseProjectForm(data);
-		}
-	});
-		
-	// Wait until DOM is ready
-	window.on("DOMContentLoaded", function()
-	{
-		function $(x)
-		{
-			//var theElement = document.getElementById(x);
-			//http://jsperf.com/jquery-attr-vs-native-setattribute
-			var theElement = $("x");
-			return theElement;
-		}
-		
-		// Create select field element
-		function makeMediaTypes() 
-		{
-			//formTag is an array of all form tags
-			//var formTag = document.getElementsByTagName("form"),
-			var formTag = $("form"),
-				selectLi = $("mtype"),
-				makeSelect = $("select");
-				makeSelect.attr("class", "required");
-				makeSelect.attr("id", "mtype");
-				makeSelect.attr("name", "mtype");
-				makeSelect.attr("data-native-menu", "false");
+			$('<select></select>')
+				.attr('id', 'mtype')
+				.attr('data-theme', 'b')
+				.attr('data-native-menu', 'false')
+				.appendTo('#select');
 			//populate with options
-			for(var i=0, j=mediaGroups.length; i<j; i++) 
+			for(var i=0, j=projectType.length; i<j; i++) 
 			{
-				//create option for each string in array
-				var makeOption = $("option");
-				var optText = mediaGroups[i];
-				makeOption.attr("value", optText);
-				//put text somewhere
-				makeOption.html = optText;
-				
-				makeSelect.append(makeOption);
+				var optText = projectType[i];
+				$('<option></option>')
+					.attr('value', optText)
+					.attr('data-theme', 'b')
+					.appendTo('select #mtype');
+				$('#mtype option:last-child')
+					.html(optText);
 			}
-			selectLi.append(makeSelect);
+			var selectType = $('select #mtype');
+			selectType.selectmenu();
+			selectType.selectmenu('refresh');
 		}
 		
-		//Find value of Selected Radio Button
+		// Find value of Selected Radio Button
 		function getSelectedRadio()
 		{
 			//create radio array
@@ -113,59 +72,30 @@ $(document).ready(function()
 					mtopicValue = radios[i].value;
 				}
 			}
-		}
+		}	
 		
-		
-		//Turn nav links off / on
-		function toggleControls(n)
+		function setDate()
 		{
-			/*
-			switch(n)
+			if (!($('#date').val()))
 			{
-				case "on":
-					$("projectForm").css.display = "block";
-					$("clear").css.display = "inline";
-					$("displayLink").css.display = "inline";
-					$("addNew").css.display = "inline";
-					$("displayIOSLink").css.display = "inline";
-					$("displayAndroidLink").css.display = "inline";
-					$("displayHtml5Link").css.display = "inline";
-					$("displayWordpressLink").css.display = "inline";
-					$("displayGraphicLink").css.display = "inline";
-					$("displayAuthorLink").css.display = "inline";
-					break;
-				case "off":
-					$("projectForm").css.display = "block";
-					$("clear").css.display = "inline";
-					$("displayLink").css.display = "inline";
-					//$("displayLink").listview("refresh");
-					$("addNew").css.display = "inline";
-					$("items").css.display = "inline";
-					$("displayIOSLink").css.display = "inline";
-					$("displayAndroidLink").css.display = "inline";
-					$("displayHtml5Link").css.display = "inline";
-					$("displayWordpressLink").css.display = "inline";
-					$("displayGraphicLink").css.display = "inline";
-					$("displayAuthorLink").css.display = "inline";
-					break;
-				default:
-					return true;
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1;
+				var yyyy = today.getFullYear();
+					if(dd<10){dd='0'+dd;}
+					if(mm<10){mm='0'+mm;}
+					$('#date').val(mm+'/'+dd+'/'+yyyy);
 			}
-			*/
 		}
 		
-		function saveMedia(key)
+		function saveProject(key)
 		{
 			//if no key, this is brand new item 
 			//so we need new key
 			if(!key)
 			{
-				//can only store strings. arrays will be converted to strings
-				//localStorage.setItem("test", "hello");
-				//alert(localStorage.key(0));
 				var id = Math.floor(Math.random()*10000001);
 			}
-			
 			//Remove Weird Data that creates keys for file directories
 			else if(key === "A-Z" || "a-z")
 			{
@@ -174,27 +104,24 @@ $(document).ready(function()
 			}
 			else
 			{
-				//set the id to existing key we're editing
-				//so it will save over the data
-				//key is same key that's passed from the editSubmit event handler
-				//to the validate function and then passed here into storeData() function
-				id = key;
+				var id = key;
 			}
-				// run function to find Selected Radio Button
-				getSelectedRadio();
+			
+			// run function to find Selected Radio Button
+			getSelectedRadio();
 				
 				//Gather up all our form field values and store in object.
 				//Object properties contain array with form label and input value
 				var item 			= {};
-					item.mtype 		= ["Project Type:",$("mtype").val()];
-					item.mgraphic   = ["Project Screenshot:",$("mgraphic").val()];
-					item.mname 		= ["Project Name:",$("mname").val()];
-					item.mdate  	= ["Project Date:",$("mdate").val()];
-					item.mrating 	= ["Project Rating:",$("mrating").val()];
+					item.mtype 		= ["Project Type:",$('#mtype').val()];
+					item.mgraphic   = ["Project Screenshot:",$('#mgraphic').val()];
+					item.mname 		= ["Project Name:",$('#mname').val()];
+					item.mdate  	= ["Project Date:",$('#mdate').val()];
+					item.mrating 	= ["Project Rating:",$('#mrating').val()];
 					//radio button
-					item.mtopics 	= ["Project Incentive:",$("mtopicValue").val()];
-					item.mtags		= ["Project Tags:",$("mtags").val()];
-					item.mcomments	= ["Project Notes:",$("mcomments").val()];
+					item.mtopics 	= ["Project Incentive:",$('#mtopicValue').val()];
+					item.mtags		= ["Project Tags:",$('#mtags').val()];
+					item.mcomments	= ["Project Notes:",$('#mcomments').val()];
 				//Save Data to Local Storage: Use Stringify to convert our object to a string
 				//json.org
 				localStorage.setItem(id, JSON.stringify(item));
@@ -216,8 +143,6 @@ $(document).ready(function()
 		
 		function getData()
 		{
-			//Write Data from Local Storage to the Browser
-			toggleControls("on");
 			
 			if(localStorage.length === 0)
 			{
@@ -225,25 +150,23 @@ $(document).ready(function()
 				//populate with test data
 				autoFillData();
 			}
-			
-	
-			
+
 			//Write Data from Local Storage to the Browswer.
 			var makeDiv = document.createElement("div");
-			makeDiv.attr("id","items");
-			makeDiv.attr("data-role", "content");
-			makeDiv.attr("data-theme", "d");
+				makeDiv.attr("id","items");
+				makeDiv.attr("data-role", "content");
+				makeDiv.attr("data-theme", "d");
 			
 			var makeDivPrimary = document.createElement("div");
-			makeDivPrimary.attr("class", "content-primary");
+				makeDivPrimary.attr("class", "content-primary");
 	
 			var makeList = document.createElement("ul");
-			makeList.attr("id", "one");
-			makeList.attr("data-role", "listview");
-			makeList.attr("data-filter", "true");
-			makeList.attr("data-inset", "true");
-			//$('#items').listview('refresh');	
-			//makeList.listview("refresh");
+				makeList.attr("id", "one");
+				makeList.attr("data-role", "listview");
+				makeList.attr("data-filter", "true");
+				makeList.attr("data-inset", "true");
+				//$('#items').listview('refresh');	
+				//makeList.listview("refresh");
 			
 			makeDiv.append(makeDivPrimary);
 			makeDivPrimary.append(makeList);
@@ -316,7 +239,6 @@ $(document).ready(function()
 			
 		}
 		
-		
 		//Get graphic url for project.
 		function getProjectGraphic(projectName, makeSubList)
 		{
@@ -365,28 +287,29 @@ $(document).ready(function()
 		}
 		
 		//Edit single item
-		function editItem()
+		function editItem(projectId)
 		{
 			//Grab data from Item from local storage.
-			var value = localStorage.getItem(this.key);
+			var value = localStorage.getItem(projectId);
 			var item = JSON.parse(value);
-			
-			//show form to edit item
-			//toggleControls("off");
 			
 			//populate form fields with current local storage values
 			//1 is value, 0 is label
-			$("mtype").val() = item.mtype[1];
-			$("mdate").val() = item.mdate[1];
-			$("mname").val() = item.mname[1];
-			$("mrating").val() = item.mrating[1];
-			// handle radio buttons
+			$('#mtype').val() = item.mtype[1];
+			$('#mdate').val() = item.mdate[1];
+			$('#mname').val() = item.mname[1];
+			$('#mrating').val() = item.mrating[1];
+			$('#mtags').val() = item.mtags[1];
+			$('#mgraphic').val() = item.mgraphic[1];
+			$('#mcomments').val() = item.mcomments[1];
+			
+			$('radio').removeAttr('checked');
 			var radios = document.forms[0].mtopics;
 			for(var i=0; i<radios.length; i++)
 			{
 				if(radios(i).value === "school" && item.mtopics(1) === "school")
 				{
-					radios(i).attr("checked", "checked");
+					$(radios[i]).attr("checked", "checked");
 				}
 				else if(radios(i).value === "work" && item.mtopics(1) === "work")
 				{
@@ -397,6 +320,9 @@ $(document).ready(function()
 					radios(i).attr("checked", "checked");
 				}
 			}
+			$("input[type='radio']:first")
+				.attr("checked",true)
+				.checkboxradio("refresh");
 			/*
 			// handle yes / no check box
 			if(obj.favorite(1) == "Yes")
@@ -404,21 +330,16 @@ $(document).ready(function()
 				$("fav").attr("checked", "checked");
 			}
 			*/
-			$("mtags").val() = item.mtags[1];
-			$("mgraphic").val() = item.mgraphic[1];
-			$("mcomments").val() = item.mcomments[1];
-			
 			// Remove the initial listener from the input 'save project' button
-			save.removeEventListener("click", saveMedia);
+			$("#submit").unbind("click");
 			
 			// Change Submit button value to say Edit Button
-			$("submit").val() = "Edit Project";
-			var editSubmit = $("submit");
-			
-			// Save the key value established in this Function as a property of the editSubmit event
-			// so we can use the value when we save the data we edited.
-			editSubmit.on("click", validate);
-			editSubmit.key = this.key;
+			$('submit').val('Edit Project');
+			$("submit").button('refresh');
+			$('#projectForm').submit(function()
+			{
+				validate(projectId);
+			});
 		}
 		
 		function deleteItem()
@@ -426,7 +347,7 @@ $(document).ready(function()
 			var ask = confirm("You really want to Delete this Project?");
 			if(ask)
 			{
-				localStorage.removeItem(this.key);
+				localStorage.removeItem(projectId);
 				alert("Project was Deleted");
 				window.location.reload();
 			}
@@ -452,9 +373,8 @@ $(document).ready(function()
 				//autoFillData();
 			}
 		}
-		
-		
-		function validate(e)
+				
+		function validate(projectId)
 		{
 			//Define elements we want to check
 			var getMtype = $("mtype").val();
@@ -462,36 +382,51 @@ $(document).ready(function()
 			var getMdate = $("mdate").val();
 			
 			//Reset error messages
-			errMsg.html = "";
-				getMtype.css.border = "1px solid yellow";
-				getMname.css.border = "1px solid yellow";
-				getMdate.css.border = "1px solid yellow";
+			$(".error").hide();
+			var hasError = false;
+			$('#errors').empty();
+			$('#mtype').css("border", "none");
+			$('#mname').css("border", "none");
+			$('#mdate').css("border", "none");
 			
 			//Get error messages
 			var messageAry = [];
-			//Check Type Validation
 			
+			// Project Type Validation
 			if(getMtype.value === "-- Choose Project Type--")
 			{
-				var MtypeError = "Choose Project Type";
-				getMtype.css.border = "1px solid yellow";
-				messageAry.push(MtypeError);
+				$('#select > div').after('<span class="error">Enter Project Type</span>');
+				var projectTypeError = "Choose Project Type";
+				$('#select > div').css("border", "1px solid yellow");
+				hasError = true;
 			}
 			
 			// Project Name Validation
 			if(getMname.value === "")
 			{
-				var MnameError = "Enter Project Name";
-				getMname.css.border = "1px solid yellow";
-				messageAry.push(MnameError);
+				$('#mname').after('<span class="error">Enter Project Name</span>');
+				$('#mname').css("border", "1px solid yellow");
+				hasError = true;
 			}
 			
 			// Project Date Validation
 			if(getMdate.value === "")
 			{
-				var MdateError = "Enter Project Date";
-				getMdate.css.border = "1px solid yellow";
-				messageAry.push(MdateError);
+				$('#mdate').after('<span class="error">Enter Project Date</span>');
+				$('#mdate').css("border", "1px solid yellow");
+				hasError = true;
+			}
+			
+			// Set Errors
+			if (hasError === true)
+			{
+				$('#submit-container').after('<span class="error">Enter Required Info</span>');
+				event.preventDefault();
+				return false;
+			}
+			else
+			{
+				saveProject(projectId);
 			}
 			
 			//if errors, show them on screen
@@ -510,40 +445,40 @@ $(document).ready(function()
 				//Send key value that came from editData function
 				//Remember key value was passed thru editSubmit even listener 
 				//as a property.
-				saveMedia(this.key);
+				saveProject(this.key);
 			}
 		}
 			
-		makeMediaTypes();
+		makeProjectTypes();
+		setDate();
 		
 		// Set Link & Submit Click Events
-		var displayLink = $("displayLink");
+		var displayLink = $("#displayLink");
 		displayLink.on("click", getData);
 		
-		var clearLink = $("clear");
+		var clearLink = $("#clear");
 		clearLink.on("click", clearLocal);
 		
-		var displayIOSLink = $("displayIOSLink");
+		var displayIOSLink = $("#displayIOSLink");
 		displayIOSLink.on("click", getData);
 		
-		var displayAndroidLink = $("displayAndroidLink");
+		var displayAndroidLink = $("#displayAndroidLink");
 		displayAndroidLink.on("click", getData);
 		
-		var displayHtml5Link = $("displayHtml5Link");
+		var displayHtml5Link = $("#displayHtml5Link");
 		displayHtml5Link.on("click", getData);
 	
-		var displayWordpressLink = $("displayWordpressLink");
+		var displayWordpressLink = $("#displayWordpressLink");
 		displayWordpressLink.on("click", getData);
 	
-		var displayGraphicLink = $("displayGraphicLink");
+		var displayGraphicLink = $("#displayGraphicLink");
 		displayGraphicLink.on("click", getData);
 	
-		var displayAuthorLink = $("displayAuthorLink");
+		var displayAuthorLink = $("#displayAuthorLink");
 		displayAuthorLink.on("click", getData);
 		
 		var save = $("submit");
 		
-		save.on("click", saveMedia);
+		save.on("click", saveProject);
 		//save.on("click", validate);
-	});
 });
