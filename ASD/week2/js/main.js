@@ -53,7 +53,7 @@ $(document).ready(function()
 		displayLink.on("click", getProjectJSON);
 		clearLink.on("click", clearLocal);
 		displayIOSLink.on("click", getProjectJSON);
-		displayAndroidLink.on("click", getProject);
+		displayAndroidLink.on("click", getProjectJSON);
 		displayHtml5Link.on("click", getProjectJSON);
 		displayWordpressLink.on("click", getProjectJSON);
 		displayGraphicLink.on("click", getProjectJSON);
@@ -169,7 +169,7 @@ $(document).ready(function()
 				
 				$('<a></a>').addClass('anchor' + key)
 					.attr('rel','external')
-					.attr('href', '#?projectId=' + key)
+					.attr('href', '?projectId=' + key)
 					.appendTo('#items li.' + key);
 				
 				for(var n in obj)
