@@ -5,9 +5,36 @@
 //    Week 1 Project 1
 //    Due Thursday May 3rd 2012
 //    main.js
+
+/*	Correct week 1 issues with week 2 project:
+ Try http://wddbs.com/jshero/ to find errors. 
+ Unclosed quote on line 318 is breaking a lot of the code.
+	* Change all uses of $ to the jQuery equivalent.
+    * Coding/Manipulation: 
+		Line 59 creation would be $("); 
+		setAttribute would become .attr, 
+		.innerHTML will be .html, 
+		.appendChild would be .append, 
+		.style would be .css.
+		 
+    *** Check out .val to set your values. 
+    	http://api.jquery.com/val/
+    
+    * Change addEventListener to .on
+    
+    * Coding/Functionality: Poor (0/10pts) 
+    		Points can be refunded when CRUD is functional.
+ 
+*/
 	
 $(document).ready(function()
 {
+	// Variable defaults
+	// store values of dropdown in array
+	var produceGroups = ["-- Choose Produce Type--", "fruit", "vegetable", "herb", "other"],
+		topicValue,
+		errMsg = noDollarSign("errors");
+	
 	var projectForm = $("#projectForm");
 	projectForm.validate(
 	{
@@ -452,12 +479,6 @@ $(document).ready(function()
 			}
 		}
 		
-		
-		// Variable defaults
-		// store values of dropdown in array
-		var produceGroups = ["-- Choose Produce Type--", "fruit", "vegetable", "herb", "other"],
-			topicValue,
-			errMsg = noDollarSign("errors");
 			
 		// Show Header & Logo
 		makeHeader();

@@ -16,7 +16,7 @@
 // mgraphic = 75 x75
 // mtype graphic = 35 x 35 icon
 
-var json = 
+
 {
 	//object name
 	"wordpress1": 

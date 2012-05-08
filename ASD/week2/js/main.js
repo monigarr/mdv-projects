@@ -27,13 +27,10 @@
  
 */
 	
+// remove document.ready
+//http://jquerymobile.com/test/docs/api/events.html
 $(document).ready(function()
 {
-	function $(x)
-	{
-		var theElement = $(x);
-		return theElement;
-	}
 	
 	// Var Defaults
 	var projectType = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],mtopicValue;
@@ -60,6 +57,31 @@ $(document).ready(function()
 		displayAuthorLink.on("click", getProjectJSON);
 		save.on("click", saveProject);
 		//save.on("click", validate);
+		
+		// make all functions VAR
+		// var makeSomething = function(){...}
+		// otherwise jqm will go crazy
+		
+		function $(x)
+		{
+			var theElement = $(x);
+			return theElement;
+		}
+		
+		//ajax call
+		/*
+		$.ajax({
+			url: "xhr/data.json:,
+			type: "GET"
+		});
+		*/
+		
+		/*
+		write data to lists
+		var items [];
+		$.each(items, function(index, value)
+			$("<li>").html().appendTo
+		*/
 		
 		// Project Types DropDown
 		function makeProjectTypes() 
