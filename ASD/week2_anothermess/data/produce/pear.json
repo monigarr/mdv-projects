@@ -1,0 +1,10 @@
+{
+	"type": "fruit",
+	"name": "Pear",
+	"ripedate": "2012-30-01",
+	"rating": "9",
+	"benefit": "All",
+	"tags": "red delicious",
+	"graphic": "http://images.google.com/pear.jpg",
+	"comments": "Pear Flambe recipe"
+}

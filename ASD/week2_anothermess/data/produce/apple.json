@@ -1,0 +1,10 @@
+{
+	"type": "fruit",
+	"name": "Apple",
+	"ripedate": "2012-30-01",
+	"rating": "8",
+	"benefit": "All",
+	"tags": "red delicious",
+	"graphic": "http://aamb.ca/wp-content/uploads/aamb1.jpg",
+	"comments": "Red Delicious organic, local, fresh."
+}

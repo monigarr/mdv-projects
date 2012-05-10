@@ -1,83 +1,82 @@
-var json =
+//
+//    Full Sail University
+//    Mobile Interfaces and Usability
+//    Monica Peters
+//	  Mobile Web App
+//    Week 4 Project 4
+//	  A
+//    Due Thursday March 22nd 2012
+//	  json.js
+
+// Add Test Data 
+// Five items for each file type
+// 25 items total
+// wordpress, author, html5, android, ios
+//
+// graphic = 75 x75
+// mtype graphic = 35 x 35 icon
+
+var json = 
 {
-    "book":
-    {
-        "mtype": ["Type:", "book"],
-        "mname": ["Name:", "Test Book"],
-        "mdate": ["Date:", "2012-02-16"],
-        "mrating": ["Rating:", "8"],
-        "mtopics": ["Topics:", "work"],
-        "mtags": ["Tags:", "worktag"],
-        "mcomments": ["Comments:","Comment about book goes here"]
-    },
-    "document":
-    {
-        "mtype": ["Type:", "document"],
-        "mname": ["Name:", "Test Document"],
-        "mdate": ["Date:", "2009-05-20"],
-        "mrating": ["Rating:", "3"],
-        "mtopics": ["Topics:", "personaltag"],
-        "mtags": ["Tags:", "gardening"],
-        "mcomments": ["Comments:","Comment about document is here."]
-    },
-    "music":
-    {
-        "mtype": ["Type:", "music"],
-        "mname": ["Name:", "Test Music"],
-        "mdate": ["Date:", "1970-04-01"],
-        "mrating": ["Rating:", "8"],
-        "mtopics": ["Topics:", "school"],
-        "mtags": ["Tags:", "schooltag"],
-        "mcomments": ["Comments:","Comment about music goes here"]
-    },
-    "movie":
-    {
-        "mtype": ["Type:", "movie"],
-        "mname": ["Name:", "Test Movie"],
-        "mdate": ["Date:", "1970-02-01"],
-        "mrating": ["Rating:", "10"],
-        "mtopics": ["Topics:", "school"],
-        "mtags": ["Tags:", "schooltag"],
-        "mcomments": ["Comments:","Comment about movie goes here"]
-    },
-    "pdf":
-    {
-        "mtype": ["Type:", "pdf"],
-        "mname": ["Name:", "Test Pdf"],
-        "mdate": ["Date:", "1970-09-01"],
-        "mrating": ["Rating:", "8"],
-        "mtopics": ["Topics:", "work"],
-        "mtags": ["Tags:", "schooltag"],
-        "mcomments": ["Comments:","Comment about pdf goes here"]
-    },
-    "doc":
-    {
-        "mtype": ["Type:", "doc"],
-        "mname": ["Name:", "Test Doc"],
-        "mdate": ["Date:", "1976-04-01"],
-        "mrating": ["Rating:", "8"],
-        "mtopics": ["Topics:", "work"],
-        "mtags": ["Tags:", "schooltag"],
-        "mcomments": ["Comments:","Comment about word doc goes here"]
-    },
-    "audio":
-    {
-        "mtype": ["Type:", "audio"],
-        "mname": ["Name:", "Test Audio"],
-        "mdate": ["Date:", "1979-04-01"],
-        "mrating": ["Rating:", "5"],
-        "mtopics": ["Topics:", "school"],
-        "mtags": ["Tags:", "schooltag"],
-        "mcomments": ["Comments:","Comment about audio goes here"]
-    },
-    "video":
-    {
-        "mtype": ["Type:", "video"],
-        "mname": ["Name:", "Test Video"],
-        "mdate": ["Date:", "1982-04-01"],
-        "mrating": ["Rating:", "9"],
-        "mtopics": ["Topics:", "school"],
-        "mtags": ["Tags:", "schooltag"],
-        "mcomments": ["Comments:","Comment about video goes here"]
-    }
+	//object name
+	"wordpress1": 
+		{
+			//object properties and value
+			"mtype": ["Type:", "wordpress"],
+			"mname": ["Name:", "Aamb.ca (01)"],
+			"mdate": ["Date:", "2010-32-01"],
+			"rating": ["Rating:", "8"],
+			"topics": ["Incentive:", "work"],
+			"tags": ["Tags:", "aamb akwesasne mohawk management board wordpress"],
+			"graphic": ["ScreenShot:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
+			"comments": ["Comments:","I setup, customized, host, and maintain wordpress for this client. I setup dns, email, and registered domain name.  I also provide technical training to help the client learn how to manage their own wordpress site."]
+		},
+	"wordpress2": 
+		{
+			//object properties and value
+			"mtype": ["Type:", "wordpress"],
+			"mname": ["Name:", "MarlanaThompson.com (02)"],
+			"mdate": ["Date:", "2009-03-01"],
+			"rating": ["Rating:", "8"],
+			"topics": ["Incentive:", "work"],
+			"tags": ["Tags:", "okwaho marlana thompson akwesasne wordpress"],
+			"graphic": ["ScreenShot:", "http://www.marlanathompson.com/wp-content/uploads/2010/01/OC-Logo-Wolf.jpg"],
+			"comments": ["Comments:","I setup, customized, host, and maintain webhost, domain, email, mysql, and wordpress for this client. Customized and troubleshooted buggy plugins for ecommerce shop."]
+		},
+	"wordpress3": 
+		{
+			//object properties and value
+			"mtype": ["Type:", "wordpress"],
+			"mname": ["Name:", "Test wordpress 03"],
+			"mdate": ["Date:", "1970-09-01"],
+			"rating": ["Rating:", "8"],
+			"topics": ["Incentive:", "work"],
+			"tags": ["Tags:", "mobile"],
+			"graphic": ["ScreenShot:", "http://regmedia.co.uk/2011/12/06/gcec_1.jpg"],
+			"comments": ["Comments:","Case study details about how and why I created this wordpress website."]
+		},
+	"wordpress4": 
+		{
+			//object properties and value
+			"mtype": ["Type:", "wordpress"],
+			"mname": ["Name:", "Test wordpress 04"],
+			"mdate": ["Date:", "1970-09-01"],
+			"rating": ["Rating:", "8"],
+			"topics": ["Incentive:", "work"],
+			"tags": ["Tags:", "mobile"],
+			"graphic": ["ScreenShot:", "http://regmedia.co.uk/2011/12/06/gcec_1.jpg"],
+			"comments": ["Comments:","Case study details about how and why I created this wordpress website."]
+		},
+	"wordpress5": 
+		{
+			//object properties and value
+			"mtype": ["Type:", "wordpress"],
+			"mname": ["Name:", "Test wordpress 05"],
+			"mdate": ["Date:", "1970-09-01"],
+			"rating": ["Rating:", "8"],
+			"topics": ["Incentive:", "work"],
+			"tags": ["Tags:", "mobile"],
+			"graphic": ["ScreenShot:", "http://regmedia.co.uk/2011/12/06/gcec_1.jpg"],
+			"comments": ["Comments:","Case study details about how and why I created this wordpress website."]
+		}
 }

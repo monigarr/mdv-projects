@@ -163,7 +163,7 @@ $(document).ready(function()
 					item.mgraphic   = ["Project Screenshot:",noDollarSign("mgraphic").value];
 					item.mname 		= ["Project Name:",noDollarSign("mname").value];
 					item.mdate  	= ["Project Date:",noDollarSign("mdate").value];
-					item.mrating 	= ["Project Rating:",noDollarSign("mrating").value];
+					item.rating 	= ["Project Rating:",noDollarSign("rating").value];
 					//radio button
 					item.mtopics 	= ["Project Incentive:",mtopicValue];
 					item.mtags		= ["Project Tags:",noDollarSign("mtags").value];
@@ -365,7 +365,7 @@ $(document).ready(function()
 			noDollarSign("mtype").value = item.mtype[1];
 			noDollarSign("mdate").value = item.mdate[1];
 			noDollarSign("mname").value = item.mname[1];
-			noDollarSign("mrating").value = item.mrating[1];
+			noDollarSign("rating").value = item.rating[1];
 			// handle radio buttons
 			var radios = document.forms[0].mtopics;
 			for(var i=0; i<radios.length; i++)
