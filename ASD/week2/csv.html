@@ -57,32 +57,42 @@
 		<!-- Monica's custom style sheet-->
 		<!-- call custom style sheets last when using jqmobile -->
 		<link rel="stylesheet" href="css/styles.css" />
-	
-	</head>
+		
+		<script>
+		$(document).ready(function() {
+			$.ajax({
+				type: "GET",
+				url: "xhr/data.txt",
+				dataType: "text",
+				success: function(data) {processData(data);}
+			 });
+		});
+		
+		function processData(allText) {
+			var allTextLines = allText.split(/\r\n|\n/);
+			var headers = allTextLines[0].split(',');
+			var lines = [];
+		
+			for (var i=1; i<allTextLines.length; i++) {
+				var data = allTextLines[i].split(',');
+				if (data.length == headers.length) {
+		
+					var tarr = [];
+					for (var j=0; j<headers.length; j++) {
+						tarr.push(headers[j]+":"+data[j]);
+					}
+					lines.push(tarr);
+				}
+			}
+			// alert(lines);
+		}
+		
+		</script>
 	</head>
 	<body>
-	
-	<div data-role="page" id="home" data-theme="d" data-add-back-btn="true">
-		<div data-role="header">
-			<h1><a href="#home">ShowOff!</a></h1>
-		</div><!--/header-->
-		<div data-role="content">	
-			<small><center>Show off your projects.</center></small>
-			<br />
-			<div id="archive1"></div>			
-		</div><!--/content-->
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="index.html" id="home" class="ui-btn-active" rel="internal" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="index.html#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-add-back-btn="true" />Search</a></li>
-					<li><a href="index.html#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
-					<li><a href="index.html#contact"  id="contact" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
-					<li><a href="index.html#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
-				</ul>
-			</div><!--/navbar-->
-		</div><!--/footer-->
-	</div><!--/page /home-->	
+
+
+
 	<!--jquery and jquery mobile-->
 	<!--note that order of js is important below-->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
