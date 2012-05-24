@@ -153,7 +153,7 @@ $('#home').live('pageinit', function()
 				$.each(data.rows, function(index, value)
 				{
 					var item = (value.value || value.doc);
-					$('#projectDetails').append($('<li>').append(item).text(item.comment));
+					$('#projectDetails').listview().append($('<li>').append(item).text("Project:" + item.name + "Tag:" + item.tag + "Comments:" + item.comment));
 				});
 				$('#projectDetails').listview();
 			},
