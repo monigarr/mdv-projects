@@ -1,67 +1,83 @@
-<!DOCTYPE html>
-    <!--
-    Full Sail University
-    Visual Frameworks
-    Monica Peters
-    Web App Part 4
-    Week 4 Project 4
-    Due Thursday Feb. 23rd 2012
-    additem.html
-    -->
+<!doctype html> 
 <html lang="en">
-	<head>
-		<title>Media Library v3.0</title>
+<head>
+<title>ShowOff! A</title>
 		<meta type="charset" content = "utf-8" />
 		<meta type="robots" content="index,follow" />
-		<meta type="viewport" content="user-scalable=no, width=device-width" />
 		<meta type="description" content="Manage your personal media library" />
 		<meta type="keywords" content = "media library, add media, monica peters, vfw" />
-		<link rel="stylesheet" href="css/styles.css" type="text/css" />
-		<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
+		
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-	</head>
-	<body>
-		<div data-role="page" id="additem">
-    	<div data-role="header" id="header"></div>
-    	<div data-role="content">
-		<article><p>Manage your media library.</p></article>	
-		<article>
-			<section>
-				<nav>
-					<ul id="numlist">
-						<li><a href="additem.html" id="addNew" style="display:none;">Add New Media</a></li>
-						<li><a href="#" id="displayLink">Show All Media</a></li> 
-						<li><a href="#" id="clear"> Clear Stored Media</a></li>
-					</ul>
-				</nav>
-			</section>
-			<section id="errors"></section>
-				<form action="#" method="post" id="mediaForm">
-					<fieldset id="mediaFieldSet">
-						<legend>MEDIA INFO</legend>
-						<span>* fields are required.</span>
-							<ul id="media">
-								<li id="select"><label for="mtype">* Media Type:</label><br /></li>
-								<li id="medianame"><label for="mname">* Media Name: </label> <input type="text" id="mname" /></li>
-								<li id="mediadate"><label for="mdate">* Media Date: </label> <input type="date" id="mdate" placeholder="day/month/year" /></li>
-								<li id="mediarating"><label for="mrating">Media Rating: </label><input type="range" min="1" max="10" name="rating" value="5" id="mrating"><output onclick="value=mrating.value">0</output></li>
-								<li id="mediatopics"><label for="mtopic">Media Topic:</label>  
-									<input type="radio" value="personal" id="personal" name="mtopics" /><label for="personal">Personal</label>
-									<input type="radio" value="school" id="school" name="mtopics" /><label for="school">School</label>
-									<input type="radio" value="work" id="work" name="mtopics" /><label for="work">Work</label>
-								</li>
-								<li id="mediatags"><label for="mtags">Media Tags:</label> <input type="text" id="mtags" /></li>
-								<li id="mediacomments"><label for="mcomments">Media Comments:</label> <textarea id="mcomments" /></textarea></li>
-								<input type="submit" value="Save Media" id="submit" /> <br />
-							</ul>
-					</fieldset>
-				</form>
-		</article>
-	</div><!--/comtent-->
-		<div data-role="footer"></div>
-		<script type="text/javascript" src="js/json.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
+		
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+			
+		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script type="text/javascript" src="modernizr.custom.min.js"></script>
+		
+		<!-- Monica's custom style sheet-->
+		<!-- call custom style sheets last when using jqmobile -->
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="main.css" />
+</head>
+<body>
+	<div data-role="page" id="addProject" >
+		<div data-role="header" data-position="fixed">
+			<a href="additem.html" data-icon="arrow-l" data-iconpos="notext">Back</a>
+				<h3 id="pageTitle">Add New</h3>
+		</div>
+		<div data-role="content" class="mainContent" data-theme="f">
+			<form action="#" name="form" id="form" method="get">
+				<h3>Basic Information</h3>
+				<span id="required"><span class="error">*</span> fields are required.</span>
+				<div data-role="fieldcontain">
+					<label for="name">Name: <span class="required">*</span></label>
+					<input type="text" id="name" placeholder="Enter project name."/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="tag">Tag: <span class="required">*</span></label>
+					<input type="text" id="tag" placeholder="Enter a tag keyword for this project."/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label>Notes: </label>
+					<textarea id="comment" name="comment" rows="8" cols="30" placeholder="Enter case study notes."></textarea>
+				</div>
+				<div data-role="fieldcontain" id="projectid-container">
+					<label>Project Id: </label>
+					<input id="project-id" type="text" disabled="disabled" >
+				</div>
+				<div data-role="fieldcontain" id="projectrev-container">
+					<label>Revision Info: </label>
+					<input id="project-rev" type="text" disabled="disabled" >
+				</div>
+				<div data-role="controlgroup" id="submit-container">
+					<a id="submit" data-role="button" data-theme="f" >Add New Project</a> 	
+					<a id="cancel" data-role="button" data-theme="d" onclick="history.back();">Cancel</a> 	
+				</div>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!--jquery and jquery mobile-->
+	<!--note that order of js is important below-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	
+	<!--plugins-->
+	<script type="text/javascript" src="jquery.couch.js"></script>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
+
+	<!--custom js-->
+	<script type="text/javascript" src="main.js"></script>
+
+</body>
 </html>
