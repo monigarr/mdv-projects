@@ -54,6 +54,7 @@
 		<!-- Monica's custom style sheet-->
 		<!-- call custom style sheets last when using jqmobile -->
 		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="main.css" />
 	
 	</head>
 	<body>
@@ -69,10 +70,18 @@
 				<section id="feature">
 					<a href="#newest" id="newest" rel="internal"><img src="feature_image_with_cta_wow_yay.png" width="120px" height="126px" border="0" /></a>
 				</section><!--/feature-->
-				<h2>Load Couch Data</h2>
+
 				</center>
-	    		<ul id="homeItems" data-role="listview" data-theme="d" data-filter="true"></ul>
+				<p><h3>Projects</h3>
+				<ul id="projectItems" data-role="listview"></ul>
+				</p>
+				
+				<p>
 				<br />
+				<h3>Programs</h3>
+				<ul id="homeItems" data-role="listview"></ul>
+				</p>
+				
 		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
@@ -95,34 +104,29 @@
 				<center><h2>Add New Project</h2></center>
 			</section><!--/addNew-->
 			<section id="errors"></section><!--/errors-->
-			<form action="#feature" method="post" id="form">
+			<form action="#home" method="post" id="form">
 					<fieldset id="mediaFieldSet">
 						<center><span><small>* fields required.</small><br /></span></center>
 							<ul id="media">
 								<div data-role="fieldcontain">
 									<li id="title">
 										<label for="title">* Name: </label>
-										<input type="text" id="title" class="required" value="Short description" />
+										<input type="text" name="title" id="title" class="required" value="" />
 									</li>
-								</div>
-								<div data-role="fieldcontain">
 									<li id="acronym">
 										<label for="acronym">Tag</label>
 										<small>Short word to describe your Project</small>
-										<input type="text" id="acronym" value="Blue" />
+										<input type="text" name="acronym" id="acronym" value="Blue" />
 									</li>
-								</div>
-								<div data-role="fieldcontain">
 									<li id="month">
 										<label for="month">Months you worked on Project</label>
 										<input type="range" id="month" name="month" min="1" max="12">
 									</li>
-								</div>
-									
-							</ul><!--/media-->
-								<div data-role="fieldcontain">
-									<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" align="left" />
+									<li id="submit">
+									<input type="submit" data-theme="e" value="Save Project" id="submit" align="left" />
 								    <input type="reset" data-theme="c" value="reset" /> 
+								    </li>
+							</ul><!--/media-->
 								</div><!--/fieldcontain submit-->
 					</fieldset><!--/mediaFieldSet-->
 				</form>
@@ -171,7 +175,7 @@
 			
 			</section>
 		</div><!--/content-->
-		<div data-role="footer" id="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>

@@ -20,9 +20,33 @@ $('#home').live('pageinit', function()
 {
 	console.log("Home Page Loaded.");
 	
+	$('#contact').live('pageinit', function()
+	{console.log("Contact Page Loaded");}); //end contact pageinit
+
+	$('#info').live('pageinit', function()
+	{console.log("Info Page Loaded");}); //end info pageinit
+	
+	/*$.couch.db("asdproject").view("app/courses", 
+	{
+		cache: false,
+		success: function(data)
+		{
+			$('#homeItems').empty();
+			$.each(data.rows, function(index, value)
+			{
+				var item = (value.value || value.doc);
+				$('#homeItems').append($('<li>').text(item.title));
+			});
+			$('#homeItems').listview();
+		}
+	});
+	*/
+	
+	
+	
 	//app is name of this app see _id file
-	//courses is name of db objects
-	$.couch.db("asdproject").view("app/courses", 
+	//programs is name of db objects
+	$.couch.db("asdproject").view("app/programs", 
 	{
 		cache: false,
 		success: function(data)
@@ -34,13 +58,111 @@ $('#home').live('pageinit', function()
 				$('#homeItems').append(
 					$('<li>').append(
 						$('<a>')
-							.attr("href", "project.html?project=" + item.acronym)
-							.text(item.title)
+							.attr("href", "program.html?program=" + item.acronym)
+							.text(item.acronym)
 						)
 					);
-			});
-			$('#homeItems').listview();
+				});
+				$('#homeItems').listview();
 		}
+	});
+	
+	$.couch.db("asdproject").view("app/projects", 
+	{
+		cache: false,
+		success: function(data)
+		{
+			$('#projectItems').empty();
+			$.each(data.rows, function(index, value)
+			{
+				var item = (value.value || value.doc);
+				$('#projectItems').append(
+					$('<li>').append(
+						$('<a>')
+							.attr("href", "project.html?project=" + item.tag)
+							.text(item.name)
+						)
+					);
+				});
+				$('#projectItems').listview();
+		}
+	});
+
+	$('#program').live("pageshow", function()
+	{
+		//app is name of this app see _id file
+		//courses is name of db objects
+		$.couch.db("asdproject").view("app/courses", 
+		{
+			cache: false,
+			
+			beforeSend: function(data)
+			{
+				$('#error').hide();
+				//$('#loading').show();
+			},
+			
+			complete: function(data)
+			{
+				$('#loading').hide();
+			},
+			
+			success: function(data)
+			{
+				$('#courseItems').empty();
+				$.each(data.rows, function(index, value)
+				{
+					var item = (value.value || value.doc);
+					$('#courseItems').append(
+						$('<li>').append(item)
+							.text(item.title)
+						);
+					});
+					$('#courseItems').listview();
+			},
+			
+			error: function(data)
+			{
+				$('#error').show();
+			}
+		});
+	});
+	
+	$('#project').live("pageshow", function()
+	{
+		//app is name of this app see _id file
+		//courses is name of db objects
+		$.couch.db("asdproject").view("app/projects", 
+		{
+			cache: false,
+			
+			beforeSend: function(data)
+			{
+				$('#error').hide();
+				//$('#loading').show();
+			},
+			
+			complete: function(data)
+			{
+				$('#loading').hide();
+			},
+			
+			success: function(data)
+			{
+				$('#projectDetails').empty();
+				$.each(data.rows, function(index, value)
+				{
+					var item = (value.value || value.doc);
+					$('#projectDetails').append($('<li>').append(item).text(item.comment));
+				});
+				$('#projectDetails').listview();
+			},
+			
+			error: function(data)
+			{
+				$('#error').show();
+			}
+		});
 	});
 	
 	//LOGO TOP
@@ -95,34 +217,29 @@ $('#home').live('pageinit', function()
 	$('#additem').live('pageinit', function()
 	{
 		console.log("Add Item Page Loaded");
-			// Var Defaults
-		errMsg = $("errors");
-		form = $("form");
-		displayLink = $("displayLink");
-		clearLink = $("clear");
-		displayIOSLink = $("displayIOSLink");
-		displayAndroidLink = $("displayAndroidLink");
-		displayHtml5Link = $("displayHtml5Link");
-		displayWordpressLink = $("displayWordpressLink");
-		displayGraphicLink = $("displayGraphicLink");
-		displayAuthorLink = $("displayAuthorLink");
-		save = $("submit");
+			
+		var parseForm = function(data)
+		{
+			console.log(data);
+		}
 		
-		/*displayLink.on("click", getProjectJSON);
+		var form = $("#form");		
+		form.validate({
+			invalidHandler: function(form, validator){},
+			submitHandler: function(){
+				var data = form.serializeArray();
+				parseForm(data);
+			}
+		});
+		
+		
+		var clearLink = $("clear");;
+		var save = $("submit");
 		clearLink.on("click", clearLocal);
-		displayIOSLink.on("click", getProjectJSON);
-		displayAndroidLink.on("click", getProjectJSON);
-		displayHtml5Link.on("click", getProjectJSON);
-		displayWordpressLink.on("click", getProjectJSON);
-		displayGraphicLink.on("click", getProjectJSON);
-		displayAuthorLink.on("click", getProjectJSON);
-		*/
 		save.on("click", saveProject);
-		//save.on("click", validate);
 		
 
 		
-		//Make Item Links
 		//Create Edit and Delete links for each stored item when displayed
 		var makeItemLinks = function(_id, linksLi)
 		{
@@ -207,61 +324,6 @@ $('#home').live('pageinit', function()
 				return false;
 			}
 		}
-		var validate = function(projectId)
-		{
-			//Define elements we want to check
-			var getTitle = $("title").val();
-			
-			//Reset error messages
-			$(".error").hide();
-			var hasError = false;
-			$('#errors').empty();
-			$('#title').css("border", "none");
-			
-			//Get error messages
-			var messageAry = [];
-			
-			// Project Name Validation
-			if(getTitle.value === "")
-			{
-				$('#title').after('<span class="error">Enter Project Name</span>');
-				$('#title').css("border", "1px solid yellow");
-				hasError = true;
-			}
-			
-			
-			// Set Errors
-			if (hasError === true)
-			{
-				$('#submit-container').after('<span class="error">Enter Required Info</span>');
-				event.preventDefault();
-				return false;
-			}
-			else
-			{
-				saveProject(projectId);
-			}
-			
-			//if errors, show them on screen
-			if(messageAry.length >= 1)
-			{
-				for(var i=0, j=messageAry.length; i<j; i++)
-				{
-					var txt = document.createElement("li");
-					txt.html = messageAry(i);
-					errMsg.append(txt);
-				}
-				e.preventDefault();
-				return false;
-			}else{
-				//If everything is good, save the data
-				//Send key value that came from editData function
-				//Remember key value was passed thru editSubmit even listener 
-				//as a property.
-				//CHANGE KEY TO _id because couch db
-				saveProject(this._id);
-			}
-		}
 
 		var saveProject = function(_id)
 		{
@@ -294,10 +356,5 @@ $('#home').live('pageinit', function()
 		}
 	}); //end additem pageinit		
 			
-	$('#contact').live('pageinit', function()
-	{console.log("Contact Page Loaded");}); //end contact pageinit
-
-	$('#info').live('pageinit', function()
-	{console.log("Info Page Loaded");}); //end info pageinit
 
 }); //end home page init

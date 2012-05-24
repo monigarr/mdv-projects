@@ -13,13 +13,18 @@
     <div data-role="page" id="project">
     	<div data-role="header" id="header" data-position="fixed"><h1>Project Details</h1></div>
     	<div data-role="content">
-    		<ul id="projectItems" data-role="listview" data-filter="true"></ul>
-    		<div id="error">unable to pull data<br />
-    			<a href="#">Click</a> to try again.
-    		</div><!--/error-->
-    		<div id="loading">Loading data...</div>
+    		<ul id="projectDetails" data-role="listview"></ul>
     	</div><!--/content-->
-    	<div data-role="footer" id="footer"></div><!--/footer-->
+    			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
+					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
+					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
+				</ul>
+			</div><!--/navbar-->
+		</div><!--/footer-->
     </div><!--/page /programs-->
     
     <!--subpage of index.html don't include scripts from index.html-->
