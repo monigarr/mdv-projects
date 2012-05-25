@@ -1,13 +1,22 @@
 <div data-role="page" id="projectview" data-position="inline" data-back="true">
-    <div data-role="header" id="projectheader">
-        <h1 class="projectname">{{name}}</h1>
-        <a href="#home" data-icon="grid" class="ui-btn-right">Home</a>
-    </div>
-    <div data-role="content" id="projectcontent" data-identity="{{document}}">
-      <h2 class="name">{{name}}</h2>
-      <p class="tags">{{tags}}</p>
-      <p class="comments">{{comments}}</p>
-      <p id="editbutton" data-role="button" data-theme="a">Edit</p>
-    </div>
-    <div data-role="footer" /></div>
+	<div data-role="header" id="projectheader">
+  		<h1 class="projectname">{{name}}</h1>
+  		<a href="#home" data-icon="grid" class="ui-btn-right">Home</a>
+  	</div>
+  	<div data-role="content" id="projectcontent" data-identity="{{document}}">
+  		<h2 class="name">{{name}}</h2>
+		<p class="tags">{{tags}}</p>
+		<p class="comments">{{comments}}</p>
+  	</div>
+  	<div id="falseFooter" class="ui-bar-a ui-footer ui-footer-fixed ui-fixed-inline fade" role="content" data-position="fixed">
+  		<div data-role="navbar">
+			<ul class="ui-grid-a">
+				<li><a href="#" id="deleteButton" data-icon="minus">Delete</a></li>
+				<li><a href="#" id="editButton" data-icon="gear" data-theme="b">Edit</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Bug where footer has to be included on external page, other wise ready() is not fired. -->
+	<div data-role="footer" data-position="fixed" />
+</div>
 {{>scripts}}

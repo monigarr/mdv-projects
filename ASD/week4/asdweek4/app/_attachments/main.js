@@ -18,7 +18,8 @@
 //	tutorials: http://custardbelly.com/blog/2010/12/13/jquery-mobile-couchdb-part-2-document-view/
 	
 $db = $.couch.db("showoff_cloudant_week4");
-
+var projectId;
+		
 function handleDocumentReady()
 {
 	$('#home').bind("pagebeforeshow", refreshProjects);
@@ -34,7 +35,7 @@ function handleDocumentReady()
 	$(function()
 	{$('#footer').append('');});
 
-	$("#submit").live("click", function(event) 
+	$("#addSubmitButton").live("click", function(event) 
 	{
           event.preventDefault();
           var document = {};
@@ -42,14 +43,14 @@ function handleDocumentReady()
           document.tags = $("input#tags").val();
           document.comments = $("textarea#comments").val();
           document.creation_date = (new Date()).getTime();
-          $db.saveDoc( document, {
-                  success: function() {
-                      $.mobile.changePage("#home", "slidedown", true, true);
-                      alert("Project Saved");
-                  },
-                  error: function() {
-                      alert("Cant save new project.");
-                  }
+          $.projects.saveDocument(document, {
+              success: function() {
+                  $.mobile.changePage("#home", "slidedown", true, true);
+                  alert("Project Saved");
+              },
+              error: function(status, error, reason) {
+                  alert("Did Not Save New Project.\n" +status+","+reason+","+error);
+              }
           });
           return false;
       });
@@ -61,10 +62,8 @@ function handleDocumentReady()
           $("textarea#comments").val("");
       });	
 		
-		var projectId;
 
-		$("#projectview").bind("pagebeforeshow", openProject);
-		refreshProjects();
+		//$("#projectview").bind("pagebeforeshow", openProject);
 	
 		
 		function refreshProjects()
@@ -95,6 +94,8 @@ function handleDocumentReady()
 						name = project.name;
 						tags = project.tags;
 						comments = project.comments;
+						//_show/project-edit/ edit form
+						//_show/project/  only show details
 						externalPage = "_show/project/" + project._id;
 						listItem = '<li class="project">' +
 									'<a href="' + externalPage + '">' + 
@@ -112,6 +113,7 @@ function handleDocumentReady()
 	        });
 	      }
 	      
+	      /*
 	      function openProject()
 	      {
 	      	$("#projectcontent").children().remove();
@@ -130,6 +132,7 @@ function handleDocumentReady()
 	      			}
 	      		});
 	      }
+	      */
 	
 	// ADD ITEM PAGE
 	$('#additem').live('pageinit', function()

@@ -1,0 +1,17 @@
+<!-- Class Styles borrowed from those applied to mobile.dialog from jquery.mobile -->
+<div data-role="page" id="projectdelete" role="dialog" data-backbtn="false" class="ui-dialog ui-body-a">
+	<!-- data-backbtn and data-nobackbtn were not working in removing the back button here. -->
+	<!-- As a solution, we peaked inside the jquery mobile js and found the theme and styling that is being applied to divs with data-role=header to fake the look. -->
+	<div class="ui-header ui-bar-a ui-corner-top ui-overlay-shadow">
+		<h1 class="ui-title">Delete Project?</h1>
+		<!-- Borrowed from jquery.mobile plugin for assiging close button on dialog. -->
+		<a id="dialogCloseButton" href="#" data-icon="delete" data-iconpos="notext" style="left: 15px; top: .4em; position: absolute;">Close</a>
+	</div>
+	<div data-role="content" id="dialogContent" data-identity="{{document}}" class="ui-body-c ui-corner-bottom ui-overlay-shadow">
+		<p>Are you sure you want to delete {{name}}, {{comments}}?</p>
+		<a id="dialogCancelButton" href="#" data-role="button" data-theme="a">no</a>
+		<a id="dialogConfirmButton" href="#" data-role="button" data-theme="c">yes</a>
+	</div>
+	<div data-role="footer" />
+</div>
+{{>scripts}}

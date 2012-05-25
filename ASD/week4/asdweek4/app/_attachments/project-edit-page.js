@@ -7,7 +7,7 @@ var ProjectEditPageController = function() {
         $("#cancelButton").die("click", handleCancelEdit);
         $("#cancelBackButton").die("click");
         $("#submitButton").die("click");
-        editableAlbum = null;
+        editableProject = null;
         
         var docId = $("#projectform").data("identity");
         var pageCache =  $(document.getElementById("_show/project-edit/" + docId));
@@ -35,7 +35,7 @@ var ProjectEditPageController = function() {
         var name = $("input#name").val();
         var tags = $("input#tags").val();
         var comments = $("textarea#comments").val();
-        editableAlbum = {name:name, tags:tags, comments:comments};
+        editableProject = {name:name, tags:tags, comments:comments};
     }
     
     function saveDocument(document)
@@ -44,7 +44,7 @@ var ProjectEditPageController = function() {
         {
             success: function(response)  
             {
-                updateEditableAlbum(document);
+                updateEditableProject(document);
                 navigateToProjectPage(document._id);
             },
             error: function() 
@@ -54,7 +54,7 @@ var ProjectEditPageController = function() {
         });
     }
  
-    function updateEditableAlbum( document )
+    function updateEditableProject( document )
     {
         editableProject.name = document.name;
         editableProject.tags = document.tags;

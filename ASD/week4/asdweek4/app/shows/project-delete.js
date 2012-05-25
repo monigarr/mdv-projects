@@ -3,8 +3,8 @@ function(doc, req) {
    	var stash = {
 			name: doc.name,
 			tags : doc.tags,
-			comments: doc.comments,
+			comments : doc.comments,
 			document: doc._id
     };
-	return Mustache.to_html(this.templates.project, stash, this.templates.partials.project);
+	return Mustache.to_html(this.templates.projectdelete, stash, this.templates.partials.projectdelete);
 }

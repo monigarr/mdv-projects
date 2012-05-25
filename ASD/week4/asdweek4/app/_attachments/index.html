@@ -59,6 +59,7 @@
 	</head>
 	<body>
 	
+	<!--HOME-->
 	<div data-role="page" id="home" data-theme="d" data-add-back-btn="true">
 		<div data-role="header">
 			<h1><a href="#home">ShowOff!</a></h1>
@@ -71,7 +72,7 @@
 					<img src="feature_image_with_cta_wow_yay.png" width="120px" height="126px" border="0" />
 				</section><!--/feature-->
 			</center>
-			<ul id="projects" data-role="listview" data-filter="true" data-inset="true" data-theme="b" /></ul>	
+			<ul id="projects" data-role="listview" data-filter="true" data-inset="true" data-theme="b" data-dividertheme="d" /></ul>	
 		</div><!--/content-->
 		<div data-role="footer" data-position="fullscreen">
 			<div data-role="navbar">
@@ -85,13 +86,13 @@
 		</div><!--/footer-->
 	</div><!--/page /home-->
 	
-	
+	<!--ADD ITEM-->
 	<div data-role="page" id="additem" data-theme="d" data-add-back-btn="true">
 		<div data-role="header"><h1><a href="#home">ShowOff!</a></h1></div><!--/header-->
 		<div data-role="content">
 			<section id="addNew"><center><h2>Add New Project</h2></center></section><!--/addNew-->
 			<section id="errors"></section><!--/errors-->
-			<form action="#home" method="get" id="form">
+			<form action="#home" method="get" id="projectAddForm">
 					<fieldset id="mediaFieldSet">
 						<center><span><small>* fields required.</small><br /></span></center>
 							<ul id="media">
@@ -113,8 +114,8 @@
 
 									</li>
 									<li id="submit">
-									<input type="submit" data-theme="e" value="Save Project" id="submit" align="left" />
-								    <input type="reset" data-theme="c" value="reset" /> 
+									<input type="submit" data-theme="e" value="Save Project" id="addSubmitButton" align="left" />
+								    <input type="reset" data-theme="c" value="reset" id="addCancelButon" /> 
 								    </li>
 								</div><!--/fieldcontain submit-->
 							</ul><!--/media-->
@@ -133,6 +134,7 @@
 		</div><!--/footer-->
 	</div><!--/page /additem-->
 	
+	<!--CONTACT-->
 	<div data-role="page" id="contact" data-theme="d" data-add-back-btn="true">
 		<div data-role="header">
 			<h1><a href="#home">ShowOff!</a></h1>
@@ -161,8 +163,6 @@
 							</a>
 						</li>
 					</ul>
-
-			
 			</section>
 		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
@@ -177,55 +177,9 @@
 		</div><!--/footer-->
 	</div><!--/page /contact-->
 	
-	<div data-role="page" id="browse" data-theme="d" data-add-back-btn="true">
-		<div data-role="header">
-			<h1><a href="#home">ShowOff!</a></h1>
-		</div><!--/header-->
-		<div data-role="content">
-			<section id="browse">
-				<h3>browse projects</h3>
-				<small>load from couch db</small>
-					<ul data-role="listview" data-inset="true" data-theme="d" id="browseItems">
-					</ul>
-			</section>
-		</div><!--/content-->
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
-					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
-				</ul>
-			</div>
-		</div><!--/footer-->
-	</div><!--/page /browse-->
+
 	
-	<div data-role="page" id="newest" data-theme="d" data-add-back-btn="true">
-		<div data-role="header">
-			<h1><a href="#home">ShowOff!</a></h1>
-		</div><!--/header-->
-		<div data-role="content">
-			<section id="newStream">
-				<center>
-				<h2>Newest Projects</h2>
-				<h2>Load Couch Data</h2>
-	    		<ul id="recentitems" data-role="listview"></ul>
-				</center>
-			</section><!--/news stream-->
-		</div>
-		<div data-role="footer" id="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
-					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
-				</ul>
-			</div>
-		</div>
-	</div><!--/page newest-->
-	
+	<!--INFO-->
 	<div data-role="page" id="info" data-theme="d" data-add-back-btn="true"> 
 		<div data-role="header" id="header">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
@@ -273,8 +227,10 @@
 
 	<!--custom js-->
 	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="vendor/couchapp/loader.js"></script>
 	<script type="text/javascript" src="project-edit-page.js"></script>
 	<script type="text/javascript" src="project-page.js"></script>
+
 	</body>
 </html>
 
