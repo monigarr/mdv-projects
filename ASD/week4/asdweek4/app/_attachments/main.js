@@ -15,168 +15,122 @@
 // 	UPDATE	change id if using custom id. delete entire doc for update.
 //	DELETE
 	
+//	tutorials: http://custardbelly.com/blog/2010/12/13/jquery-mobile-couchdb-part-2-document-view/
+	
+$db = $.couch.db("showoff_cloudant_week4");
 
-$('#home').live('pageinit', function()
+function handleDocumentReady()
 {
-	console.log("Home Page Loaded.");
-	
-	$('#contact').live('pageinit', function()
-	{console.log("Contact Page Loaded");}); //end contact pageinit
-
-	$('#info').live('pageinit', function()
-	{console.log("Info Page Loaded");}); //end info pageinit
-	
-	$.couch.db("showoff_cloudant_week4").view("app/projects", 
-	{
-		cache: false,
-		success: function(data)
-		{
-			$('#projectItems').empty();
-			$.each(data.rows, function(index, value)
-			{
-				var item = (value.value || value.doc);
-				$('#projectItems').append(
-					$('<li>').append(
-						$('<a>')
-							.attr("href", "project.html?project=" + item.tags)
-							.text(item.name)
-						)
-					);
-				});
-				$('#projectItems').listview();
-		}
-	});
-	
-	$('#project').live("pageshow", function()
-	{
-		//app is name of this app see _id file
-		//courses is name of db objects
-		$.couch.db("asdproject").view("app/projects", 
-		{
-			cache: false,
-			
-			beforeSend: function(data)
-			{
-				$('#error').hide();
-				//$('#loading').show();
-			},
-			
-			complete: function(data)
-			{
-				$('#loading').hide();
-			},
-			
-			success: function(data)
-			{
-				$('#projectDetails').empty();
-				$.each(data.rows, function(index, value)
-				{
-					var item = (value.value || value.doc);
-					$('#projectDetails').listview().append($('<li>').append(item).text(item.comment));
-				});
-				$('#projectDetails').listview();
-			},
-			
-			error: function(data)
-			{
-				$('#error').show();
-			}
-		});
-	});
+	$('#home').bind("pagebeforeshow", refreshProjects);
+	refreshProjects();
 	
 	//LOGO TOP
 	$('#header').empty();
 	$(function()
-	{
-		$('#header').append('<center>ASD Week 4 Couch</center>');
-	});
+	{$('#header').append('<center>ASD Week 4 Couch</center>');});
 	
-	//HOME FOOTER
+	//FOOTER
 	$('#footer').empty();
 	$(function()
+	{$('#footer').append('');});
+
+	$("#submit").live("click", function(event) 
 	{
-		$('#footer').append('');
-	});
+          event.preventDefault();
+          var document = {};
+          document.name = $("input#name").val();
+          document.tags = $("input#tags").val();
+          document.comments = $("textarea#comments").val();
+          document.creation_date = (new Date()).getTime();
+          $db.saveDoc( document, {
+                  success: function() {
+                      $.mobile.changePage("#home", "slidedown", true, true);
+                      alert("Project Saved");
+                  },
+                  error: function() {
+                      alert("Cant save new project.");
+                  }
+          });
+          return false;
+      });
+ 
+      $("#additem").bind("pagehide", function() 
+      {
+          $("input#name").val("");
+          $("input#tags").val("");
+          $("textarea#comments").val("");
+      });	
+		
+		var projectId;
+
+		$("#projectview").bind("pagebeforeshow", openProject);
+		refreshProjects();
 	
-    var toChangePage = function (toPageId) {
-        $.mobile.changePage("#" + toPageId , {
-            type:"post",
-            data:$("form").serialize(),
-            reloadPage:true
-        });
-    };
-
-	var urlVars = function()
-	{
-		var urlData = $($.mobile.activePage).data("url");
-		var urlParts = urlData.split('?');
-		var urlPairs = urlParts[1].split('&');
-		//loop over the pairs
-		var urlValues = {};
-		for (var pair in urlPairs)
+		
+		function refreshProjects()
 		{
-			var _idValue = urlPairs[pair].split('=');
-			var _id = decodeURIComponent(_idValue[0]);
-			var value = decodeURIComponent(_idValue[1]);
-			urlValues[_id] = value;
-		}
-		return urlValues;
-	};
+			//empty list of projects
+			//to start with clean slate
+			$("#projects").empty();
+			
+			//app is name of this app see _id file
+			//projects is name of db objects
+			$db.view("app/projects",
+			{
+				success: function(data)
+				{
+					var i;
+					var project;
+					var name;
+					var tags;
+					var comments;
+					var listItem;
+					var header;
+					var externalPage;
+					var projectLink;
+					data.rows.reverse(); //list projects based on creation_date
+					for(i in data.rows)
+					{
+						project = data.rows[i].value;
+						name = project.name;
+						tags = project.tags;
+						comments = project.comments;
+						externalPage = "_show/project/" + project._id;
+						listItem = '<li class="project">' +
+									'<a href="' + externalPage + '">' + 
+									'<h2 class="project">' + name + '</h2>' +
+									'</a>' +
+									'<p class="tags">' + tags + '</p>' +
+									'<p class="comments">' + comments + '</p>' +
+									'</li>';
+	                    $("#projects").append(listItem);
+	                }
+	                $("#projects").listview("refresh");
+	                //$.fixedToolbars.show();
+	            }
+	        });
+	      }
+	      
+	      function openProject()
+	      {
+	      	$("#projectcontent").children().remove();
+	      		$db.openDoc(projectId,
+	      		{
+	      			success: function(data)
+	      			{
+	      				var name = data.name;
+	      				var tags = data.tags;
+	      				var comments = data.comments;
+	      				var html = '<h2 class="name">' + name + '</h2>' +
+	                                    '<p class="tags">' + tags + '</p>' +
+	                                    '<p class="comments">' + comments + '</p>';
+	                      $("#projectcontent").append(html);
+	                      $("#projectheader .projectname").text(name);
+	      			}
+	      		});
+	      }
 	
-	//GET URL VALUE
-	var getUrlVars = function()
-	{
-		var vars = {};
-		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m,key,value)
-		{
-			vars[key] = value;
-		});
-		return vars;
-	}
-
-	$('#search').live('pageinit', function()
-	{
-		console.log("Search Page Loaded");
-	}); //end search pageinit
-
-	$('#browse').live('pageshow', function()
-	{
-		console.log("Browse Page Loaded");
-		var projectId = getUrlVars()["id"];
-			var projectUrl = '/showoff_cloudant_week4/_all_docs?include_docs=true&key="project:'+projectId+'"';
-			$('<div></div>').addClass('content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c '+projectId).prependTo('#viewProject #content');
-		
-			$.ajax({
-				"url": projectUrl,
-				"dataType": "json",
-				"success": function(data) {
-					//console.log(data);
-					//var rev = data.rows[0].doc._rev;
-					$.each(data.rows, function(index,project){
-						var name = project.doc.name[1];
-						var tag = project.doc.tag[1];
-						var comment = project.doc.comment[1];
-						var id = project.doc._id;
-						var rev = project.doc._rev;
-						//create the DOM insertion just like json data
-						var projectString = $('<div data-role="collapsible" data-theme="c">' +
-						  '<h3>' + name + '</h3>' +
-						  '<p><strong>Tag:</strong> ' + tag + '</p>' +
-						  '<p><strong>Notes:</strong> ' + comment + '</p>' +
-						  '</div>').appendTo('#viewProject #content .content-container');
-						//Add ID's to Edit and Delete button
-						$('#viewProject #edit').attr('href', 'additem.html?projectId='+projectId+'&op=edit');
-						$('#viewProject #delete').attr('rel', name);
-		
-					});
-				},
-				"error": function(result){
-					console.log(result);
-				} 
-			});
-		
-	}); //end browse pageshow
-
+	// ADD ITEM PAGE
 	$('#additem').live('pageinit', function()
 	{		
 		console.log("Add Item Page Loaded");
@@ -252,7 +206,8 @@ $('#home').live('pageinit', function()
 			}
 			
 			//save to couch db
-			$db.saveDoc(newProject,
+			$db = $.couch.db("showoff_cloudant_week4");
+			$.couch.db('showoff_cloudant_week4').saveDoc(item,
 			{
 				success: function(data)
 				{
@@ -355,8 +310,21 @@ $('#home').live('pageinit', function()
 		}
 	}
 	}); //end additem pageinit		
-			
+	
+	//PROJECT VIEW PAGE
+	$('#projectview').live("pageinit", function()
+	{console.log("Project View Page Loaded.");}); //end project view pageinit
+	
+	//CONTACT PAGE
+	$('#contact').live('pageshow', function()
+	{console.log("Contact Page Loaded");}); //end contact pageinit
 
-}); //end home page init
+	//INFO PAGE
+	$('#info').live('pageshow', function()
+	{console.log("Info Page Loaded");}); //end info pageinit
+
+} //end handleDocumentReady
+
+$(document).ready(handleDocumentReady);
 	
 	

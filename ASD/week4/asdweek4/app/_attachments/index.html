@@ -68,21 +68,16 @@
 			<br />
 			<center>
 				<section id="feature">
-					<a href="#newest" id="newest" rel="internal"><img src="feature_image_with_cta_wow_yay.png" width="120px" height="126px" border="0" /></a>
+					<img src="feature_image_with_cta_wow_yay.png" width="120px" height="126px" border="0" />
 				</section><!--/feature-->
-
-				</center>
-				<p><h3>Projects</h3>
-				<ul id="projectItems" data-role="listview"></ul>
-				</p>
-				
+			</center>
+			<ul id="projects" data-role="listview" data-filter="true" data-inset="true" data-theme="b" /></ul>	
 		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
 					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#browse"  id="browse" rel="internal" data-inline="true" data-icon="search" data-add-back-btn="true" />Browse</a></li>			
 					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
@@ -90,39 +85,53 @@
 		</div><!--/footer-->
 	</div><!--/page /home-->
 	
+	<div data-role="page" id="projectview" data-theme="d" data-add-back-btn="true"> 
+		<div data-role="header" id="projectheader"><h2 class="projectname"></h2></div>
+		<div data-role="content" id="projectcontent"></div><!--/content-->
+		<div data-role="footer" id="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
+					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
+					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
+				</ul>
+			</div><!--/navbar-->
+		</div><!--/footer-->
+	</div><!--/page /projectview-->
+	
 	<div data-role="page" id="additem" data-theme="d" data-add-back-btn="true">
-		<div data-role="header">
-			<h1><a href="#home">ShowOff!</a></h1>
-		</div><!--/header-->
+		<div data-role="header"><h1><a href="#home">ShowOff!</a></h1></div><!--/header-->
 		<div data-role="content">
-			<section id="addNew">
-				<center><h2>Add New Project</h2></center>
-			</section><!--/addNew-->
+			<section id="addNew"><center><h2>Add New Project</h2></center></section><!--/addNew-->
 			<section id="errors"></section><!--/errors-->
-			<form action="#home" method="post" id="form">
+			<form action="#home" method="get" id="form">
 					<fieldset id="mediaFieldSet">
 						<center><span><small>* fields required.</small><br /></span></center>
 							<ul id="media">
 								<div data-role="fieldcontain">
-									<li id="title">
-										<label for="title">* Name: </label>
-										<input type="text" name="title" id="title" class="required" value="" />
+									<li id="name">
+										<label for="name">* Project Name: </label>
+										<input type="text" name="name" id="name" class="required" value="" />
 									</li>
-									<li id="acronym">
-										<label for="acronym">Tag</label>
-										<small>Short word to describe your Project</small>
-										<input type="text" name="acronym" id="acronym" value="Blue" />
+									<li id="tags">
+										<label for="tags">Project Tag</label>
+										<small>Short Description of your Project</small>
+										<input type="text" name="tags" id="tags" value="Blue" />
 									</li>
-									<li id="month">
-										<label for="month">Months you worked on Project</label>
-										<input type="range" id="month" name="month" min="1" max="12">
+									<li id="comments">
+										<label for="comments">Case Study Notes:</label>
+										<textarea name="textarea" id="comments">
+										Expectations, goals, how you solved issues, and the final outcome.
+										</textarea>
+
 									</li>
 									<li id="submit">
 									<input type="submit" data-theme="e" value="Save Project" id="submit" align="left" />
 								    <input type="reset" data-theme="c" value="reset" /> 
 								    </li>
-							</ul><!--/media-->
 								</div><!--/fieldcontain submit-->
+							</ul><!--/media-->
 					</fieldset><!--/mediaFieldSet-->
 				</form>
 		</div><!--/content-->
@@ -131,7 +140,6 @@
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
 					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#browse"  id="browse" rel="internal" data-inline="true" data-icon="search" data-add-back-btn="true" />Browse</a></li>								
 					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
@@ -176,7 +184,6 @@
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
 					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#browse"  id="browse" rel="internal" data-inline="true" data-icon="search" data-add-back-btn="true" />Browse</a></li>								
 					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
@@ -201,7 +208,6 @@
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
 					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#browse"  id="browse" rel="internal" data-inline="true" data-icon="search" data-add-back-btn="true" />Browse</a></li>								
 					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
@@ -227,7 +233,6 @@
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
 					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#browse"  id="browse" rel="internal" data-inline="true" data-icon="search" data-add-back-btn="true" />Browse</a></li>								
 					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
@@ -263,7 +268,6 @@
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
 					<li><a href="#additem" id="addNew" rel="internal" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" />Add New</a></li>
-					<li><a href="#browse"  id="browse" rel="internal" data-inline="true" data-icon="search" data-add-back-btn="true" />Browse</a></li>								
 					<li><a href="#contact"  id="contact" rel="internal" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
