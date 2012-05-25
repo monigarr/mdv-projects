@@ -1,0 +1,34 @@
+<div data-role="page" id="projectedit" data-nobackbtn="true">
+    <div data-role="header" id="projectheader">
+        <a id="cancelBackButton" href="#" data-icon="delete">Close</a>
+        <h1 class="projectname">{{name}}</h1>
+    </div>
+    <div data-role="content" data-theme="c" style="padding:0em;">
+        <form id="projectform" action="#" method="get" data-identity="{{document}}">
+            <div data-role="fieldcontain">
+                <label for="name">Project Name:</label>
+                <input id="name" name="artist" type="text" value="{{name}}" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="tags">Tags:</label>
+                <input id="tags" name="title" type="text" value="{{tags}}" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="comments">Project Notes:</label>
+                <textarea id="comments" name="description" cols="40" rows="8">{{comments}}</textarea>
+            </div>
+            <div class="ui-body ui-body-b">
+                <fieldset class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <p id="cancelButton" data-role="button" data-theme="d">Cancel</p>
+                    </div>
+                    <div class="ui-block-b">
+                        <p id="submitButton" data-role="button" data-theme="a">Submit</p>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+    <div data-role="footer" />
+</div>
+{{>scripts}}

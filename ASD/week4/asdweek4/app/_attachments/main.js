@@ -102,6 +102,7 @@ function handleDocumentReady()
 									'</a>' +
 									'<p class="tags">' + tags + '</p>' +
 									'<p class="comments">' + comments + '</p>' +
+									//'<p class="creation_date">' + creation_date + '</p>' +
 									'</li>';
 	                    $("#projects").append(listItem);
 	                }
@@ -134,20 +135,7 @@ function handleDocumentReady()
 	$('#additem').live('pageinit', function()
 	{		
 		console.log("Add Item Page Loaded");
-		var parseForm = function(data)
-		{
-			console.log(data);
-			
-			$("form").submit(function() 
-		  	{
-		    	$.mobile.showPageLoadingMsg();
-		    });
-			
-			var clearLink = $("clear");
-			var save = $("submit");
-			clearLink.on("click", clearLocal);
-			save.on("click", saveProject);
-		}
+
 		
 		// VALIDATE
 		var validateForm = function (e) {
